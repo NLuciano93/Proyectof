@@ -29,6 +29,13 @@ border-bottom:4px solid black;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f8f88', endColorstr='#f0ba5d', GradientType=0 );
 }
 
+.barra {
+	color: black !important;
+}
+.barra:hover{
+	color: white !important;
+}
+
 
 /*registro*/
 .registro{
@@ -116,9 +123,11 @@ p{
 	margin-top: 5px;
 
 	margin-left: 20px;
+	margin-right: 10px;
 
 
 }
+
 .casilleroclas{
 	margin-bottom: 20px;
 	border-top: 2px solid white;
