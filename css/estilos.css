@@ -35,6 +35,9 @@ border-bottom:4px solid black;
 .barra:hover{
 	color: white !important;
 }
+.barraentrenamiento{
+	font-weight: bold;
+}
 
 
 /*registro*/
