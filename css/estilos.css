@@ -99,7 +99,6 @@ border-bottom:4px solid black;
 
 
 
-
 /*parte clasificacion*/
 #clasificacion{
 	margin-left: 0;
@@ -111,12 +110,12 @@ border-bottom:4px solid black;
 color: orange;
 }
 
-h4{
+.titulo_clasif{
 	text-align:center;
 	font-weight: bold;
 	color:white;
 }
-p{
+.parrafo{
 	margin-top: 20px;
 	font-weight: bold;
 	color: white;

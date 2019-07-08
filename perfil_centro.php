@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Perfil Usuario</title>
+	<title>Perfil Centro</title>
         <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/fonts.css">
@@ -76,7 +76,7 @@
                         <div class="card w-100 ">
                           <img src="imagenes/avatar.jpg" class="card-img-top border rounded-circle" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title">Nombre Usuario</h5>
+                            <h5 class="card-title">Nombre Centro</h5>
 
                             <div class="social" >
                                     <ul id="colsocial">
@@ -89,12 +89,15 @@
                             
                           </div>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad</li>
+                            <li class="list-group-item">Dirección</li>
                             <li class="list-group-item">Localidad</li>
+                            <li class="list-group-item">Provincia</li>
+                            <li class="list-group-item">Telefono</li>
                            
                           </ul>
                           <div class="card-body">
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
+                            <div><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span></div>
+                             <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span></div>
                           </div>
                         </div>
             </div>
@@ -102,13 +105,13 @@
             <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Foto mes a mes</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Fotos</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Actividades</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Postear</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comentarios</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -118,9 +121,7 @@
                                 <div class="card">
                                   <img src="imagenes/avatar.jpg" class="card-img-top" alt="...">
                                   
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Mes 1</li>
-                                        </ul>
+                                        
                                 
                                 </div>  
 
@@ -129,10 +130,7 @@
                                 <div class="card">
                                   <img src="imagenes/avatar.jpg" class="card-img-top" alt="...">
 
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Mes 2</li>
-                                        </ul>
-                                
+                                       
                                 </div>
                                 </div>
 
@@ -142,7 +140,13 @@
 
 
                           </div>
-                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <h2><span class="badge badge-info">Funcional</span></h2>
+                            <h2><span class="badge badge-info">Crossfit</span></h2>
+                            <h2><span class="badge badge-info">Yoga</span></h2>
+
+
+                          </div>
                           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                         </div>
 

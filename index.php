@@ -140,13 +140,13 @@
 
 			<div id="clasificacion">
 			<div>
-			<h4 >Clasificación:</h4>
+			<h4 class="titulo_clasif">Clasificación:</h4>
 			</div>
 				
 			<div class="casilleroclas">
-				<p>CENTRO</p>
+				<p class="parrafo">CENTRO</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenesmodif/avatar.jpg" alt="">
+				<img class="w-100" src="imagenes/avatar.jpg" alt="">
 				</div>
 				<div class="botone">
         			 <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
@@ -157,9 +157,9 @@
 			</div>
 			
 			<div class="casilleroclas">
-				<p>PROGRESO</p>
+				<p class="parrafo">PROGRESO</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenesmodif/avatar.jpg" alt="">
+				<img class="w-100" src="imagenes/avatar.jpg" alt="">
 				</div>
 
 
@@ -170,9 +170,9 @@
 			</div>
 			
 			<div class="casilleroclas">
-				<p>PROFESOR/A</p>
+				<p class="parrafo">PROFESOR/A</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenesmodif/avatar.jpg" alt="">
+				<img class="w-100" src="imagenes/avatar.jpg" alt="">
 				</div>
 				<div class="botone">
 					<span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
@@ -182,9 +182,9 @@
 			</div>
 			
 			<div class="casilleroclas">
-				<p>POSTEO</p>
+				<p class="parrafo">POSTEO</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenesmodif/avatar.jpg" alt="">
+				<img class="w-100" src="imagenes/avatar.jpg" alt="">
 				</div>
 				<div class="botone">
 					<span class="btn btn-info btn-lg"><i class="far fa-thumbs-up"></i>x100</span>
