@@ -19,7 +19,7 @@
 		<div class="container-fluid">
 			<nav class="navbar navbar-light navbar-expand-xl">
 				<a class="navbar-brand" href="index.php">
-   				 	<img src="imagenes/logopag2.png" width="100" height="100" class="d-inline-block align-top" alt="">
+   				 	<img src="<?= PATH_IMAGENES . '/logopag2.png' ?>" width="100" height="100" class="d-inline-block align-top" alt="">
    					
  					 </a>	
 						  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
@@ -62,7 +62,7 @@
     								<a href="index.php?m=registro" class="btn badge-pill btn-outline-dark registro"><i class="fas fa-user-plus"></i> REGISTRATE</a>
     								<br>
     								<br>
-    								<a href="#" class="btn btn-outline-dark registro"><i class="fas fa-eye"></i> LOGIN</a>
+    								<a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark registro"><i class="fas fa-eye"></i> LOGIN</a>
     							</div>
 
 
@@ -85,15 +85,15 @@
 				  <div class="carousel-inner">
 				  	<!--imagenes-->
 				    	<div class="carousel-item active">
-				      		<a href="index.html"><img src="imagenes/titulo1.png" class="d-block w-100" height="500px" alt="">
+				      		<a href="index.php?m=reco"><img src="<?= PATH_IMAGENES . '/titulo1.png' ?>" class="d-block w-100" height="500px" alt="">
 				      		</a>
 				    	</div>
 				    	<div class="carousel-item">
-				      		<a href="index.html"><img src="imagenes/centro3.png" class="d-block w-100" height="500px" alt="">
+				      		<a href="index.php?m=bus_centro"><img src="<?= PATH_IMAGENES . '/centro3.png' ?>" class="d-block w-100" height="500px" alt="">
 				      		</a>				      		
 				    	</div>
 				    	<div class="carousel-item">
-				      		<a href="index.html"><img src="imagenes/profe2.png" class="d-block w-100"height="500px" alt="">
+				      		<a href="index.php?m=bus_profe"><img src="<?= PATH_IMAGENES . '/profe2.png' ?>" class="d-block w-100"height="500px" alt="">
 				      		</a>
 				    	</div>
 				  </div>
@@ -146,7 +146,7 @@
 			<div class="casilleroclas">
 				<p class="parrafo">CENTRO</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenes/avatar.jpg" alt="">
+				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
 				</div>
 				<div class="botone">
         			 <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
@@ -159,7 +159,7 @@
 			<div class="casilleroclas">
 				<p class="parrafo">PROGRESO</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenes/avatar.jpg" alt="">
+				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
 				</div>
 
 
@@ -172,7 +172,7 @@
 			<div class="casilleroclas">
 				<p class="parrafo">PROFESOR/A</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenes/avatar.jpg" alt="">
+				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
 				</div>
 				<div class="botone">
 					<span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
@@ -184,7 +184,7 @@
 			<div class="casilleroclas">
 				<p class="parrafo">POSTEO</p>
 				<div class="imagenclasif">
-				<img class="w-100" src="imagenes/avatar.jpg" alt="">
+				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
 				</div>
 				<div class="botone">
 					<span class="btn btn-info btn-lg"><i class="far fa-thumbs-up"></i>x100</span>
@@ -204,6 +204,55 @@
 	
 
 </div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Ingresar a FullMove</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<form role="form" method="POST">
+
+						<input type="hidden" name="m" value="login">
+
+						<div class="form-group">
+							 
+							<label for="user_name">Ingresa Mail</label>
+
+							<input type="text" class="form-control" name="user_name" id="user_name" />
+						</div>
+
+						<div class="form-group">
+							 
+							<label for="password">Contraseña</label>
+
+							<input type="password" class="form-control" name="password" id="password" />
+						</div>
+					<div class="d-flex justify-content-between">
+						<button type="submit" class="btn btn-primary">
+							Ingresar
+						</button>
+						<a href="index.php?m=registro" class="btn btn-dark"><i class="fas fa-user-plus"></i>
+							Registrate
+						</button> </a>
+					</div>
+
+					</form>
+				</div>
+			</div>
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
 
 
 
