@@ -29,9 +29,9 @@
 									      <li class="nav-item">
 									        <a class="nav-link barra" href="index.php">INICIO</a>
 									      </li>
-									      <li class="nav-item">
+<!-- 									      <li class="nav-item">
 									        <a class="nav-link barra" href="index.php?m=perfil_u">PERFIL</a>
-									      </li>
+									      </li> -->
 									      <li class="nav-item dropdown">
 									        <a class="nav-link dropdown-toggle barra" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									         CENTRO DE ENTRENAMIENTO
@@ -52,10 +52,10 @@
 									        <a class="nav-link barra" href="index.php?m=reco">RECOMENDACIONES</a>
 									      </li>
 
-
+<!-- 
 									       <li class="nav-item">
 									        <a class="nav-link barra" href="#">CONTACTO</a>
-									      </li>
+									      </li> -->
 									      
 							 		    </ul>
     							<div>
@@ -72,138 +72,14 @@
 	</header>
 					<!--Carusel--> 
 	<div class="container-fluid">
-		<div class="row">
-		<div class="col-md-12">
-					<!--indicadores debajo-->
-		<div id="carouselExampleIndicators" class="carousel slide carru" data-ride="carousel">
-			  <ol class="carousel-indicators">
-			    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-			    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-			    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			    
-			  </ol>
-				  <div class="carousel-inner">
-				  	<!--imagenes-->
-				    	<div class="carousel-item active">
-				      		<a href="index.php?m=reco"><img src="<?= PATH_IMAGENES . '/titulo1.png' ?>" class="d-block w-100" height="500px" alt="">
-				      		</a>
-				    	</div>
-				    	<div class="carousel-item">
-				      		<a href="index.php?m=bus_centro"><img src="<?= PATH_IMAGENES . '/centro3.png' ?>" class="d-block w-100" height="500px" alt="">
-				      		</a>				      		
-				    	</div>
-				    	<div class="carousel-item">
-				      		<a href="index.php?m=bus_profe"><img src="<?= PATH_IMAGENES . '/profe2.png' ?>" class="d-block w-100"height="500px" alt="">
-				      		</a>
-				    	</div>
-				  </div>
-				   	<!--previo anterior-->
-				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Anterior</span>
-				  </a>
-				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Siguiente</span>
-				  </a>
-		</div>
-	</div>
-	</div>
+				<?php if(isset($contenido_seccion1)){include( $contenido_seccion1 );} ?>
 	</div>
 
-<!-- BARRA SOCIAL-->
+
+				<?php if(isset($contenido_seccion2)){include( $contenido_seccion2 );} ?>
 
 
-
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-2 border">
-			<div class="social" >
-				<ul id="colsocial">
-					<li><a href="" class="icon-facebook2"></a></li>
-					<li><a href="" class="icon-twitter"></a></li>
-					<li><a href="" class="icon-instagram"></a></li>
-					<li><a href="" class="icon-youtube"></a></li>
-					<li><a href="" class="icon-mail4"></a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="col-7 border">
-			
-		</div>
-
-		<!-- CLASIFICACION-->
-
-
-		<div class="col-3 border">
-
-			<div id="clasificacion">
-			<div>
-			<h4 class="titulo_clasif">Clasificación:</h4>
-			</div>
 				
-			<div class="casilleroclas">
-				<p class="parrafo">CENTRO</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-				<div class="botone">
-        			 <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
-        			 
-         			 <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-        		</div>
-
-			</div>
-			
-			<div class="casilleroclas">
-				<p class="parrafo">PROGRESO</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-
-
-				<div class="botone">
-					<span class="btn btn-info btn-lg"><i class="far fa-thumbs-up"></i>x100</span>
-
-				</div>
-			</div>
-			
-			<div class="casilleroclas">
-				<p class="parrafo">PROFESOR/A</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-				<div class="botone">
-					<span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
-        			 
-         			<span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-         		</div>
-			</div>
-			
-			<div class="casilleroclas">
-				<p class="parrafo">POSTEO</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-				<div class="botone">
-					<span class="btn btn-info btn-lg"><i class="far fa-thumbs-up"></i>x100</span>
-        			 		
-         		</div>
-
-
-			</div>
-		</div>
-		
-		</div>
-
-
-
-	</div>
-
-	
-
-</div>
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
