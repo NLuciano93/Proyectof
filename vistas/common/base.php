@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>FullMove</title>
+	
 
 	<link rel="stylesheet" href="<?= PATH_VENDOR ?>/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= PATH_CSS ?>/estilos.css">
@@ -59,10 +60,35 @@
 									      
 							 		    </ul>
     							<div>
-    								<a href="index.php?m=registro" class="btn badge-pill btn-outline-dark registro"><i class="fas fa-user-plus"></i> REGISTRATE</a>
-    								<br>
-    								<br>
-    								<a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark registro"><i class="fas fa-eye"></i> LOGIN</a>
+    								
+								
+
+								<?php 
+								if ( !isset($_SESSION["usuario"]) ){ ?>
+									
+										 <a href="index.php?m=registro" class="btn badge-pill btn-outline-dark registro"><i class="fas fa-user-plus"></i> REGISTRATE</a>
+											
+										 <a href="#"  data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark registro"><i class="fas fa-eye"></i> LOGIN</a>
+									
+								<?php 
+								}
+								else{
+								?>
+								<ul class="navbar-nav ml-md-auto">
+									<li class="nav-item dropdown">
+										 <a class="nav-link dropdown-toggle barraentrenamiento" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"><i class="fas fa-running"></i><?= $_SESSION["usuario"] ?></a>
+										<div class="dropdown-menu dropdown-menu-right despliegue" aria-labelledby="navbarDropdownMenuLink">
+											 <a class="dropdown-item barraentrenamiento" href="index.php?m=perfil_u">Mi perfil</a>
+
+											  <div class="dropdown-divider"></div>
+											 
+											 <a class="dropdown-item barraentrenamiento" href="index.php?m=logout">Salir</a>
+										</div>
+									</li>
+								<?php 
+								}
+								?> 
+
     							</div>
 
 
@@ -103,7 +129,7 @@
 							 
 							<label for="user_name">Ingresa Mail</label>
 
-							<input type="text" class="form-control" name="user_name" id="user_name" />
+							<input type="email" class="form-control" name="user_name" id="email" />
 						</div>
 
 						<div class="form-group">

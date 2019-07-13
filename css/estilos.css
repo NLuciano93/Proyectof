@@ -36,7 +36,8 @@ border-bottom:4px solid black;
 	color: white !important;
 }
 .barraentrenamiento{
-	font-weight: bold;
+	font-weight: bold !important;
+	color: black !important;
 }
 
 
