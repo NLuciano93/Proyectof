@@ -78,7 +78,7 @@
 									<li class="nav-item dropdown">
 										 <a class="nav-link dropdown-toggle barraentrenamiento" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"><i class="fas fa-running"></i><?= $_SESSION["usuario"] ?></a>
 										<div class="dropdown-menu dropdown-menu-right despliegue" aria-labelledby="navbarDropdownMenuLink">
-											 <a class="dropdown-item barraentrenamiento" href="index.php?m=perfil_u">Mi perfil</a>
+											 <a class="dropdown-item barraentrenamiento" href="index.php?m=perfil">Mi perfil</a>
 
 											  <div class="dropdown-divider"></div>
 											 
@@ -98,11 +98,11 @@
 	</header>
 					<!--Carusel--> 
 	<div class="container-fluid">
-				<?php if(isset($contenido_seccion1)){include( $contenido_seccion1 );} ?>
+				<?php if(isset($contenido_seccion1)){include($contenido_seccion1);} ?>
 	</div>
 
 
-				<?php if(isset($contenido_seccion2)){include( $contenido_seccion2 );} ?>
+				<?php if(isset($contenido_seccion2)){include($contenido_seccion2);} ?>
 
 
 				

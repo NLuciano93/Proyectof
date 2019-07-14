@@ -17,16 +17,8 @@
                 $modulo = "busqueda_profe";
                 break;
 
-            case "perfil_centro":
-                $modulo = "perfil_centro";
-                break;
-
-            case "perfil_profe":
-                $modulo = "perfil_profe";
-                break;
-
-            case "perfil_u":
-                $modulo = "perfil_u";
+            case "perfil":
+                $modulo = "perfil";
                 break;
 
             case "reco":

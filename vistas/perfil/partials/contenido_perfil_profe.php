@@ -1,75 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Perfil Profe</title>
-        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <!-- Add icon library -->
-    <script src="vendor/bootstrap/js/all.min.js"></script>
-
-
-</head>
-<body>
-	<header>
-        <div class="container-fluid">
-            <nav class="navbar navbar-light navbar-expand-xl">
-                <a class="navbar-brand" href="index.php">
-                    <img src="imagenes/logopag2.png" width="100" height="100" class="d-inline-block align-top" alt="">
-                    
-                     </a>   
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
-                            </button>               
-                                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                        <ul class="navbar-nav mr-auto">
-                                          <li class="nav-item">
-                                            <a class="nav-link barra" href="#">INICIO</a>
-                                          </li>
-                                          <li class="nav-item">
-                                            <a class="nav-link barra" href="#">PERFIL</a>
-                                          </li>
-                                          <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle barra" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                             CENTRO DE ENTRENAMIENTO
-                                            </a>
-                                            <div class="dropdown-menu despliegue" aria-labelledby="navbarDropdown">
-                                              <a class="dropdown-item barraentrenamiento" href="#">MUSCULACIÓN</a>
-                                              <a class="dropdown-item barraentrenamiento" href="#">FUNCIONAL</a>
-                                              <a class="dropdown-item barraentrenamiento" href="#">CROSSFIT</a>
-                                              <a class="dropdown-item barraentrenamiento" href="#">YOGA</a>
-                                              <div class="dropdown-divider"></div>
-                                              <a class="dropdown-item barraentrenamiento" href="#">POR ZONA</a>
-                                            </div>
-                                          </li>
-                                           <li class="nav-item">
-                                            <a class="nav-link barra" href="#">BUSCAR PROFESOR/A</a>
-                                          </li>
-                                           <li class="nav-item">
-                                            <a class="nav-link barra" href="#">RECOMENDACIONES</a>
-                                          </li>
-
-
-                                           <li class="nav-item">
-                                            <a class="nav-link barra" href="#">CONTACTO</a>
-                                          </li>
-                                          
-                                        </ul>
-                                <div>
-                                    <a href="#" class="btn badge-pill btn-outline-dark registro"><i class="fas fa-user-plus"></i> REGISTRATE</a>
-                                    <br>
-                                    <br>
-                                    <a href="#" class="btn btn-outline-dark registro"><i class="fas fa-eye"></i> LOGIN</a>
-                                </div>
-
-
-            </nav>
-            
-        </div>  
-    </header>
-
-
     <div class="container">
         <div class="row">
             <div class="col-4 border"> 
@@ -179,7 +107,4 @@
 
 
 
-    <script src="vendor/jquery/jquery-3.4.1.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-</body>
-</html>
+ 

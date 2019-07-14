@@ -10,7 +10,7 @@
 
     define("PATH_HELPERS", SITE_ROOT . "/helpers");
 
-    define("PATH_DAOS", SITE_ROOT . "/modelo/DAOs");
+    define("PATH_DAOS", SITE_ROOT . "/modelo/DAO");
 
     define("UPLOAD_PUB_IMAGE_PATH", SITE_ROOT . "/files/imagenes/publicaciones");
 

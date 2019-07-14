@@ -33,8 +33,8 @@
 					  </div>
 
 				 <div class="form-group">
-					    <label for="exampleFormControlSelect1">Localidad</label>
-					    <select class="form-control" id="exampleFormControlSelect1">
+					    <label for="exampleFormControlSelect2">Localidad</label>
+					    <select class="form-control" id="exampleFormControlSelect2">
 					      <option>1</option>
 					      <option>2</option>
 					      <option>3</option>
@@ -54,32 +54,32 @@
 						    </label>
 							</div>
 							<div class="checkbox">
-						    <label for="checkboxes-0">
-						      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-						      Personal Trainer
-						    </label>
-							</div>
-							<div class="checkbox">
-						    <label for="checkboxes-0">
-						      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-						      Funcional
-						    </label>
-							</div>
-						  <div class="checkbox">
 						    <label for="checkboxes-1">
 						      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
-						      Musculación
+						      Personal Trainer
 						    </label>
 							</div>
 							<div class="checkbox">
 						    <label for="checkboxes-2">
 						      <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
+						      Funcional
+						    </label>
+							</div>
+						  <div class="checkbox">
+						    <label for="checkboxes-3">
+						      <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
+						      Musculación
+						    </label>
+							</div>
+							<div class="checkbox">
+						    <label for="checkboxes-4">
+						      <input type="checkbox" name="checkboxes" id="checkboxes-4" value="5">
 						      Crossfit
 						    </label>
 							</div>
 							<div class="checkbox">
-						    <label for="checkboxes-3">
-						      <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
+						    <label for="checkboxes-5">
+						      <input type="checkbox" name="checkboxes" id="checkboxes-5" value="5">
 						      Yoga
 						    </label>
 							</div>
