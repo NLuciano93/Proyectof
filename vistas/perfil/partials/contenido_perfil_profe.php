@@ -2,7 +2,7 @@
         <div class="row">
             <div class="col-4 border"> 
                         <div class="card w-100 ">
-                          <img src="imagenes/avatar.jpg" class="card-img-top border rounded-circle" alt="...">
+                          <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top border rounded-circle" alt="...">
                           <div class="card-body">
                             <h5 class="card-title">Nombre Profe</h5>
 
@@ -48,7 +48,7 @@
                             <div class="m-5 row">
                                 <div class="col-md-3 mb-4 text-center d-flex align-items-stretch">
                                 <div class="card">
-                                  <img src="imagenes/avatar.jpg" class="card-img-top" alt="...">
+                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
                                   
                                         
                                 
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-3 mb-4 text-center d-flex align-items-stretch"> 
                                 <div class="card">
-                                  <img src="imagenes/avatar.jpg" class="card-img-top" alt="...">
+                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
 
                                        
                                 </div>
