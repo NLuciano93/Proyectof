@@ -99,8 +99,8 @@
 
 					<?php if ( isset($mensaje_alerta) ){?>
 
-						<div class="alert alert-warning alert-dismissible fade show" role="alert">
-								  <strong> <?= $mensaje_alerta ?></strong>
+						<div class="container alert alert-warning alert-dismissible fade show" role="alert">
+								  <strong><?= $mensaje_alerta ?></strong>
 								  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								    <span aria-hidden="true">&times;</span>
 								  	</button>
