@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2019 a las 21:41:39
+-- Tiempo de generación: 15-07-2019 a las 02:00:15
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -55,6 +55,14 @@ CREATE TABLE `actividades_usario_centro` (
   `id_act_centro` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `actividades_usario_centro`
+--
+
+INSERT INTO `actividades_usario_centro` (`id_centro`, `id_act_centro`) VALUES
+(5, 1),
+(6, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +96,14 @@ CREATE TABLE `especialidades_usuarios_profesores` (
   `id_esp_prof` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `especialidades_usuarios_profesores`
+--
+
+INSERT INTO `especialidades_usuarios_profesores` (`id_profesor`, `id_esp_prof`) VALUES
+(3, 5),
+(4, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -119,8 +135,9 @@ INSERT INTO `localidad` (`loca_id`, `loca_prov_id`, `loca_nombre`) VALUES
 --
 
 CREATE TABLE `posteo` (
-  `id_user` int(100) NOT NULL,
-  `posteo` varchar(1000) NOT NULL
+  `id_posteo` int(100) NOT NULL,
+  `posteo` varchar(1000) NOT NULL,
+  `id_usuario` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -160,6 +177,7 @@ CREATE TABLE `usuarios` (
   `usr_instagram` varchar(100) NOT NULL,
   `usr_twitter` varchar(100) NOT NULL,
   `usr_edad` int(20) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
   `usr_registro` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -167,14 +185,14 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_localidad`, `usr_contrasena`, `usr_foto`, `usr_facebook`, `usr_instagram`, `usr_twitter`, `usr_edad`, `usr_registro`) VALUES
-(1, 'Luciano Natiello', '1559964866', 'natielloluciano@gmail.com', 5, '123456', 'lucianonatiello.png', 'https://www.facebook.com/lnatiello', 'https://www.instagram.com/diego.aguilar.1986/?hl=es-la', 'https://twitter.com/TyCSports', 26, '0000-00-00 00:00:00.000000'),
-(2, 'Carla Monte', '1559964856', 'carlamonte@gmail.com', 6, '123456', 'carlamonte.png', 'https://www.facebook.com/abbigommez', 'https://www.instagram.com/maisa/?hl=es-la', 'https://twitter.com/TyCSports', 24, '2019-07-09 03:00:00.000000'),
-(3, 'Juana Manta', '1524998095', 'profe1@gmail.com', 3, '123456', 'mantajuana.png', 'https://www.facebook.com/groups/285960468476158/', 'https://www.instagram.com/bclsinclair/?hl=es-la', 'https://twitter.com/TyCSports', 29, '2019-07-09 03:00:00.000000'),
-(4, 'Maria Ventre', '1564298824', 'profe2@gmail.com', 4, '123456', 'ventremaria.png', 'https://www.facebook.com/pepitojavier', 'https://www.instagram.com/bipashabasu/?hl=es-la', 'https://twitter.com/TyCSports', 28, '0000-00-00 00:00:00.000000'),
-(5, 'FitnessKing', '1121347984', 'info@fitnessking.com.ar', 2, '123456', 'fitnessking.png', 'https://www.facebook.com/fitnesskingarg/', 'https://www.instagram.com/fitnesskingtheking/?hl=es-la', 'https://twitter.com/?lang=ES', 0, '0000-00-00 00:00:00.000000'),
-(6, 'JuanGym', '1152468795', 'info@gmail.com', 1, '123456', 'juangym.png', 'https://www.facebook.com/feedback.eyb', 'https://www.instagram.com/explore/tags/juangym/?hl=es-la', 'https://twitter.com/?lang=ES', 0, '0000-00-00 00:00:00.000000'),
-(7, 'lola', '21', 'asd', 4, 'asda', 'asd', 'asd', 'asd', 'asd', 20, '0000-00-00 00:00:00.000000');
+INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_localidad`, `usr_contrasena`, `usr_foto`, `usr_facebook`, `usr_instagram`, `usr_twitter`, `usr_edad`, `descripcion`, `usr_registro`) VALUES
+(1, 'Luciano Natiello', '1559964866', 'natielloluciano@gmail.com', 5, '123456', 'lucianonatiello.png', 'https://www.facebook.com/lnatiello', 'https://www.instagram.com/diego.aguilar.1986/?hl=es-la', 'https://twitter.com/TyCSports', 26, '', '0000-00-00 00:00:00.000000'),
+(2, 'Carla Monte', '1559964856', 'carlamonte@gmail.com', 6, '123456', 'carlamonte.png', 'https://www.facebook.com/abbigommez', 'https://www.instagram.com/maisa/?hl=es-la', 'https://twitter.com/TyCSports', 24, '', '2019-07-09 03:00:00.000000'),
+(3, 'Juana Manta', '1524998095', 'profe1@gmail.com', 3, '123456', 'mantajuana.png', 'https://www.facebook.com/groups/285960468476158/', 'https://www.instagram.com/bclsinclair/?hl=es-la', 'https://twitter.com/TyCSports', 29, 'toda la onda', '2019-07-14 21:42:54.854318'),
+(4, 'Maria Ventre', '1564298824', 'profe2@gmail.com', 4, '123456', 'ventremaria.png', 'https://www.facebook.com/pepitojavier', 'https://www.instagram.com/bipashabasu/?hl=es-la', 'https://twitter.com/TyCSports', 28, 'profe buena onda', '2019-07-14 21:43:13.180547'),
+(5, 'FitnessKing', '1121347984', 'info@fitnessking.com.ar', 2, '123456', 'fitnessking.png', 'https://www.facebook.com/fitnesskingarg/', 'https://www.instagram.com/fitnesskingtheking/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad de atención', '2019-07-14 21:42:03.231692'),
+(6, 'JuanGym', '1152468795', 'info@gmail.com', 1, '123456', 'juangym.png', 'https://www.facebook.com/feedback.eyb', 'https://www.instagram.com/explore/tags/juangym/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad papu', '2019-07-14 21:42:22.917263'),
+(7, 'lola', '21', 'asd', 4, 'asda', 'asd', 'asd', 'asd', 'asd', 20, '', '0000-00-00 00:00:00.000000');
 
 -- --------------------------------------------------------
 
@@ -185,7 +203,6 @@ INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_loca
 CREATE TABLE `usuario_centro` (
   `usr_centro_id` int(11) NOT NULL,
   `usr_centro_direccion` varchar(50) NOT NULL,
-  `usr_centro_descripcion` varchar(1000) NOT NULL,
   `usr_centro_horarios` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -193,9 +210,9 @@ CREATE TABLE `usuario_centro` (
 -- Volcado de datos para la tabla `usuario_centro`
 --
 
-INSERT INTO `usuario_centro` (`usr_centro_id`, `usr_centro_direccion`, `usr_centro_descripcion`, `usr_centro_horarios`) VALUES
-(5, 'Cordoba 3358', 'calidad de atención', 'Lu a Vi 8 a 22hs'),
-(6, 'Libertador 222', 'calidad papu', 'Lu a Vi 8 a 23hs');
+INSERT INTO `usuario_centro` (`usr_centro_id`, `usr_centro_direccion`, `usr_centro_horarios`) VALUES
+(5, 'Cordoba 3358', 'Lu a Vi 8 a 22hs'),
+(6, 'Libertador 222', 'Lu a Vi 8 a 23hs');
 
 -- --------------------------------------------------------
 
@@ -205,7 +222,6 @@ INSERT INTO `usuario_centro` (`usr_centro_id`, `usr_centro_direccion`, `usr_cent
 
 CREATE TABLE `usuario_profe` (
   `usr_pf_id` int(100) NOT NULL,
-  `pf_descripcion` varchar(1000) NOT NULL,
   `pf_educ_fisica` tinyint(1) NOT NULL,
   `pf_cv` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -214,9 +230,9 @@ CREATE TABLE `usuario_profe` (
 -- Volcado de datos para la tabla `usuario_profe`
 --
 
-INSERT INTO `usuario_profe` (`usr_pf_id`, `pf_descripcion`, `pf_educ_fisica`, `pf_cv`) VALUES
-(3, 'toda la onda', 1, 'cv_mantajuana.docx'),
-(4, 'profe buena onda', 1, 'cv_ventremaria.doc');
+INSERT INTO `usuario_profe` (`usr_pf_id`, `pf_educ_fisica`, `pf_cv`) VALUES
+(3, 1, 'cv_mantajuana.docx'),
+(4, 1, 'cv_ventremaria.doc');
 
 --
 -- Índices para tablas volcadas
@@ -259,7 +275,8 @@ ALTER TABLE `localidad`
 -- Indices de la tabla `posteo`
 --
 ALTER TABLE `posteo`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_posteo`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `provincia`
@@ -348,7 +365,7 @@ ALTER TABLE `localidad`
 -- Filtros para la tabla `posteo`
 --
 ALTER TABLE `posteo`
-  ADD CONSTRAINT `posteo_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`usr_id`);
+  ADD CONSTRAINT `posteo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`usr_id`);
 
 --
 -- Filtros para la tabla `usuarios`

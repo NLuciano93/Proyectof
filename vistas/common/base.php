@@ -96,6 +96,24 @@
 			
 		</div>	
 	</header>
+
+					<?php if ( isset($mensaje_alerta) ){?>
+
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								  <strong> <?= $mensaje_alerta ?></strong>
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    <span aria-hidden="true">&times;</span>
+								  	</button>
+						</div>
+
+
+							<?php 
+
+								}
+
+							?>
+
+
 					<!--Carusel--> 
 	<div class="container-fluid">
 				<?php if(isset($contenido_seccion1)){include($contenido_seccion1);} ?>
