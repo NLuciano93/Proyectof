@@ -1,5 +1,45 @@
 <?php
 
+function crearHTMLCardCentro( $nombre_centro ){
+
+?>
+
+    <div class="card mb-3">
+        <div class="row no-gutters">
+
+            <div class="col-md-4">
+              <img src="imagenes/avatar.jpg" class="card-img border rounded-circle" alt="...">
+            </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><?= $nombre_centro ?></h5>
+                <br>
+                <div>
+                <span class="card-text">Actividades:</span>
+                </div>
+                <br>
+
+                <div>
+                <span class="card-text"><small class="text-muted">Calificación:</small></span>
+              </div>
+                <div class="botone">
+                     <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
+                     
+                     <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+            </div>
+
+
+<?php } 
+
+
 function crearHTMLCardPublicacion($titulo, $descripcion, $imagen, $precio, $id_pub, $pub_usuario = false, $es_favorito = false){
 ?>	
 
