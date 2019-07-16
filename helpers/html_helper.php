@@ -1,5 +1,50 @@
 <?php
 
+    function getOptionsProvincias($incluir_prov_todas=false, $id_item_seleccionado=null){
+
+      include_once PATH_DAOS . '/busqueDAO.php';
+
+    $provincias = buscarProvincia();
+
+    $opcionesComboProvincia = "";
+
+   
+
+    
+    foreach ( $provincias as $provincia ){
+        $opcionesComboProvincia .= '<option  value="'. $provincia["prov_id"] . '"';
+
+
+        if ( $id_item_seleccionado != null && ($id_item_seleccionado == $provincia["prov_id"]) ){
+            $opcionesComboProvincia .= 'selected="selected" ';
+        }
+
+        $opcionesComboProvincia .= '>' . $provincia["prov_nombre"] . '</option>';
+    }
+
+    return $opcionesComboProvincia;  
+
+ }
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+<?php
+
 function crearHTMLCardPublicacion($titulo, $descripcion, $imagen, $precio, $id_pub, $pub_usuario = false, $es_favorito = false){
 ?>	
 

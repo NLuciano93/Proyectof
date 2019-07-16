@@ -23,12 +23,12 @@
 
     			  <div class="form-group">
 					    <label for="exampleFormControlSelect1">Provincia</label>
-					    <select class="form-control" id="exampleFormControlSelect1">
-					      <option>1</option>
-					      <option>2</option>
-					      <option>3</option>
-					      <option>4</option>
-					      <option>5</option>
+					    <select class="form-control" id="provincia" name="provincia">
+					     <?php
+					     include_once( PATH_HELPERS . "/html_helper.php");
+
+								echo getOptionsProvincias(true);
+						?>		
 					    </select>
 					  </div>
 
