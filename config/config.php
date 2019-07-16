@@ -1,6 +1,6 @@
 <?php
 
-    define('SITE_FOLDER', 'proyectof');
+    define('SITE_FOLDER', 'alumnos/sanfer2019/luciano_natiello/proyectof');
 
     define('ROOT_URL', strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http'."://".$_SERVER['HTTP_HOST'] . "/" . SITE_FOLDER);
 

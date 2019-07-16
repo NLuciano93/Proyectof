@@ -9,12 +9,8 @@
     {
         switch( $_REQUEST["m"] ){
 
-            case "bus_centro":
-                $modulo = "busqueda_centro";
-                break;
-
-            case "bus_profe":
-                $modulo = "busqueda_profe";
+            case "busqueda":
+                $modulo = "busqueda";
                 break;
 
             case "perfil":
