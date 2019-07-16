@@ -2,26 +2,19 @@
         <div class="row">
             <div class="col-4 border"> 
                         <div class="card w-100 ">
-                          <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top border rounded-circle" alt="...">
+                          <img src="<?= FILES . '/perfil_profe/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title">Nombre Profe</h5>
+                            <h5 class="card-title"><?= $_SESSION["usuario"]?></h5>
 
-                            <div class="social" >
-                                    <ul id="colsocial">
-                                        <li><a href="" class="icon-facebook2"></a></li>
-                                        <li><a href="" class="icon-twitter"></a></li>
-                                        <li><a href="" class="icon-instagram"></a></li> 
-                                        <li><a href="" class="icon-mail4"></a></li>
-                                    </ul>
-                                </div>
+                            <?php  include('barrasocial_perfil.php') ?>
                             
                           </div>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad</li>
-                            <li class="list-group-item">Localidad</li>
-                            <li class="list-group-item">Provincia</li>
-                            <li class="list-group-item">Telefono</li>
-                            <li class="list-group-item">Estudio</li>
+                            <li class="list-group-item">Edad: <?= $_SESSION["edad"]?></li>
+                            <li class="list-group-item">Localidad: <?= $_SESSION["localidad"]?></li>
+                            <li class="list-group-item">Telefono: <?= $_SESSION["tel"]?></li>
+                            <li class="list-group-item">Estudio: <?= $_SESSION["educacionfisica"]?></li>
+                            <li class="list-group-item">Mail de contacto: <?= $_SESSION["mail"]?></li>
                            
                           </ul>
                           <div class="card-body">

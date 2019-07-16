@@ -3,12 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Registro</title>
-	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?= PATH_VENDOR ?>/bootstrap/css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" href="css/estilos.css"> -->
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/all.min.css">
+	<link rel="stylesheet" href="<?= PATH_CSS ?>/fonts.css">
+	<link rel="stylesheet" href="<?= PATH_CSS ?>/all.min.css">
 	<!-- Add icon library -->
-	<script src="vendor/bootstrap/js/all.min.js"></script>
+	<script src="<?= PATH_VENDOR ?>/bootstrap/js/all.min.js"></script>
 
 
 
@@ -330,7 +330,7 @@
 		</div>
 	</div>
 
-	<script src="vendor/jquery/jquery-3.4.1.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>				
+	<script src="<?= PATH_VENDOR ?>/jquery/jquery-3.4.1.min.js"></script>
+	<script src="<?= PATH_VENDOR ?>/bootstrap/js/bootstrap.min.js"></script>				
 </body>
 </html>

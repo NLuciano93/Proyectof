@@ -1,4 +1,6 @@
 <?php   
+
+include_once PATH_DAOS . '/loginDAO.php';
   
   switch ($_SESSION["tipo_usuario"]) {
 
