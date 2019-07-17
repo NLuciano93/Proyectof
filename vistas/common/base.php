@@ -33,19 +33,12 @@
 <!-- 									      <li class="nav-item">
 									        <a class="nav-link barra" href="index.php?m=perfil_u">PERFIL</a>
 									      </li> -->
-									      <li class="nav-item dropdown">
-									        <a class="nav-link dropdown-toggle barra" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									      <li class="nav-item">
+									        <a class="nav-link barra"href="index.php?m=busqueda&tipo=centro">
 									         CENTRO DE ENTRENAMIENTO
 									        </a>
-									        <div class="dropdown-menu despliegue" aria-labelledby="navbarDropdown">
-									          <a class="dropdown-item barraentrenamiento" href="index.php?m=busqueda&tipo=centro">MUSCULACIÓN</a>
-									          <a class="dropdown-item barraentrenamiento" href="index.php?m=busqueda&tipo=centro">FUNCIONAL</a>
-									          <a class="dropdown-item barraentrenamiento" href="index.php?m=busqueda&tipo=centro">CROSSFIT</a>
-									          <a class="dropdown-item barraentrenamiento" href="index.php?busqueda&tipo=centro">YOGA</a>
-									          <div class="dropdown-divider"></div>
-									          <a class="dropdown-item barraentrenamiento" href="index.php?busqueda&tipo=centro">POR ZONA</a>
-									        </div>
-									      </li>
+									        
+									        </li>
 									       <li class="nav-item">
 									        <a class="nav-link barra" href="index.php?m=busqueda&tipo=profe">BUSCAR PROFESOR/A</a>
 									      </li>

@@ -1,36 +1,22 @@
 <?php 
 
-	define( 'HOST' , 'localhost' );
-	define( 'USER' , 'root' );
-	define( 'PASSWORD' , '' );
-	define( 'BD' , 'proyectofull' );
+include PATH_HELPERS . "/database_helper.php";
 
-	function getConexion(){
-		
-		$conexion = new mysqli( HOST, USER, PASSWORD, BD );
+function buscarProfes( $nombreProfe ){
 
-        $conexion->set_charset('utf8');
+    $conexion = getConexion();
 
-		return $conexion;
+    $consulta = "SELECT * 
+                FROM usuarios, usuario_profe 
+                WHERE usuarios.usr_id = usuario_profe.usr_pf_id";
+
+    if ( $nombreProfe != '' ){
+        $consulta .= " AND usuarios.usr_nombre LIKE '%$nombreProfe%'";
     }
 
-	function conectarProfe(){
 
-		$conexion = getConexion();
+    $resultado = $conexion->query($consulta);
 
-		$consulta = "SELECT * ".
-					"FROM usuarios ".
-					"INNER JOIN usuario_profe".
-					"ON usuarios.usr_id = usuario_profe.usr_pf_id";
+    return $resultado;
 
-		$resultado = $conexion->query($consulta);
-		 
-
-		 return $resultado;
-
-	}
-
-	conectarProfe();
-	echo "conectado";
-
-	?>
+}

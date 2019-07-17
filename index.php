@@ -17,6 +17,11 @@
                 $modulo = "perfil";
                 break;
 
+            case "perfilacceso":
+                $modulo = "perfilacceso";
+                break;
+
+
             case "reco":
                 $modulo = "recomendaciones";
                 break;

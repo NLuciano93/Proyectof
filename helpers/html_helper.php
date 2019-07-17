@@ -1,31 +1,68 @@
 <?php
 
 
-    function getOptionsProvincias($incluir_prov_todas=false, $id_item_seleccionado=null){
+    function  crearHTMLCardProfe($usr_id,$nombreProfe,$edadProfe, $fotoProfe, $esProfe){
 
-      include_once PATH_DAOS . '/busqueDAO.php';
-
-    $provincias = buscarProvincia();
-
-    $opcionesComboProvincia = "";
-
-   
-
+?>
     
-    foreach ( $provincias as $provincia ){
-        $opcionesComboProvincia .= '<option  value="'. $provincia["prov_id"] . '"';
+          <div class="card mb-3">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="<?= FILES . '/perfil_profe/'. $fotoProfe ?>" class="card-img border rounded-circle "  style="max-width: 200px; max-height: 200px; " alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                       <a href="index.php?m=perfilacceso&tipo=profe&nombre=<?=$usr_id?>"> <h5 class="card-title"><?= $nombreProfe ?></h5></a>
+                        <br>
+                        <div>
+                        <span class="card-text">Edad: <?= $edadProfe ?></span>
+                        </div>
+                         <div>
+                        <span class="card-text">Localidad:</span>
+                        </div>
+                        <div>
+                        <span class="card-text"><?php
+                          if ( $esProfe== 1) {
+                           echo "PROFESOR/A EDUCACIÓN FÍSICA";
+                          }
+
+                         ?></span>
+                        </div>
+                        
+                        <br>
+
+                    <div>
+                        <span class="card-text"><small class="text-muted">Calificación:</small></span>
+                      </div>
+                    <div class="botone">
+                           <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
+                           
+                           <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
+                        </div>
 
 
-        if ( $id_item_seleccionado != null && ($id_item_seleccionado == $provincia["prov_id"]) ){
-            $opcionesComboProvincia .= 'selected="selected" ';
-        }
+                      </div>
 
-        $opcionesComboProvincia .= '>' . $provincia["prov_nombre"] . '</option>';
-    }
+                    </div>
+                  </div>
+                </div>
 
-    return $opcionesComboProvincia;  
 
- }
+
+
+
+
+
+
+
+
+         
+
+
+
+
+
+<?php }
 
 
 
@@ -46,7 +83,7 @@
 
 <?php
 
-function crearHTMLCardCentro( $nombre_centro ){
+function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCentro ){
 
 ?>
 
@@ -54,12 +91,16 @@ function crearHTMLCardCentro( $nombre_centro ){
         <div class="row no-gutters">
 
             <div class="col-md-4">
-              <img src="imagenes/avatar.jpg" class="card-img border rounded-circle" alt="...">
+              <img src="<?= FILES . '/perfil_centro/'. $fotoCentro ?>" class="card-img border rounded-circle" style="max-width: 200px; max-height: 200px;" alt="...">
             </div>
 
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><?= $nombre_centro ?></h5>
+                <a href="index.php?m=perfilacceso&tipo=centro&nombre=<?=$usr_id?>"><h5 class="card-title"><?= $nombre_centro ?></h5></a>
+                <br>
+                <div>
+                <span class="card-text">Direccion:<?= " ". $direccionCentro?></span>
+                </div>
                 <br>
                 <div>
                 <span class="card-text">Actividades:</span>

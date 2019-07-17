@@ -1,5 +1,5 @@
 <?php 
-    include_once PATH_HELPERS . '/database_helper.php';
+    include PATH_HELPERS . '/database_helper.php';
 
 
     if ( isset( $_POST["user_name"] ) && isset( $_POST["password"] ) && 

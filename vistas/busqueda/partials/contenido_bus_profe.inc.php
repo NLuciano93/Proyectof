@@ -1,48 +1,63 @@
-   <br>
+
     
     
 
-    <div class="container">
+    <div class="container mt-3">
     	<div class="row">
     		<div class="col-4 ">
 				<div class="container border">
-    			  	<div class="form-group">
-    			  		
-    			  		<br>
-					    <label for="buscar"><h5>BÚSQUEDA</h5></label>
-					    <input type="text" class="form-control" id="buscar" placeholder="Buscar">
-					  </div>
+    			  	
+					<form action="index.php">
+							
+							<input type="hidden" name="m" value="busqueda">
 
-					  <button type="submit" class="btn btn-primary">Buscar</button>
+							<input type="hidden" name="tipo" value="profe">
+						
+				    			<div class="form-group">				    			  	 		
+									<label class="mt-3" for="buscar">
+										<h5>BÚSQUEDA</h5>
+									</label>
 
-						<br>
-						<br>
-							<div>
-								<h5>Avanzado</h5>
+									<input name="busqueda" type="text" class="form-control" id="buscar" placeholder="Buscar">
+								 </div>
+
+					  			<input type="submit" name="submit" value="Buscar" class="btn btn-primary">
+					
+									<div class="mt-3">
+										<h5>Avanzado</h5>
+									</div>
+
+		    			  <div class="form-group">
+							    
+							    <label for="exampleFormControlSelect1">Provincia</label>
+							    
+							    <select name="provincia" class="form-control" id="exampleFormControlSelect1">
+							      <option>1</option>
+							      <option>2</option>
+							      <option>3</option>
+							      <option>4</option>
+							      <option>5</option>
+
+							    </select>
+
+							  </div>
+
+							 <div class="form-group">
+
+								    <label for="exampleFormControlSelect2">Localidad</label>
+
+								    <select name="localidad" class="form-control" id="exampleFormControlSelect2">
+
+								      <option>1</option>
+								      <option>2</option>
+								      <option>3</option>
+								      <option>4</option>
+								      <option>5</option>
+
+								    </select>
+
 							</div>
-
-    			  <div class="form-group">
-					    <label for="exampleFormControlSelect1">Provincia</label>
-					    <select class="form-control" id="exampleFormControlSelect1">
-					      <option>1</option>
-					      <option>2</option>
-					      <option>3</option>
-					      <option>4</option>
-					      <option>5</option>
-					    </select>
-					  </div>
-
-				 <div class="form-group">
-					    <label for="exampleFormControlSelect2">Localidad</label>
-					    <select class="form-control" id="exampleFormControlSelect2">
-					      <option>1</option>
-					      <option>2</option>
-					      <option>3</option>
-					      <option>4</option>
-					      <option>5</option>
-					    </select>
-				</div>
-				
+							
 				<!-- Multiple Checkboxes -->
 						<div class="form-group">
 						  <label class="control-label" for="checkboxes">Especialidad</label>
@@ -85,59 +100,23 @@
 							</div>
 						  </div>
 						</div>
+						
+						</form>
+
+
+
+
+
 						</div>
 
     		</div>
-    		 <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
-					<div class="card mb-3">
-								  <div class="row no-gutters">
-								    <div class="col-md-4">
-								      <img src="imagenes/avatar.jpg" class="card-img border rounded-circle" alt="...">
-								    </div>
-								    <div class="col-md-8">
-								      <div class="card-body">
-								        <h5 class="card-title">Nombre Profe</h5>
-								        <br>
-								        <div>
-								        <span class="card-text">Edad:</span>
-								        </div>
-								         <div>
-								        <span class="card-text">Localidad:</span>
-								        </div>
-								        <div>
-								        <span class="card-text">Especialidad:</span>
-								        </div>
-								        
-								        <br>
-
-										<div>
-								        <span class="card-text"><small class="text-muted">Calificación:</small></span>
-								      </div>
-										<div class="botone">
-						        			 <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
-						        			 
-						         			 <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-						        		</div>
+    		<div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
+    		 <?php
+                include PATH_VIEWS . "/busqueda/partials/parte_bus_profe.php";
 
 
-								      </div>
-
-								    </div>
-								  </div>
-								</div>
-
-
-
-
-
-
-
-
-
-
-    		 </div>
-
-
+            ?>
+			</div>
 
 
 

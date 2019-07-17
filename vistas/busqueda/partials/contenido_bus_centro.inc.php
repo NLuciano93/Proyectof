@@ -1,8 +1,8 @@
-  <br>
+
     
     
 
-    <div class="container">
+    <div class="container mt-3">
     	<div class="row">
     		<div class="col-4 ">
 				<div class="container border">
@@ -31,12 +31,15 @@
         			    <div class="form-group">
     					    <label for="exampleFormControlSelect1">Provincia</label>
     					    
-                            <select name="provincia" class="form-control" id="exampleFormControlSelect1">
-    					      <option>1</option>
-    					      <option>2</option>
-    					      <option>3</option>
-    					      <option>4</option>
-    					      <option>5</option>
+                            
+                       <select name="provincia" class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            
+     
     					    </select>
     					</div>
 
@@ -103,24 +106,8 @@
 
 
             <?php
+                include PATH_VIEWS . "/busqueda/partials/parte_bus_centro.php";
 
-                include PATH_DAOS . "/centroDAO.php";
-                include PATH_HELPERS . "/html_helper.php";
-
-                if ( isset( $_GET["submit"] ) )
-                {
-                   
-                    $busqueda = $_GET["busqueda"];
-                    $provincia = $_GET["provincia"];
-                    $localidad = $_GET["localidad"];
-                
-                    $resultado = buscarCentros( $busqueda  );
-
-                    while( $centro = $resultado->fetch_assoc() ){
-                        crearHTMLCardCentro( $centro["usr_nombre"] );
-                    }
-
-                }
 
             ?>
 

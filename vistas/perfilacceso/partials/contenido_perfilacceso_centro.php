@@ -3,19 +3,19 @@
         <div class="row">
             <div class="col-4 border"> 
                         <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfil_centro/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+                          <img src="<?= FILES . '/perfil_centro/'. $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title"><?= $_SESSION["usuario"]?></h5>
+                            <h5 class="card-title"><?= $perfilaccesousuario?></h5>
 
 
-                            <?php  include('barrasocial_perfil.php') ?>
+                            <?php  include('barrasocial_perfilacceso.php') ?>
 
                           </div>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Dirección: <?= $_SESSION["direccion"]?></li>
-                            <li class="list-group-item">Localidad: <?= $_SESSION[ "localidad"]?></li>                          
-                            <li class="list-group-item">Telefono:  <?= $_SESSION["tel"]?></li>
-                            <li class="list-group-item">Mail contacto: <?= $_SESSION["mail"]?></li>
+                            <li class="list-group-item">Dirección: <?= $perfilaccesodireccion?></li>
+                            <li class="list-group-item">Localidad: <?= $perfilaccesolocalidad?></li>                          
+                            <li class="list-group-item">Telefono:  <?= $perfilaccesotel?></li>
+                            <li class="list-group-item">Mail contacto: <?= $perfilaccesomail?></li>
 
                            
                           </ul>
@@ -36,9 +36,6 @@
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comentarios</a>
-                          </li>
-                           <li class="nav-item">
-                            <a class="nav-link" id="postear-tab" data-toggle="tab" href="#postear" role="tab" aria-controls="postear" aria-selected="false">Postear</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -75,34 +72,6 @@
 
                           </div>
                           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-                          
-                        <div class="tab-pane fade" id="postear" role="tabpanel" aria-labelledby="postear-tab">
-                              <div class="ingresoposteo">
-                                  <div class="card">
-                                    <h5 class="card-header">¿Qué estas pensando?</h5>
-                                    <div class="card-body">
-                                      <form>
-                                         
-                                            <div class="form-group">                    
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="¿Qué estas pensando?" rows="3"></textarea>
-                                            </div>
-                                      </form>
-                                      
-                                      <button type="submit" name="publicar" class="btn btn-primary">Publicar</button>
-                                    </div>
-                                  </div>
-                                </div>
-
-                        
-
-                          
-                          </div>
-                        
-
-
-
-
-
                         </div>
 
                 

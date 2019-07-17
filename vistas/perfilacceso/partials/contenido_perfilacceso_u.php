@@ -1,10 +1,10 @@
- <div class="container">
+<div class="container">
         <div class="row">
             <div class="col-4 border"> 
                         <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfil_usuario/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+                          <img src="<?= FILES . '/perfil_usuario/'.  $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title"><?= $_SESSION["usuario"] ?></h5>
+                            <h5 class="card-title"><?= $perfilaccesousuario ?></h5>
 
 
  
@@ -14,8 +14,8 @@
                             
                           </div>
                           <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad: <?= $_SESSION["edad"]?></li>
-                            <li class="list-group-item">Localidad: <?= $_SESSION["localidad"]?></li>
+                            <li class="list-group-item">Edad: <?= $perfilaccesoedad?></li>
+                            <li class="list-group-item">Localidad: <?= $perfilaccesolocalidad?></li>
                            
                           </ul>
                           <div class="card-body">
@@ -33,10 +33,7 @@
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Postear</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comentarios</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -74,7 +71,7 @@
                           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="ingresoposteo">
                                   <div class="card">
-                                    <h5 class="card-header">¿Qué estas pensando?</h5>
+                                    <h5 class="card-header">Comentar</h5>
                                     <div class="card-body">
                                       <form>
                                          
@@ -91,8 +88,6 @@
 
 
                           </div>
-
-                          <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentario-tab">...</div>
                         </div>
 
                 
@@ -113,6 +108,3 @@
 
 
     </div>
-	
-
-

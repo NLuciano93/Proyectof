@@ -14,6 +14,7 @@ function buscarCentros( $nombreCentro ){
         $consulta .= " AND usuarios.usr_nombre LIKE '%$nombreCentro%'";
     }
 
+
     $resultado = $conexion->query($consulta);
 
     return $resultado;
