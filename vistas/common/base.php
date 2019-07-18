@@ -136,12 +136,12 @@
 							<input type="password" class="form-control" name="password" id="password" />
 						</div>
 					<div class="d-flex justify-content-between">
-						<button type="submit" class="btn btn-primary">
-							Ingresar
-						</button>
+						<input type="submit" value="Ingresar" class="btn btn-primary">
+							
+						
 						<a href="index.php?m=registro" class="btn btn-dark"><i class="fas fa-user-plus"></i>
 							Registrate
-						</button> </a>
+						</a>
 					</div>
 
 					</form>
