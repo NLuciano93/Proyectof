@@ -1,14 +1,14 @@
 <?php
 
- 		include PATH_HELPERS . '/database_helper.php';
+ 		include_once PATH_HELPERS . '/database_helper.php';
 
  		function buscarProvincia(){
 
  			$conexion= getConexion();
 
- 			$consulta = "SELECT *".
+ 			$consulta = "SELECT * " .
  						"FROM provincia";
- 						"ORDER BY prov_nombre"
+ 						
 
 
  			$resultadoprovincia= $conexion->query($consulta);

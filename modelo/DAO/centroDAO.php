@@ -1,6 +1,6 @@
 <?php
 
-include PATH_HELPERS . "/database_helper.php";
+include_once PATH_HELPERS . "/database_helper.php";
 
 function buscarCentros( $nombreCentro ){
 

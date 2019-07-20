@@ -25,17 +25,45 @@
 				<div class="card">
 				  <h5 class="card-header">¿Qué estas pensando?</h5>
 				  <div class="card-body">
-				  	<form>
-				 			 
-							    <div class="form-group">								    
-								 	<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="¿Qué estas pensando?" rows="3"></textarea>
-								  </div>
-						</form>
+				  	<form action="index.php" method="post">
+				  		<input type="hidden" name="m" value="index">
+
+				 		
+						    <div class="form-group">								    
+								 	<textarea name="publicacion" class="form-control" id="publicacion" placeholder="¿Qué estas pensando?" rows="3" required></textarea>
+						  </div>
+						
 				    
-				    <button type="submit" name="publicar" class="btn btn-primary">Publicar</button>
+				  
+				    <input type="submit" name="submit" value="Publicar" class="btn btn-primary"> 
+				    </form>
+				    <?php				    	
+				    
+				    include_once PATH_DAOS . "/posteoDAO.php";
+				    
+				    ?>
+				    
 				  </div>
 				</div>
 			</div>
+
+			<?php
+			 include_once PATH_DAOS . "/posteoDAO.php";
+			 include_once PATH_HELPERS . "/html_helper.php";
+
+			 $resultado = buscarPubli();
+
+                    while( $public = $resultado->fetch_assoc() ){
+                        crearHTMLpublicacion( $public["usr_id"], $public["texto"], $public["usr_foto"], $public["usr_nombre"], $public["fecha"]  );
+                    }
+
+
+
+			?>
+
+
+
+
 
 
 	<div class="posteo">

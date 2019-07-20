@@ -1,5 +1,5 @@
 <?php  
- include PATH_HELPERS . '/database_helper.php';
+ include_once PATH_HELPERS . '/database_helper.php';
 
 if (isset($_GET["tipo"])) {
 
@@ -110,6 +110,68 @@ if (isset($_GET["tipo"])) {
 else{
 	$incorrectoperfil= "el perfil es incorrecto";
 }
+
+
+
+function saberPerfil($id_usuario){
+
+    $conexion = getConexion();
+
+     $consulta = "SELECT * " . 
+                 "FROM usuarios " .
+                 "WHERE usr_id = '" . $id_usuario . "'";
+
+     $resultado = $conexion->query( $consulta ); 
+    
+
+
+            if ( $resultado->num_rows == 1  ){
+
+            //Obtengo el nombre del usuario
+
+            $usuarioacc = $resultado->fetch_assoc();
+           
+
+            $consulta ="SELECT * " . 
+                        "FROM usuario_centro " .
+                        "WHERE usr_centro_id = '" . $usuarioacc["usr_id"] . "'";
+
+            $resultado = $conexion->query( $consulta );
+            
+            if ( $resultado->num_rows == 1) {
+                        
+                            $perfilaccestipo = "centro";
+                            
+                        }
+                
+                else {
+
+            $consulta ="SELECT * " . 
+                        "FROM usuario_profe " .
+                        "WHERE usr_pf_id = '" . $usuarioacc["usr_id"] . "'";
+
+            $resultado = $conexion->query( $consulta ); 
+
+                if ( $resultado->num_rows == 1) {
+                     $perfilaccestipo= "profe";
+
+ 
+
+                }
+                else{
+                        $perfilaccestipo="comun";     
+
+                }
+
+                } 
+
+            
+
+}
+return $perfilaccestipo;
+}
+
+
 
 
 

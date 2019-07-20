@@ -136,7 +136,7 @@
 							<input type="password" class="form-control" name="password" id="password" />
 						</div>
 					<div class="d-flex justify-content-between">
-						<input type="submit" value="Ingresar" class="btn btn-primary">
+						<input type="submit" name="submit" value="Ingresar" class="btn btn-primary">
 							
 						
 						<a href="index.php?m=registro" class="btn btn-dark"><i class="fas fa-user-plus"></i>
@@ -172,5 +172,6 @@
 
 	<script src="<?= PATH_VENDOR ?>/jquery/jquery-3.4.1.min.js"></script>
 	<script src="<?= PATH_VENDOR ?>/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

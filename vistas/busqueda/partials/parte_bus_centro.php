@@ -1,7 +1,7 @@
             <?php
 
-                include PATH_DAOS . "/centroDAO.php";
-                include PATH_HELPERS . "/html_helper.php";
+                include_once PATH_DAOS . "/centroDAO.php";
+                include_once PATH_HELPERS . "/html_helper.php";
 
                 if ( isset( $_GET["submit"] ) )
                 {

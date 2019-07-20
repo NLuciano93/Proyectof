@@ -2,7 +2,7 @@
         <div class="row">
             <div class="col-4 border"> 
                         <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfil_profe/'. $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+                          <img src="<?= FILES . '/perfiles/'. $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
                             <h5 class="card-title"><?= $perfilaccesousuario ?></h5>
 

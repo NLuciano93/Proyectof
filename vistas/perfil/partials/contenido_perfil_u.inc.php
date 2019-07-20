@@ -2,7 +2,7 @@
         <div class="row">
             <div class="col-4 border"> 
                         <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfil_usuario/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+                          <img src="<?= FILES . '/perfiles/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
                             <h5 class="card-title"><?= $_SESSION["usuario"] ?></h5>
 
@@ -32,9 +32,7 @@
                           <li class="nav-item">
                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Postear</a>
-                          </li>
+                          
                           <li class="nav-item">
                             <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
                           </li>
@@ -71,26 +69,7 @@
 
                           </div>
                           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="ingresoposteo">
-                                  <div class="card">
-                                    <h5 class="card-header">¿Qué estas pensando?</h5>
-                                    <div class="card-body">
-                                      <form>
-                                         
-                                            <div class="form-group">                    
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="¿Qué estas pensando?" rows="3"></textarea>
-                                            </div>
-                                      </form>
-                                      
-                                      <button type="submit" name="publicar" class="btn btn-primary">Publicar</button>
-                                    </div>
-                                  </div>
-                                </div>
-
-
-
-                          </div>
+                      
 
                           <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentario-tab">...</div>
                         </div>

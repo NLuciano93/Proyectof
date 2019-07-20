@@ -29,24 +29,56 @@
 						</div>
 
         			    <div class="form-group">
-    					    <label for="exampleFormControlSelect1">Provincia</label>
+    					    <label for="provinciacen">Provincia</label>
     					    
                             
-                       <select name="provincia" class="form-control" id="exampleFormControlSelect1">
-                          <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                            
+                       <select name="provincia" class="form-control" id="provinciacen" onchange=" window.location='index.php?m=busqueda&tipo=centro&provi='+this.value">
+                         
+                         <?php
+                         include_once PATH_HELPERS . '/database_helper.php';
+
+                         function getComboProvincia (){
+
+                                $conexion= getConexion();
+
+                                     $consulta = "SELECT *" .
+                                                 "FROM provincia";
+                        
+
+
+                                  $resultadoprovincia= $conexion->query($consulta);
+
+                                  $listaprov = '<option value="0">Elegi una provincia</option>';
+
+                                while ($rowprov = $resultadoprovincia->fetch_assoc()) {
+                                        $listaprov .= "<option value ='$rowprov[prov_id]'> $rowprov[prov_nombre]</option>";
+                                     }
+
+                                     return $listaprov;     
+
+                          }
+                           echo getComboProvincia();
+
+                         ?>
+                        
      
     					    </select>
+                  
     					</div>
 
     				    <div class="form-group">
-    					    <label for="exampleFormControlSelect1">Localidad</label>
-    					    
-                            <select name="localidad" class="form-control" id="exampleFormControlSelect1">
+    					    <label for="localidadcen">Localidad</label>
+    					   
+                
+                  <script type="text/javascript">
+                   function enviarProvincia(){
+                    var prov = document.getElementById("provinciacen").value;
+                    document.getElementById("demo").innerHTML= "Elegiste: " + prov;
+                   } 
+
+                  </script>
+                  
+                <select name="localidad" class="form-control" id="localidadcen">
     					      <option>1</option>
     					      <option>2</option>
     					      <option>3</option>
