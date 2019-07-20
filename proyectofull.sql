@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-07-2019 a las 02:00:15
+-- Tiempo de generación: 20-07-2019 a las 18:01:31
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -136,9 +136,22 @@ INSERT INTO `localidad` (`loca_id`, `loca_prov_id`, `loca_nombre`) VALUES
 
 CREATE TABLE `posteo` (
   `id_posteo` int(100) NOT NULL,
-  `posteo` varchar(1000) NOT NULL,
-  `id_usuario` int(100) NOT NULL
+  `texto` varchar(1000) NOT NULL,
+  `id_usuario` int(100) NOT NULL,
+  `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `posteo`
+--
+
+INSERT INTO `posteo` (`id_posteo`, `texto`, `id_usuario`, `fecha`) VALUES
+(1, 'hola', 1, '0000-00-00 00:00:00'),
+(2, 'holaaaaaa', 1, '2019-07-19 18:10:17'),
+(3, 'holaaaaaa', 1, '2019-07-19 18:47:12'),
+(4, 'que tal', 1, '2019-07-19 18:53:58'),
+(5, 'que tal', 1, '2019-07-19 18:58:26'),
+(6, 'Hola como va?', 1, '2019-07-19 22:09:30');
 
 -- --------------------------------------------------------
 
@@ -324,6 +337,12 @@ ALTER TABLE `especialidades_profes`
 --
 ALTER TABLE `localidad`
   MODIFY `loca_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `posteo`
+--
+ALTER TABLE `posteo`
+  MODIFY `id_posteo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
