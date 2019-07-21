@@ -29,10 +29,10 @@
 						</div>
 
         			    <div class="form-group">
-    					    <label for="provinciacen">Provincia</label>
+    					    <label for="provincia">Provincia</label>
     					    
                             
-                       <select name="provincia" class="form-control" id="provinciacen" onchange=" window.location='index.php?m=busqueda&tipo=centro&provi='+this.value">
+                       <select name="provincia" class="form-control" id="provincia">
                          
                          <?php
                          include_once PATH_HELPERS . '/database_helper.php';
@@ -67,23 +67,12 @@
     					</div>
 
     				    <div class="form-group">
-    					    <label for="localidadcen">Localidad</label>
+    					    <label for="localidadcen">Localidad </label>
     					   
-                
-                  <script type="text/javascript">
-                   function enviarProvincia(){
-                    var prov = document.getElementById("provinciacen").value;
-                    document.getElementById("demo").innerHTML= "Elegiste: " + prov;
-                   } 
+                               
+                <select  name="localidad" id="localidad" class="form-control" >
+                  <option value="-1">Elegí primero Provincia </option>
 
-                  </script>
-                  
-                <select name="localidad" class="form-control" id="localidadcen">
-    					      <option>1</option>
-    					      <option>2</option>
-    					      <option>3</option>
-    					      <option>4</option>
-    					      <option>5</option>
     					    </select>
     				    </div>
     				
@@ -144,6 +133,12 @@
             ?>
 
 
+
+
+
+
+
+
     	</div>
 
     </div>
@@ -153,5 +148,37 @@
 
 
 
+  <script src="vendor/jquery/jquery-3.4.1.min.js"></script> 
 
+  <script>
+    
+
+    $("#provincia").change( 
+
+      function(){
+        pedirDatos( $( "#provincia")[0].value );  
+      }
+       
+    );
+
+    function pedirDatos( id_provincia_seleccionada ){
+    
+
+      parametros = { id_provincia: id_provincia_seleccionada };
+
+      $.get( "example.php", parametros )
+        
+        .done(function( data ) {
+
+          $( "#localidad" ).html(data);
+        })
+
+        .fail(function() {
+          alert( "Error al obtener las localidades" );
+        })
+       
+    }
+
+
+</script>
 
