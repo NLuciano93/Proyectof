@@ -10,7 +10,7 @@
                     $provincia = $_GET["provincia"];
                     $localidad = $_GET["localidad"];
                 
-                    $resultado = buscarCentros( $busqueda  );
+                    $resultado = buscarCentros( $busqueda, $localidad );
 
                     while( $centro = $resultado->fetch_assoc() ){
                         crearHTMLCardCentro( $centro["usr_id"], $centro["usr_nombre"], $centro["usr_foto"], $centro["usr_centro_direccion"]  );

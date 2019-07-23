@@ -31,13 +31,14 @@
 							    
 							    <label for="exampleFormControlSelect1">Provincia</label>
 							    
-							    <select name="provincia" class="form-control" id="exampleFormControlSelect1">
-							      <option>1</option>
-							      <option>2</option>
-							      <option>3</option>
-							      <option>4</option>
-							      <option>5</option>
+							    <select name="provincia" class="form-control" id="provincia">
+							     <?php
+                        			 include_once PATH_DAOS. '/busqueDAO.php';
 
+
+                          				 echo getComboProvincia();
+
+                        		 ?>
 							    </select>
 
 							  </div>
@@ -46,15 +47,10 @@
 
 								    <label for="exampleFormControlSelect2">Localidad</label>
 
-								    <select name="localidad" class="form-control" id="exampleFormControlSelect2">
+								   <select  name="localidad" id="localidad" class="form-control" >
+                  						<option value="-1">Elegí primero Provincia </option>
 
-								      <option>1</option>
-								      <option>2</option>
-								      <option>3</option>
-								      <option>4</option>
-								      <option>5</option>
-
-								    </select>
+    					   			 </select>
 
 							</div>
 							
@@ -112,7 +108,7 @@
     		</div>
     		<div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
     		 <?php
-                include PATH_VIEWS . "/busqueda/partials/parte_bus_profe.php";
+                include_once PATH_VIEWS . "/busqueda/partials/parte_bus_profe.php";
 
 
             ?>
@@ -125,3 +121,37 @@
 
 
     </div>
+
+  <script src="vendor/jquery/jquery-3.4.1.min.js"></script> 
+
+  <script>
+    
+
+    $("#provincia").change( 
+
+      function(){
+        pedirDatos( $( "#provincia")[0].value );  
+      }
+       
+    );
+
+    function pedirDatos( id_provincia_seleccionada ){
+    
+
+      parametros = { id_provincia: id_provincia_seleccionada };
+
+      $.get( "example.php", parametros )
+        
+        .done(function( data ) {
+
+          $( "#localidad" ).html(data);
+        })
+
+        .fail(function() {
+          alert( "Error al obtener las localidades" );
+        })
+       
+    }
+
+
+</script>

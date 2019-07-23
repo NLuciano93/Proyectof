@@ -2,7 +2,7 @@
 
     
 
-    include PATH_HELPERS . "/database_helper.php";
+    include_once PATH_HELPERS . "/database_helper.php";
 
 	$id_provincia = $_GET["id_provincia"];
 

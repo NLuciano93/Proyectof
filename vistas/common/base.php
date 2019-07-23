@@ -78,6 +78,7 @@
 											 <a class="dropdown-item barraentrenamiento" href="index.php?m=logout">Salir</a>
 										</div>
 									</li>
+								</ul>
 								<?php 
 								}
 								?> 

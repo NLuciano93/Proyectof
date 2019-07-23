@@ -2,7 +2,7 @@
 
 include_once PATH_HELPERS . "/database_helper.php";
 
-function buscarCentros( $nombreCentro ){
+function buscarCentros( $nombreCentro, $localidad ){
 
     $conexion = getConexion();
 
