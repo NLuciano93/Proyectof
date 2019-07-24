@@ -12,7 +12,7 @@
 
     define("PATH_DAOS", SITE_ROOT . "/modelo/DAO");
 
-    define("UPLOAD_PUB_IMAGE_PATH", SITE_ROOT . "/files/imagenes/publicaciones");
+    define("UPLOAD_IMAGE_PATH", SITE_ROOT . "/files/imagenes");
 
     define("FILES", ROOT_URL . "/files");
     

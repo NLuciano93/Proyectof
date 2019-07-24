@@ -17,7 +17,7 @@ switch ($_GET["tipo"]) {
 
   		break;
   		case 'comun':
-  		 $contenido_seccion2 = PATH_VIEWS . "/perfilacceso/partials/contenido_perfil_u.inc.php";
+  		 $contenido_seccion2 = PATH_VIEWS . "/perfilacceso/partials/contenido_perfilacceso_u.php";
   		break;
 
   		

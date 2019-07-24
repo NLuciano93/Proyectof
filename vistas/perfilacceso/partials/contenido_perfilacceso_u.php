@@ -10,7 +10,7 @@
  
 
 
-                           <?php  include('barrasocial_perfil.php') ?>
+                           <?php  include('barrasocial_perfilacceso.php') ?>
                             
                           </div>
                           <ul class="list-group list-group-flush">
@@ -37,33 +37,28 @@
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
+                          
                           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="m-5 row">
-                                <div class="col-md-3 mb-4 text-center d-flex align-items-stretch">
-                                <div class="card">
-                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
-                                  
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Mes 1</li>
-                                        </ul>
-                                
-                                </div>  
+                             
 
-                                </div>
-                                <div class="col-md-3 mb-4 text-center d-flex align-items-stretch"> 
-                                <div class="card">
-                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
+                             <div class="container-fluid mt-3">
+                                      <div class="row">
+                                          <?php
+                                          include_once PATH_DAOS . "/fotosDAO.php";
+                                          include_once PATH_HELPERS . "/html_helper.php";
 
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Mes 2</li>
-                                        </ul>
-                                
-                                </div>
-                                </div>
+                                          $resultado= mostrarfotos($perfilaccesoid);
+
+                                          while ($fotosalbum = $resultado->fetch_assoc()) {
+                                              crearHTMLfotosalbumpyc($fotosalbum["nombrefoto"], $fotosalbum["fecha_foto"]);
+                                            }  
 
 
-                                </div>
+                                          ?>
 
+                                          </div>
+
+                                 </div>
 
 
                           </div>

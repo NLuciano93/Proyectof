@@ -66,45 +66,6 @@
 
 
 
-	<div class="posteo">
-			<div class="card">
-						<div class="row no-gutters">
-						    <div class="col-md-2">
-						      <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img border rounded-circle" alt="...">
-						    </div>
-						    <div class="col-md-8">
-						      <div class="card-body">
-						        <h5 class="card-title">Nombre de usuario</h5>
-						        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae delectus iusto maiores eveniet aspernatur harum voluptates labore. Quasi veniam nulla modi ipsam, quibusdam voluptatem error, eum mollitia eligendi doloribus, facilis.</p>
-						        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-						        <div>
-									<span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
-								</div>	
-						      </div>
-						    </div>
-						  </div>
-						</div>
-			</div>
-
-			<div class="posteo">
-			<div class="card">
-						<div class="row no-gutters">
-						    <div class="col-md-2">
-						      <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img border rounded-circle" alt="...">
-						    </div>
-						    <div class="col-md-8">
-						      <div class="card-body">
-						        <h5 class="card-title">Nombre de usuario</h5>
-						        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae delectus iusto maiores eveniet aspernatur harum voluptates labore. Quasi veniam nulla modi ipsam, quibusdam voluptatem error, eum mollitia eligendi doloribus, facilis.</p>
-						        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-						        <div>
-									<span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
-								</div>	
-						      </div>
-						    </div>
-						  </div>
-						</div>
-			</div>
 
 			
 		</div>

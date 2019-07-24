@@ -40,31 +40,33 @@
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
+                         
                           <div class="tab-pane fade show active" id="fotosprofe" role="tabpanel" aria-labelledby="fotosprofe-tab">
-                            <div class="m-5 row">
-                                <div class="col-md-3 mb-4 text-center d-flex align-items-stretch">
-                                <div class="card">
-                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
-                                  
-                                        
-                                
-                                </div>  
+                         
+                            <div class="container-fluid mt-3">
+                                      
+                                      <div class="row">
+                                          <?php
+                                          include_once PATH_DAOS . "/fotosDAO.php";
+                                          include_once PATH_HELPERS . "/html_helper.php";
 
-                                </div>
-                                <div class="col-md-3 mb-4 text-center d-flex align-items-stretch"> 
-                                <div class="card">
-                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
+                                          $resultado= mostrarfotos($perfilaccesoid);
 
-                                       
-                                </div>
-                                </div>
+                                          while ($fotosalbum = $resultado->fetch_assoc()) {
+                                              crearHTMLfotosalbumpyc($fotosalbum["nombrefoto"]);
+                                            }  
 
 
-                                </div>
+                                          ?>
 
+                                          </div>
+
+                                 </div>
 
 
                           </div>
+
+
                           <div class="tab-pane fade" id="cvprofe" role="tabpanel" aria-labelledby="cvprofe-tab">
                            
 

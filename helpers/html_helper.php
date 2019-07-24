@@ -187,7 +187,46 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
       ?>
 
 
+        <?php
+
+          function crearHTMLfotosalbum($rfoto, $fechafoto){
+
+        ?>
+
+                          <div class="col-md-3 mb-4 text-center d-flex align-items-stretch">
+                                  <div class="card">
+                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top" alt="...">
+                                           <div class="card-body">
+                                              <p class="card-text"><small class="text-muted"><?= $fechafoto ?></small></p>
+                                                </div>
+                                          </div>
+
+                                      </div>
 
 
+
+         <?php
+          }
+        ?>
+
+        <?php
+
+          function crearHTMLfotosalbumpyc($rfoto){
+
+        ?>
+
+                          <div class="col-md-4 mb-4 text-center d-flex align-items-stretch">
+                                  <div class="card">
+                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top" alt="...">
+
+                                          </div>
+
+                                      </div>
+
+
+
+         <?php
+          }
+        ?>
 
 

@@ -39,31 +39,49 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="m-5 row">
-                                <div class="col-md-3 mb-4 text-center d-flex align-items-stretch">
-                                <div class="card">
-                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
-                                  
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Mes 1</li>
-                                        </ul>
-                                
-                                </div>  
+                            
+                            <div>
+                                <form enctype="multipart/form-data" action="index.php" method="POST">
+                                  <input type="hidden" name="m" value="perfil">
+                                    <div class="form-group">
+                                      <label for="exampleFormControlFile1">Agrega foto</label>
+                                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" required>
+                                    </div>
+                                    <input type="submit" name="submit" value="PUBLICA TU FOTO" class="btn btn-primary">
+                                  </form>
 
-                                </div>
-                                <div class="col-md-3 mb-4 text-center d-flex align-items-stretch"> 
-                                <div class="card">
-                                  <img src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" class="card-img-top" alt="...">
+                              </div>
 
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">Mes 2</li>
-                                        </ul>
-                                
-                                </div>
-                                </div>
+                            <?php 
+
+                              include_once PATH_VIEWS .'/perfil/partials/subirfoto.php';
 
 
+                                        ?>
+
+
+                   <div class="container-fluid mt-3">
+                            <div class="row">
+                                <?php
+                                include_once PATH_DAOS . "/fotosDAO.php";
+                                include_once PATH_HELPERS . "/html_helper.php";
+
+                                $resultado= mostrarfotos($_SESSION["id_usuario"]);
+
+                                while ($fotosalbum = $resultado->fetch_assoc()) {
+                                    crearHTMLfotosalbum($fotosalbum["nombrefoto"], $fotosalbum["fecha_foto"]);
+                                  }  
+
+
+
+
+                                ?>
+
+
+
                                 </div>
+
+                       </div>
 
 
 
