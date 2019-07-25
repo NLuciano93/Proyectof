@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-07-2019 a las 18:01:31
+-- Tiempo de generación: 25-07-2019 a las 02:08:51
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -103,6 +103,29 @@ CREATE TABLE `especialidades_usuarios_profesores` (
 INSERT INTO `especialidades_usuarios_profesores` (`id_profesor`, `id_esp_prof`) VALUES
 (3, 5),
 (4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fotos`
+--
+
+CREATE TABLE `fotos` (
+  `id_foto` int(100) NOT NULL,
+  `id_foto_usr` int(100) NOT NULL,
+  `nombrefoto` varchar(100) NOT NULL,
+  `fecha_foto` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `fotos`
+--
+
+INSERT INTO `fotos` (`id_foto`, `id_foto_usr`, `nombrefoto`, `fecha_foto`) VALUES
+(1, 1, '141a880237280b1068ffdb62d5d181e6.jpg', '2019-07-24 14:02:42'),
+(3, 1, 'a74787139aa78afbff153475ba13696c.jpg', '2019-07-24 14:27:41'),
+(4, 4, '658d5b0eaccaab87390ce59cf482936a.jpg', '2019-07-24 16:30:46'),
+(5, 6, 'd0a6c9464791f408f5bd9e1b2ff395b5.jpg', '2019-07-24 16:34:59');
 
 -- --------------------------------------------------------
 
@@ -278,6 +301,13 @@ ALTER TABLE `especialidades_usuarios_profesores`
   ADD KEY `id_esp_prof` (`id_esp_prof`);
 
 --
+-- Indices de la tabla `fotos`
+--
+ALTER TABLE `fotos`
+  ADD PRIMARY KEY (`id_foto`),
+  ADD KEY `id_foto_usr` (`id_foto_usr`);
+
+--
 -- Indices de la tabla `localidad`
 --
 ALTER TABLE `localidad`
@@ -333,6 +363,12 @@ ALTER TABLE `especialidades_profes`
   MODIFY `esp_profe_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de la tabla `fotos`
+--
+ALTER TABLE `fotos`
+  MODIFY `id_foto` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
@@ -373,6 +409,12 @@ ALTER TABLE `actividades_usario_centro`
 ALTER TABLE `especialidades_usuarios_profesores`
   ADD CONSTRAINT `especialidades_usuarios_profesores_ibfk_2` FOREIGN KEY (`id_esp_prof`) REFERENCES `especialidades_profes` (`esp_profe_id`),
   ADD CONSTRAINT `especialidades_usuarios_profesores_ibfk_3` FOREIGN KEY (`id_profesor`) REFERENCES `usuario_profe` (`usr_pf_id`);
+
+--
+-- Filtros para la tabla `fotos`
+--
+ALTER TABLE `fotos`
+  ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`id_foto_usr`) REFERENCES `usuarios` (`usr_id`);
 
 --
 -- Filtros para la tabla `localidad`
