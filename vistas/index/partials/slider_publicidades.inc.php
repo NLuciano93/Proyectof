@@ -15,11 +15,11 @@
 				      		</a>
 				    	</div>
 				    	<div class="carousel-item">
-				      		<a href="index.php?m=bus_centro"><img src="<?= PATH_IMAGENES . '/centro3.png' ?>" class="d-block w-100" height="500px" alt="">
+				      		<a href="index.php?m=busqueda&tipo=centro"><img src="<?= PATH_IMAGENES . '/centro3.png' ?>" class="d-block w-100" height="500px" alt="">
 				      		</a>				      		
 				    	</div>
 				    	<div class="carousel-item">
-				      		<a href="index.php?m=bus_profe"><img src="<?= PATH_IMAGENES . '/profe2.png' ?>" class="d-block w-100"height="500px" alt="">
+				      		<a href="index.php?m=busqueda&tipo=profe"><img src="<?= PATH_IMAGENES . '/profe2.png' ?>" class="d-block w-100"height="500px" alt="">
 				      		</a>
 				    	</div>
 				  </div>
