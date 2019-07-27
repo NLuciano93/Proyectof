@@ -1,17 +1,20 @@
 <?php
 
-    include PATH_HELPERS . "/database_helper.php";
+    include_once PATH_HELPERS . "/database_helper.php";
 
-	$id_provincia = $_GET["id_provincia"];
 
-    $conexion = getConexion();
 
-    $consulta = "SELECT * FROM localidad WHERE loca_prov_id = " . $id_provincia;
+		
+		function busquedalocalidad($id_localidad){
 
-    $resultado = $conexion->query($consulta);
+			$conexion = getConexion();
 
-    while ( $localidad = $resultado->fetch_assoc() ){
-        echo '<option value="' . $localidad["loca_id"] . '">' . $localidad["loca_nombre"] . '</option>';
-    }
+			$consulta = "SELECT * FROM localidad WHERE loca_id = " . $id_localidad;
 
-?>
+			$resultado = $conexion->query($consulta);
+
+			$localidad=  $resultado->fetch_assoc();
+
+			return $localidad;
+
+		}	

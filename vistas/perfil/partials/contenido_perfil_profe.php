@@ -96,10 +96,29 @@
 
 
                           <div class="tab-pane fade" id="cvprofe" role="tabpanel" aria-labelledby="cvprofe-tab">
+                            
+                            <?php
+
+                            include_once PATH_DAOS . "/cvDAO.php";
+
+                            $nomcv = obtenerCV($_SESSION["id_usuario"]);
+                            
+                            
+
+                            ?>
+                         
                            
+
+                           
+
 
                           </div>
                           <div class="tab-pane fade" id="especialidadprofe" role="tabpanel" aria-labelledby="especialidadprofe-tab">
+                            
+                            <?php
+
+                            
+
                             <h2><span class="badge badge-info">Funcional</span></h2>
                             <h2><span class="badge badge-info">Crossfit</span></h2>
                             <h2><span class="badge badge-info">Yoga</span></h2>
@@ -109,6 +128,7 @@
                           </div>
 
                            <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentario-tab">
+
                            
 
                           </div>

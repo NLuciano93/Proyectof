@@ -1,7 +1,9 @@
 <?php
 
 
-    function  crearHTMLCardProfe($usr_id,$nombreProfe,$edadProfe, $fotoProfe, $esProfe){
+    function  crearHTMLCardProfe($usr_id,$nombreProfe,$edadProfe, $fotoProfe, $esProfe, $id_localidad){
+       include_once PATH_DAOS . '/localidadDAO.php';
+      $nomlocalidad = busquedalocalidad($id_localidad);
 
 ?>
     
@@ -12,16 +14,16 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                       <a href="index.php?m=perfilacceso&tipo=profe&nombre=<?=$usr_id?>"> <h5 class="card-title"><?= $nombreProfe ?></h5></a>
+                       <a href="index.php?m=perfilacceso&tipo=profe&nombre=<?=$usr_id?>"> <h5 class="card-title mt-2"><?= $nombreProfe ?></h5></a>
                         <br>
                         <div>
-                        <span class="card-text">Edad: <?= $edadProfe ?></span>
+                        <span class="card-text mt-2">Edad: <?= $edadProfe ?></span>
                         </div>
                          <div>
-                        <span class="card-text">Localidad:</span>
+                        <span class="card-text mt-2">Localidad: <?= $nomlocalidad["loca_nombre"] ?></span>
                         </div>
                         <div>
-                        <span class="card-text"><?php
+                        <span class="card-text mt-2"><?php
                           if ( $esProfe== 1) {
                            echo "PROFESOR/A EDUCACIÓN FÍSICA";
                           }
@@ -76,7 +78,9 @@
 
 <?php
 
-function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCentro ){
+function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCentro, $id_localidad ){
+      include_once PATH_DAOS . '/localidadDAO.php';
+      $nomlocalidad = busquedalocalidad($id_localidad);
 
 ?>
 
@@ -89,19 +93,22 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
             <div class="col-md-8">
               <div class="card-body">
-                <a href="index.php?m=perfilacceso&tipo=centro&nombre=<?=$usr_id?>"><h5 class="card-title"><?= $nombre_centro ?></h5></a>
-                <br>
+                <a href="index.php?m=perfilacceso&tipo=centro&nombre=<?=$usr_id?>"><h5 class="card-title mt-2"><?= $nombre_centro ?></h5></a>
+                
                 <div>
-                <span class="card-text">Direccion:<?= " ". $direccionCentro?></span>
+                <span class="card-text mt-2">Direccion:<?= " ". $direccionCentro?></span>
                 </div>
-                <br>
+               
+                 <div>
+                 <span class="card-text mt-2">Localidad: <?= $nomlocalidad["loca_nombre"] ?></span>
+                 </div>
                 <div>
-                <span class="card-text">Actividades:</span>
+                <span class="card-text mt-2">Actividades:</span>
                 </div>
-                <br>
+                
 
                 <div>
-                <span class="card-text"><small class="text-muted">Calificación:</small></span>
+                <span class="card-text mt-2"><small class="text-muted">Calificación:</small></span>
               </div>
                 <div class="botone">
                      <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>

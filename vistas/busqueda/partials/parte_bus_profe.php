@@ -13,7 +13,7 @@
          		$resultado = buscarProfes( $busqueda, $localidad );
 
          		while( $profe= $resultado->fetch_assoc() ){
-         			crearHTMLcardProfe($profe["usr_id"], $profe["usr_nombre"], $profe["usr_edad"],$profe["usr_foto"], $profe["pf_educ_fisica"]);
+         			crearHTMLcardProfe($profe["usr_id"], $profe["usr_nombre"], $profe["usr_edad"],$profe["usr_foto"], $profe["pf_educ_fisica"], $profe["usr_localidad"]);
 
          		}
 
