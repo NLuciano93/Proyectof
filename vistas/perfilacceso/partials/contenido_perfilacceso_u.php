@@ -50,7 +50,7 @@
                                           $resultado= mostrarfotos($perfilaccesoid);
 
                                           while ($fotosalbum = $resultado->fetch_assoc()) {
-                                              crearHTMLfotosalbumpyc($fotosalbum["nombrefoto"], $fotosalbum["fecha_foto"]);
+                                              crearHTMLfotosalbum($fotosalbum["nombrefoto"], $fotosalbum["fecha_foto"]);
                                             }  
 
 

@@ -11,8 +11,14 @@ function buscarCentros( $nombreCentro, $localidad ){
                 WHERE usuarios.usr_id = usuario_centro.usr_centro_id";
 
     if ( $nombreCentro != '' ){
-        $consulta .= " AND usuarios.usr_nombre LIKE '%$nombreCentro%'";
+        $consulta .= " AND usuarios.usr_nombre LIKE '%". $nombreCentro. "%' ";
     }
+
+     if ( $localidad != '-1') {
+
+     	$consulta .= " AND usr_localidad = ". $localidad;
+    		
+     }
 
 
     $resultado = $conexion->query($consulta);

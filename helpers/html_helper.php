@@ -150,9 +150,9 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
       function crearHTMLpublicacion($id_usuario, $texto, $fotopubli, $nombrepubli, $fecha){
         include_once PATH_DAOS . '/accesoperfilDAO.php';
-
-
-       saberPerfil($id_usuario);
+        
+      $perfilacceso = saberPerfil($id_usuario);
+       
 
 ?>    
               <div class="posteo mt-3">
@@ -163,7 +163,7 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
                               </div>
                               <div class="col-md-8">
                                 <div class="card-body">
-                                  <a href="index.php?m=perfilacceso&tipo=<?= $perfilaccesotipo ?>&nombre=<?= $id_usuario ?>"><h5 class="card-title"><?= $nombrepubli ?></h5></a>
+                                  <a href="index.php?m=perfilacceso&tipo=<?= $perfilacceso ?>&nombre=<?= $id_usuario ?>"><h5 class="card-title"><?= $nombrepubli ?></h5></a>
                                   <p class="card-text"><?= $texto ?></p>
                                   <p class="card-text"><small class="text-muted"><?= $fecha ?></small></p>
                                   <div>

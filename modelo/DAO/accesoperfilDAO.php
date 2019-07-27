@@ -168,11 +168,11 @@ function saberPerfil($id_usuario){
             
 
 }
-
+return $perfilaccestipo;
 }
 
 
 
-
+   
 
 ?>
