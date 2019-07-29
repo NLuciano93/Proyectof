@@ -15,6 +15,60 @@
 </head>
 
 <body>
+
+  <?php
+  if (isset ($_GET["registrar"])) {
+    include_once PATH_HELPERS ."/database_helper.php";
+
+    $nombre= $_GET["nombre"];
+    $telefono = $_GET["telefono"];
+    $mail = $_GET["mail"];
+
+    $conexion = getConexion();
+
+    $sql= "SELECT * FROM usuarios WHERE usr_mail = '" . $_GET["mail"] . "'";
+
+    $resultado = $conexion->query( $sql );
+
+
+        if ( $resultado->num_rows == 1  ){
+
+            echo "Ese mail esta en uso";
+
+        }
+        else{
+            $sql = " INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_localidad`, `usr_contrasena`, `usr_foto`, `usr_facebook`, `usr_instagram`, `usr_twitter`, `usr_edad`, `descripcion`, `usr_registro`) VALUES (NULL,".
+                " '$nombre', '$telefono', '$mail', '5', 'asda', 'asd', 'asd', 'asd', 'asd', '23', 'asd', 'CURRENT_TIMESTAMP(6).000000')";
+
+                $conexion->query($sql); 
+
+                  if ($_GET["tipo"]=="centro") {
+                    $ultimo_id = $conexion->insert_id;
+                    $direccion = $_GET["direccion"];
+                    $horarios = $_GET["horarios"];
+
+                    $sql = "INSERT INTO usuario_centro (usr_centro_id, usr_centro_direccion, usr_centro_horarios) VALUES ('$ultimo_id','$direccion', '$horarios')"; 
+
+                echo $sql;
+
+                    $conexion->query($sql);
+
+                  }
+
+             //header("Location: index.php");
+
+        }
+
+
+ 
+
+    
+
+
+  }
+
+
+  ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -30,9 +84,9 @@
 				</nav>
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-				  	<form class="form-horizontal border ">
+				  	<form class="form-horizontal border" action="index.php" method="GET">
 					<fieldset>
-
+            <input type="hidden" name="m" value="registro">
 					<!-- Form Name -->
 					<legend class="d-flex justify-content-center ">Registro Usuario</legend>
 
@@ -40,7 +94,7 @@
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="Nombre">Nombre completo</label>  
 					  <div class="col-md-4">
-					  <input id="Nombre" name="Nombre" type="text" placeholder="" class="form-control input-md" required="">
+					  <input id="Nombre" name="nombre" type="text" placeholder="" class="form-control input-md" required="">
 					    
 					  </div>
 					</div>
@@ -67,7 +121,7 @@
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="edad">Edad</label>  
 					  <div class="col-md-4">
-					  <input id="edad" name="edad" type="text" placeholder="" class="form-control input-md">
+					  <input id="edad" name="edad" type="number" placeholder="" class="form-control input-md">
 					    
 					  </div>
 					</div>
@@ -116,7 +170,7 @@
 
 					<div class="form-group">
                             <label for="exampleFormControlFile1">Agrega foto perfil</label>
-                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" required>
+                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" >
                       </div>							
 
 
@@ -148,7 +202,7 @@
 					  </div>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<input type="submit" name="registrar" value="Registrar" class="btn btn-primary">
 
 					</fieldset>
 				</form>
@@ -159,7 +213,10 @@
 				  <div class="tab-pane fade shadow-lg p-3 mb-5 bg-white rounded" id="nav-profe" role="tabpanel" aria-labelledby="nav-profe-tab">
 
 
-				  	<form class="form-horizontal">
+				  	<form class="form-horizontal" action="index.php" method="GET">
+
+              <input type="hidden" name="m" value="registro">
+              <input type="hidden" name="tipo" value="profe">
 										<fieldset>
 
 										<!-- Form Name -->
@@ -169,7 +226,7 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="Nombre">Nombre completo</label>  
 										  <div class="col-md-4">
-										  <input id="Nombre" name="Nombre" type="text" placeholder="" class="form-control input-md" required="">
+										  <input id="Nombre" name="nombre" type="text" placeholder="" class="form-control input-md" required="">
 										    
 										  </div>
 										</div>
@@ -190,7 +247,7 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="mail">Mail</label>  
 										  <div class="col-md-4">
-										  <input id="mail" name="mail" type="text" placeholder="" class="form-control input-md" required="">
+										  <input id="mail" name="mail" type="mail" placeholder="" class="form-control input-md" required="">
 										    
 										  </div>
 										</div>
@@ -198,7 +255,7 @@
 											<div class="form-group">
 											  <label class="col-md-4 control-label" for="edad">Edad</label>  
 											  <div class="col-md-4">
-											  <input id="edad" name="edad" type="text" placeholder="" class="form-control input-md">
+											  <input id="edad" name="edad" type="number" placeholder="" class="form-control input-md">
 											    
 											  </div>
 											</div>	
@@ -282,7 +339,7 @@
 
 										<div class="form-group">
 					                            <label for="exampleFormControlFile1">Agrega foto perfil</label>
-					                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" required>
+					                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" >
 					                      </div>	
 
 										<!-- File Button --> 
@@ -334,7 +391,7 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for=""></label>
 										  <div class="col-md-4">
-										    <button id="" name="" class="btn btn-primary">Registrar</button>
+										      <input type="submit" name="registrar" value="Registrar" class="btn btn-primary">
 										  </div>
 										</div>
 
@@ -348,7 +405,9 @@
 				  <div class="tab-pane fade shadow-lg p-3 mb-5 bg-white rounded" id="nav-gimnasio" role="tabpanel" aria-labelledby="nav-gimnasio-tab">
 
 
-				  	<form class="form-horizontal">
+				  	<form class="form-horizontal" action="index.php" method="GET">
+              <input type="hidden" name="m" value="registro">
+              <input type="hidden" name="tipo" value="centro">
 										<fieldset>
 
 										<!-- Form Name -->
@@ -358,7 +417,7 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="Nombre">Nombre completo</label>  
 										  <div class="col-md-4">
-										  <input id="Nombre" name="Nombre" type="text" placeholder="" class="form-control input-md" required="">
+										  <input id="Nombre" name="nombre" type="text" placeholder="" class="form-control input-md" required="">
 										    
 										  </div>
 										</div>
@@ -376,7 +435,7 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="mail">Mail</label>  
 										  <div class="col-md-4">
-										  <input id="mail" name="mail" type="text" placeholder="" class="form-control input-md" required="">
+										  <input id="mail" name="mail" type="mail" placeholder="" class="form-control input-md" required="">
 										    
 										  </div>
 										</div>
@@ -460,15 +519,22 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="Horarios">Horarios</label>
 										  <div class="col-md-4">                     
-										    <textarea class="form-control" id="Horarios" name="Horarios">(EJ: Lu a Vi 8 a 22hs)</textarea>
+										    <textarea class="form-control" id="horarios" name="horarios">(EJ: Lu a Vi 8 a 22hs)</textarea>
 										  </div>
 										</div>
+                      <!-- Textarea -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="direccion">direccion</label>
+                      <div class="col-md-4">                     
+                        <textarea class="form-control" id="direccion" name="direccion">(EJ: Lu a Vi 8 a 22hs)</textarea>
+                      </div>
+                    </div>
 
 										<!-- foto -->
 
 										<div class="form-group">
 					                            <label for="exampleFormControlFile1">Agrega foto perfil</label>
-					                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" required>
+					                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" >
 					                      </div>	
 
 
@@ -513,7 +579,7 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for=""></label>
 										  <div class="col-md-4">
-										    <button id="" name="" class="btn btn-primary">Registrar</button>
+										    <input type="submit" name="registrar" value="Registrar" class="btn btn-primary">
 										  </div>
 										</div>
 
