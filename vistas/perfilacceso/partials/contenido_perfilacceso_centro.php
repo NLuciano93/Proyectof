@@ -16,6 +16,7 @@
                             <li class="list-group-item">Localidad: <?= $perfilaccesolocalidad?></li>                          
                             <li class="list-group-item">Telefono:  <?= $perfilaccesotel?></li>
                             <li class="list-group-item">Mail contacto: <?= $perfilaccesomail?></li>
+                            <li class="list-group-item">Horarios: <?= $perfilaccesohorarios?></li>
 
                            
                           </ul>

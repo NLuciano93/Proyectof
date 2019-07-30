@@ -17,57 +17,8 @@
 <body>
 
   <?php
-  if (isset ($_GET["registrar"])) {
-    include_once PATH_HELPERS ."/database_helper.php";
 
-    $nombre= $_GET["nombre"];
-    $telefono = $_GET["telefono"];
-    $mail = $_GET["mail"];
-
-    $conexion = getConexion();
-
-    $sql= "SELECT * FROM usuarios WHERE usr_mail = '" . $_GET["mail"] . "'";
-
-    $resultado = $conexion->query( $sql );
-
-
-        if ( $resultado->num_rows == 1  ){
-
-            echo "Ese mail esta en uso";
-
-        }
-        else{
-            $sql = " INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_localidad`, `usr_contrasena`, `usr_foto`, `usr_facebook`, `usr_instagram`, `usr_twitter`, `usr_edad`, `descripcion`, `usr_registro`) VALUES (NULL,".
-                " '$nombre', '$telefono', '$mail', '5', 'asda', 'asd', 'asd', 'asd', 'asd', '23', 'asd', 'CURRENT_TIMESTAMP(6).000000')";
-
-                $conexion->query($sql); 
-
-                  if ($_GET["tipo"]=="centro") {
-                    $ultimo_id = $conexion->insert_id;
-                    $direccion = $_GET["direccion"];
-                    $horarios = $_GET["horarios"];
-
-                    $sql = "INSERT INTO usuario_centro (usr_centro_id, usr_centro_direccion, usr_centro_horarios) VALUES ('$ultimo_id','$direccion', '$horarios')"; 
-
-                echo $sql;
-
-                    $conexion->query($sql);
-
-                  }
-
-             //header("Location: index.php");
-
-        }
-
-
- 
-
-    
-
-
-  }
-
-
+     include_once PATH_DAOS . '/registroDAO.php';
   ?>
 	<div class="container">
 		<div class="row">
@@ -84,9 +35,9 @@
 				</nav>
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-				  	<form class="form-horizontal border" action="index.php" method="GET">
+				  	<form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="POST">
 					<fieldset>
-            <input type="hidden" name="m" value="registro">
+           	 		<input type="hidden" name="m" value="registro">
 					<!-- Form Name -->
 					<legend class="d-flex justify-content-center ">Registro Usuario</legend>
 
@@ -130,10 +81,15 @@
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="provincia">Provincia</label>
 					  <div class="col-md-4">
-					    <select id="provincia" name="provincia" class="form-control">
-					      <option value="1">Buenos Aires</option>
-					      <option value="2">Caba</option>
-					    </select>
+							<select name="provincia" class="form-control" id="provincia">
+								 <?php
+					                  include_once PATH_DAOS. '/busqueDAO.php';
+
+
+					                       echo getComboProvincia();
+
+					                 ?>
+						 </select>
 					  </div>
 					</div>
 
@@ -141,10 +97,10 @@
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="localidad">Localidad</label>
 					  <div class="col-md-4">
-					    <select id="localidad" name="localidad" class="form-control">
-					      <option value="1">San Isidro</option>
-					      <option value="2">San fernando</option>
-					    </select>
+					      <select  name="localidad" id="localidad" class="form-control" >
+			               <option value="-1">Elegí primero Provincia </option>
+
+			    		  </select>
 					  </div>
 					</div>
 
@@ -213,7 +169,7 @@
 				  <div class="tab-pane fade shadow-lg p-3 mb-5 bg-white rounded" id="nav-profe" role="tabpanel" aria-labelledby="nav-profe-tab">
 
 
-				  	<form class="form-horizontal" action="index.php" method="GET">
+				  	<form class="form-horizontal" enctype="multipart/form-data" action="index.php" method="POST">
 
               <input type="hidden" name="m" value="registro">
               <input type="hidden" name="tipo" value="profe">
@@ -251,7 +207,7 @@
 										    
 										  </div>
 										</div>
-								<!-- Text input-->
+										<!-- Text input-->
 											<div class="form-group">
 											  <label class="col-md-4 control-label" for="edad">Edad</label>  
 											  <div class="col-md-4">
@@ -264,10 +220,15 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="provincia">Provincia</label>
 										  <div class="col-md-4">
-										    <select id="provincia" name="provincia" class="form-control">
-										      <option value="1">Buenos Aires</option>
-										      <option value="2">Caba</option>
-										    </select>
+										  	<select name="provincia" class="form-control" id="provinciaprof">
+												     <?php
+					                        			 include_once PATH_DAOS. '/busqueDAO.php';
+
+
+					                          				 echo getComboProvincia();
+
+					                        		 ?>
+												</select>
 										  </div>
 										</div>
 
@@ -275,10 +236,10 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="localidad">Localidad</label>
 										  <div class="col-md-4">
-										    <select id="localidad" name="localidad" class="form-control">
-										      <option value="1">San Isidro</option>
-										      <option value="2">San fernando</option>
-										    </select>
+										       <select  name="localidad" id="localidadprof" class="form-control" >
+			                  					<option value="-1">Elegí primero Provincia </option>
+
+			    					   			 </select>
 										  </div>
 										</div>
 
@@ -350,37 +311,51 @@
 										  </div>
 										</div>
 
+										<!-- Profe boton -->
+										<!-- Multiple Checkboxes -->
+												<div class="form-group">
+												  <label class="col-md-4 control-label" for="profeED">PROFESOR/A DE EDUCACIÓN FÍSICA</label>
+												  <div class="col-md-4">
+												  <div class="checkbox">
+												    <label for="profeED">
+												      <input type="checkbox" name="profeED" id="checkboxes-0" value="1">
+												      Option one
+												    </label>
+													</div>
+												  </div>
+												</div>
+
 										<!-- Multiple Checkboxes -->
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="especialidad">Especialidades</label>
 										  <div class="col-md-4">
 										  <div class="checkbox">
 										    <label for="especialidad-0">
-										      <input type="checkbox" name="especialidad" id="especialidad-0" value="1">
+										      <input type="checkbox" name="personaltrainer" id="especialidad-0" value="1">
 										      Personal Trainer
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-1">
-										      <input type="checkbox" name="especialidad" id="especialidad-1" value="2">
+										      <input type="checkbox" name="deportes" id="especialidad-1" value="2">
 										      Deportes
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-2">
-										      <input type="checkbox" name="especialidad" id="especialidad-2" value="3">
+										      <input type="checkbox" name="funcional" id="especialidad-2" value="3">
 										      Funcional
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-3">
-										      <input type="checkbox" name="especialidad" id="especialidad-3" value="4">
+										      <input type="checkbox" name="crossfit" id="especialidad-3" value="4">
 										      Crossfit 
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-4">
-										      <input type="checkbox" name="especialidad" id="especialidad-4" value="5">
+										      <input type="checkbox" name="yoga" id="especialidad-4" value="5">
 										     Yoga
 										    </label>
 											</div>
@@ -405,7 +380,7 @@
 				  <div class="tab-pane fade shadow-lg p-3 mb-5 bg-white rounded" id="nav-gimnasio" role="tabpanel" aria-labelledby="nav-gimnasio-tab">
 
 
-				  	<form class="form-horizontal" action="index.php" method="GET">
+				  	<form class="form-horizontal" enctype="multipart/form-data" action="index.php" method="POST">
               <input type="hidden" name="m" value="registro">
               <input type="hidden" name="tipo" value="centro">
 										<fieldset>
@@ -444,10 +419,17 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="provincia">Provincia</label>
 										  <div class="col-md-4">
-										    <select id="provincia" name="provincia" class="form-control">
-										      <option value="1">Buenos Aires</option>
-										      <option value="2">Caba</option>
-										    </select>
+										   
+							    
+												    <select name="provincia" class="form-control" id="provinciacen">
+												     <?php
+					                        			 include_once PATH_DAOS. '/busqueDAO.php';
+
+
+					                          				 echo getComboProvincia();
+
+					                        		 ?>
+												    </select>
 										  </div>
 										</div>
 
@@ -455,10 +437,12 @@
 										<div class="form-group">
 										  <label class="col-md-4 control-label" for="localidad">Localidad</label>
 										  <div class="col-md-4">
-										    <select id="localidad" name="localidad" class="form-control">
-										      <option value="1">San Isidro</option>
-										      <option value="2">San fernando</option>
-										    </select>
+										    
+
+											    <select  name="localidad" id="localidadcen" class="form-control" >
+			                  					<option value="-1">Elegí primero Provincia </option>
+
+			    					   			 </select>
 										  </div>
 										</div>
 
@@ -544,31 +528,31 @@
 										  <div class="col-md-4">
 										  <div class="checkbox">
 										    <label for="especialidad-0">
-										      <input type="checkbox" name="especialidad" id="especialidad-0" value="1">
+										      <input type="checkbox" name="musculacion" id="especialidad-0" value="1">
 										      Musculación 										    
 										  </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-1">
-										      <input type="checkbox" name="especialidad" id="especialidad-1" value="2">
+										      <input type="checkbox" name="crossfit" id="especialidad-1" value="2">
 										     Crossfit
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-2">
-										      <input type="checkbox" name="especialidad" id="especialidad-2" value="3">
+										      <input type="checkbox" name="funcional" id="especialidad-2" value="3">
 										      Funcional
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-3">
-										      <input type="checkbox" name="especialidad" id="especialidad-3" value="4">
+										      <input type="checkbox" name="yoga" id="especialidad-3" value="4">
 										      Yoga
 										    </label>
 											</div>
 										  <div class="checkbox">
 										    <label for="especialidad-4">
-										      <input type="checkbox" name="especialidad" id="especialidad-4" value="5">
+										      <input type="checkbox" name="zumba" id="especialidad-4" value="5">
 										      Zumba
 										    </label>
 											</div>
@@ -606,8 +590,103 @@
 			</div>
 		</div>
 	</div>
+	
+
+
+
+
 
 	<script src="<?= PATH_VENDOR ?>/jquery/jquery-3.4.1.min.js"></script>
+
+
+
+
+			  <script>
+			    
+
+			    $("#provincia").change( 
+
+			      function(){
+			        pedirDatos( $( "#provincia")[0].value );  
+			      }
+			       
+			    );
+
+			    function pedirDatos( id_provincia_seleccionada ){
+			    
+
+			      parametros = { id_provincia: id_provincia_seleccionada };
+
+			      $.get( "example.php", parametros )
+			        
+			        .done(function( data ) {
+
+			          $( "#localidad" ).html(data);
+			        })
+
+			        .fail(function() {
+			          alert( "Error al obtener las localidades" );
+			        })
+			       
+			    }
+			   
+
+			     $("#provinciaprof").change( 
+
+			      function(){
+			        pedirDatosprof( $( "#provinciaprof")[0].value );  
+			      }
+			       
+			    );
+
+			    function pedirDatosprof( id_provincia_seleccionada ){
+			    
+
+			      parametros = { id_provincia: id_provincia_seleccionada };
+
+			      $.get( "example.php", parametros )
+			        
+			        .done(function( data ) {
+
+			          $( "#localidadprof" ).html(data);
+			        })
+
+			        .fail(function() {
+			          alert( "Error al obtener las localidades" );
+			        })
+			       
+			    }
+
+				
+			     $("#provinciacen").change( 
+
+			      function(){
+			        pedirDatoscen( $( "#provinciacen")[0].value );  
+			      }
+			       
+			    );
+
+			    function pedirDatoscen( id_provincia_seleccionada ){
+			    
+
+			      parametros = { id_provincia: id_provincia_seleccionada };
+
+			      $.get( "example.php", parametros )
+			        
+			        .done(function( data ) {
+
+			          $( "#localidadcen" ).html(data);
+			        })
+
+			        .fail(function() {
+			          alert( "Error al obtener las localidades" );
+			        })
+			       
+			    }
+
+
+			</script>
+
 	<script src="<?= PATH_VENDOR ?>/bootstrap/js/bootstrap.min.js"></script>				
 </body>
 </html>

@@ -16,6 +16,8 @@
                             <li class="list-group-item">Localidad: <?= $_SESSION[ "localidad"]?></li>                          
                             <li class="list-group-item">Telefono:  <?= $_SESSION["tel"]?></li>
                             <li class="list-group-item">Mail contacto: <?= $_SESSION["mail"]?></li>
+                            <li class="list-group-item">Horarios: <?= $_SESSION["horarios"]?></li>
+
 
                            
                           </ul>

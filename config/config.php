@@ -1,6 +1,6 @@
 <?php
 
-    define('SITE_FOLDER', 'alumnos/sanfer2019/luciano_natiello/Proyectof');
+    define('SITE_FOLDER', 'Proyectof');
 
     define('ROOT_URL', strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http'."://".$_SERVER['HTTP_HOST'] . "/" . SITE_FOLDER);
 
@@ -13,6 +13,10 @@
     define("PATH_DAOS", SITE_ROOT . "/modelo/DAO");
 
     define("UPLOAD_IMAGE_PATH", SITE_ROOT . "/files/imagenes");
+
+    define("UPLOAD_PERFIL_PATH", SITE_ROOT . "/files/perfiles");
+
+    define("UPLOAD_CV_PATH", SITE_ROOT . "/files/cv");
 
     define("FILES", ROOT_URL . "/files");
     
