@@ -16,7 +16,8 @@
                           <ul class="list-group list-group-flush">
                             <li class="list-group-item">Edad: <?= $_SESSION["edad"]?></li>
                             <li class="list-group-item">Localidad: <?= $_SESSION["localidad"]?></li>
-                           
+                            <li class="list-group-item">Mail de contacto: <?= $_SESSION["mail"]?></li>
+                            
                           </ul>
                           <div class="card-body">
                             <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
@@ -35,6 +36,9 @@
                           
                           <li class="nav-item">
                             <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="actualizar-tab" data-toggle="tab" href="#actualizar" role="tab" aria-controls="actualizar" aria-selected="false">Actualizar datos</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -81,15 +85,327 @@
 
                                 </div>
 
-                       </div>
+                    </div>
 
 
 
-                          </div>
+             </div>
+                          
+
                           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
                       
 
+                          
+
                           <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentario-tab">...</div>
+
+                          
+
+
+
+
+                           <div class="tab-pane fade" id="actualizar" role="tabpanel" aria-labelledby="actualizar-tab">
+
+                                <?php
+                                   include_once PATH_HELPERS .'/database_helper.php';
+                                   $conexion = getConexion();
+
+                                      if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
+                                                                  
+
+                                                  $fileTmpPath = $_FILES['foto']['tmp_name'];
+                                                  $fileName = $_FILES['foto']['name'];
+
+                                                  $fileNameCmps = explode(".", $fileName);
+                                                  $fileExtension = strtolower(end($fileNameCmps));
+
+                                                  $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+
+                                                  $allowedfileExtensions = array('jpg', 'gif', 'png', 'webp');
+
+                                                  if (in_array($fileExtension, $allowedfileExtensions)) {
+                                                                                
+                                                  $dest_path = UPLOAD_PERFIL_PATH . "/" . $newFileName;
+                                                                     
+                                                    if(move_uploaded_file($fileTmpPath, $dest_path))
+                                                                     {
+                                                                      
+                                                      $sql = "UPDATE usuarios SET " .
+                                                              "usr_foto = '".  $_SESSION["foto"] . "'  WHERE usr_id = " . $_SESSION["id"];
+
+                                                              $conexion->query($sql);
+                                                                   
+                                                                      
+                                                                     }
+                                                                     else
+                                                                     {
+
+                                                                       $mensaje_form = "ERROR AL SUBIR EL ARCHIVO";
+                                                                       echo $mensaje_form;
+                                                         
+                                                                     }
+                                                                   }
+                                                                   else{
+                                                                       $mensaje_form = "El archivo de imagen no es valido.";
+                                                                        echo $mensaje_form;
+
+                                                                      
+                                                                   }
+                                                    }
+                                                    else
+                                                      {
+                                                        $newFileName = $_SESSION["foto"];
+
+                                                      }
+
+                                          if (isset($_POST["actualizar"])) {
+
+                                            $sql = "UPDATE usuarios SET " .
+
+                                            if ($_POST["nombre"] != '') {
+                                              $nombre = $_POST["nombre"];
+                                             
+                                            }else{
+                                              $nombre = $_SESSION["usuario"];
+                                            }
+                                            if ($_POST["telefono"] != '') {
+                                              $telefono = $_POST["telefono"];
+                                             
+                                            }else{
+                                              $telefono = $_SESSION["tel"];
+                                            }
+                                              if ($_POST["mail"] !='') {
+                                              $mail = $_POST["mail"];
+                                             
+                                            }else{
+                                              $mail = $_SESSION["mail"];
+                                            }
+                                              if ($_POST["edad"] !='') {
+                                              $edad = $_POST["edad"];
+                                             
+                                            }else{
+                                              $edad = $_SESSION["edad"];
+                                            }
+                                              if ($_POST["localidad"] != -1) {
+                                              $localidad = $_POST["localidad"];
+                                             
+                                            }else{
+                                              $localidad = $_SESSION["localidad"];
+                                            }
+
+
+                                             if ($_POST["contrasena"] != '') {
+                                              $contrasena = $_POST["contrasena"];
+
+                                              //Revisar
+                                             
+                                            }
+
+
+
+                                            }
+                                             if ($_POST["facebook"] != '') {
+                                              $facebook = $_POST["facebook"];
+                                             
+                                            }else{
+                                              $facebook = $_SESSION["facebook"];
+                                            }
+                                             if ($_POST["twitter"] != '') {
+                                              $twitter = $_POST["twitter"];
+                                             
+                                            }else{
+                                              $twitter = $_SESSION["twitter"];
+                                            }
+                                             if ($_POST["instagram"] != '') {
+                                              $instagram = $_POST["instagram"];
+                                             
+                                            }else{
+                                              $instagram = $_SESSION["instagram"];
+
+                                            }
+
+
+
+                                              $sql= "SELECT * FROM usuarios WHERE usr_mail = '$mail'";
+
+                                              $resultado = $conexion->query( $sql );
+
+
+                                                  if ( $resultado->num_rows == 1  ){
+
+                                                      echo "Ese mail esta en uso";
+
+                                                  }
+                                                  else{
+
+                                                      $sql = "UPDATE
+
+
+
+                                                  }
+
+
+
+
+
+                                            
+                                          }
+
+
+
+
+
+
+
+
+                                ?>
+
+
+
+
+                                                <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
+                                                        <form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="GET">
+                                                      <fieldset>
+                                                            <input type="hidden" name="m" value="perfil">
+                                                     
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="Nombre">Nombre completo</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="Nombre" name="nombre" type="text" placeholder="<?= $_SESSION["usuario"] ?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="telefono">Teléfono/celular</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="telefono" name="telefono" type="text" placeholder="<?= $_SESSION["tel"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="mail">Mail</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="mail" name="mail" type="text" placeholder="<?= $_SESSION["mail"]?>" class="form-control input-md" >
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="edad">Edad</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="edad" name="edad" type="number" placeholder="<?= $_SESSION["edad"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Select Basic -->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="provincia">Provincia</label>
+                                                        <div class="col-md-6">
+                                                          <select name="provincia" class="form-control" id="provincia">
+                                                             <?php
+                                                                        include_once PATH_DAOS. '/busqueDAO.php';
+
+
+                                                                             echo getComboProvincia();
+
+                                                                       ?>
+                                                         </select>
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Select Basic -->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="localidad">Localidad</label>
+                                                        <div class="col-md-6">
+                                                            <select  name="localidad" id="localidad" class="form-control" >
+                                                                 <option value="-1">Elegí primero Provincia </option>
+
+                                                            </select>
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Password input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="contrasena">Cambia contraseña</label>
+                                                        <div class="col-md-6">
+                                                          <input id="contrasena" name="contrasena" type="password" placeholder="" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Password input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="repcontrasena">Repetir contraseña</label>
+                                                        <div class="col-md-6">
+                                                          <input id="repcontrasena" name="repcontrasena" type="password" placeholder="" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- foto -->
+
+                                                      <div class="form-group">
+                                                                        <label for="exampleFormControlFile1">Cambia foto perfil</label>
+                                                                         <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" >
+                                                                  </div>              
+
+
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="facebook">Perfil de Facebook (ejemplo: https://www.facebook.com/...)</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="facebook" name="facebook" type="text" placeholder="<?= $_SESSION["facebook"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="twitter">Twitter</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="twitter" name="twitter" type="text" placeholder="<?= $_SESSION["twitter"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="instagram">Instagram</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="instagram" name="instagram" type="text" placeholder="<?= $_SESSION["instagram"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary">
+
+                                                      </fieldset>
+                                                    </form>
+
+
+
+                                                      </div>
+
+
+
+
+
+
+
+                           </div>
+
+                        
+
+
                         </div>
 
                 
@@ -111,5 +427,38 @@
 
     </div>
 	
+  <script src="<?= PATH_VENDOR ?>/jquery/jquery-3.4.1.min.js"></script>
 
+
+
+
+        <script>
+          
+
+          $("#provincia").change( 
+
+            function(){
+              pedirDatos( $( "#provincia")[0].value );  
+            }
+             
+          );
+
+          function pedirDatos( id_provincia_seleccionada ){
+          
+
+            parametros = { id_provincia: id_provincia_seleccionada };
+
+            $.get( "example.php", parametros )
+              
+              .done(function( data ) {
+
+                $( "#localidad" ).html(data);
+              })
+
+              .fail(function() {
+                alert( "Error al obtener las localidades" );
+              })
+             
+          }
+        </script>
 

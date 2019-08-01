@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2019 a las 02:08:51
+-- Tiempo de generación: 01-08-2019 a las 03:55:35
 -- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.6
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -61,7 +61,16 @@ CREATE TABLE `actividades_usario_centro` (
 
 INSERT INTO `actividades_usario_centro` (`id_centro`, `id_act_centro`) VALUES
 (5, 1),
-(6, 2);
+(6, 2),
+(8, 1),
+(8, 2),
+(8, 3),
+(8, 4),
+(8, 5),
+(9, 1),
+(9, 2),
+(9, 3),
+(10, 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +111,12 @@ CREATE TABLE `especialidades_usuarios_profesores` (
 
 INSERT INTO `especialidades_usuarios_profesores` (`id_profesor`, `id_esp_prof`) VALUES
 (3, 5),
-(4, 2);
+(4, 2),
+(11, 1),
+(11, 2),
+(11, 3),
+(11, 4),
+(11, 5);
 
 -- --------------------------------------------------------
 
@@ -228,7 +242,11 @@ INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_loca
 (4, 'Maria Ventre', '1564298824', 'profe2@gmail.com', 4, '123456', 'ventremaria.png', 'https://www.facebook.com/pepitojavier', 'https://www.instagram.com/bipashabasu/?hl=es-la', 'https://twitter.com/TyCSports', 28, 'profe buena onda', '2019-07-14 21:43:13.180547'),
 (5, 'FitnessKing', '1121347984', 'info@fitnessking.com.ar', 2, '123456', 'fitnessking.png', 'https://www.facebook.com/fitnesskingarg/', 'https://www.instagram.com/fitnesskingtheking/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad de atención', '2019-07-14 21:42:03.231692'),
 (6, 'JuanGym', '1152468795', 'info@gmail.com', 1, '123456', 'juangym.png', 'https://www.facebook.com/feedback.eyb', 'https://www.instagram.com/explore/tags/juangym/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad papu', '2019-07-14 21:42:22.917263'),
-(7, 'lola', '21', 'asd', 4, 'asda', 'asd', 'asd', 'asd', 'asd', 20, '', '0000-00-00 00:00:00.000000');
+(7, 'lola', '21', 'asd', 4, 'asda', 'asd', 'asd', 'asd', 'asd', 20, '', '0000-00-00 00:00:00.000000'),
+(8, 'Carlos gym', '123', 'carlosgym@gmail.com', 1, '123', '', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 0, 'Comentario acerca del local', '2019-07-30 16:19:49.000000'),
+(9, 'lalagym', '123', 'lalagym@gmail.com', 2, '123', '', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 0, 'super', '2019-07-30 16:23:42.000000'),
+(10, 'asdguym', 'asd12', 'asd@asd123.com', 5, '123', '1467c336f6caa5fd19d5aa4973452464.jpg', 'asd', 'asd', 'asd', 0, 'Comentario acerca del local', '2019-07-30 16:39:34.000000'),
+(11, 'profecapo', '123', 'profecapo@gmail.com', 1, '123', '05afe68ae9578367b7b707a5157d5721.jpg', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 12, 'Soy re copado', '2019-07-30 23:35:12.000000');
 
 -- --------------------------------------------------------
 
@@ -248,7 +266,10 @@ CREATE TABLE `usuario_centro` (
 
 INSERT INTO `usuario_centro` (`usr_centro_id`, `usr_centro_direccion`, `usr_centro_horarios`) VALUES
 (5, 'Cordoba 3358', 'Lu a Vi 8 a 22hs'),
-(6, 'Libertador 222', 'Lu a Vi 8 a 23hs');
+(6, 'Libertador 222', 'Lu a Vi 8 a 23hs'),
+(8, 'Campos maria 222', ' Lu a Vi 8 a 22hs'),
+(9, 'Lu a Vi 8 a 22hs', 'Lu a Vi 8 a 22hs'),
+(10, '(EJ: Lu a Vi 8 a 22hs)', '(EJ: Lu a Vi 8 a 22hs)');
 
 -- --------------------------------------------------------
 
@@ -268,7 +289,8 @@ CREATE TABLE `usuario_profe` (
 
 INSERT INTO `usuario_profe` (`usr_pf_id`, `pf_educ_fisica`, `pf_cv`) VALUES
 (3, 1, 'cv_mantajuana.docx'),
-(4, 1, 'cv_ventremaria.doc');
+(4, 1, 'cv_ventremaria.doc'),
+(11, 1, 'fa9036a044f659e2ba2bb2dfd0657573.pdf');
 
 --
 -- Índices para tablas volcadas
@@ -390,7 +412,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usr_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `usr_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
