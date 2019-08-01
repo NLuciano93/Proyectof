@@ -130,10 +130,7 @@
                                                     if(move_uploaded_file($fileTmpPath, $dest_path))
                                                                      {
                                                                       
-                                                      $sql = "UPDATE usuarios SET " .
-                                                              "usr_foto = '".  $_SESSION["foto"] . "'  WHERE usr_id = " . $_SESSION["id"];
-
-                                                              $conexion->query($sql);
+                                                      $foto = $newFileName;
                                                                    
                                                                       
                                                                      }
@@ -154,13 +151,15 @@
                                                     }
                                                     else
                                                       {
-                                                        $newFileName = $_SESSION["foto"];
+                                                        $foto = $_SESSION["foto"];
 
                                                       }
 
-                                          if (isset($_POST["actualizar"])) {
+              if (isset($_POST["actualizar"])) {
 
-                                            $sql = "UPDATE usuarios SET " .
+              
+
+                                            
 
                                             if ($_POST["nombre"] != '') {
                                               $nombre = $_POST["nombre"];
@@ -174,12 +173,7 @@
                                             }else{
                                               $telefono = $_SESSION["tel"];
                                             }
-                                              if ($_POST["mail"] !='') {
-                                              $mail = $_POST["mail"];
-                                             
-                                            }else{
-                                              $mail = $_SESSION["mail"];
-                                            }
+                                            
                                               if ($_POST["edad"] !='') {
                                               $edad = $_POST["edad"];
                                              
@@ -194,16 +188,10 @@
                                             }
 
 
-                                             if ($_POST["contrasena"] != '') {
-                                              $contrasena = $_POST["contrasena"];
-
-                                              //Revisar
-                                             
-                                            }
+                                        
 
 
-
-                                            }
+                                            
                                              if ($_POST["facebook"] != '') {
                                               $facebook = $_POST["facebook"];
                                              
@@ -225,31 +213,27 @@
                                             }
 
 
-
-                                              $sql= "SELECT * FROM usuarios WHERE usr_mail = '$mail'";
-
-                                              $resultado = $conexion->query( $sql );
+                                                include_once PATH_HELPERS .'/database_helper.php';
+                                                   $conexion = getConexion();
 
 
-                                                  if ( $resultado->num_rows == 1  ){
+                                                      $sql = "UPDATE usuarios SET usr_nombre = '$nombre', usr_tel = '$telefono', usr_edad = '$edad', usr_localidad = '$localidad', usr_foto = '$foto', usr_facebook = '$facebook', usr_twitter = '$twitter', usr_instagram = '$instagram' WHERE usr_id = " . $_SESSION["id_usuario"];
+                                                      
+                                                      $conexion->query($sql);
 
-                                                      echo "Ese mail esta en uso";
 
-                                                  }
-                                                  else{
-
-                                                      $sql = "UPDATE
+                                                  
 
 
 
-                                                  }
+                                         }
 
 
 
 
 
                                             
-                                          }
+                                          
 
 
 
@@ -264,7 +248,7 @@
 
 
                                                 <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-                                                        <form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="GET">
+                                                        <form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="POST">
                                                       <fieldset>
                                                             <input type="hidden" name="m" value="perfil">
                                                      
@@ -287,15 +271,7 @@
                                                         </div>
                                                       </div>
 
-                                                      <!-- Text input-->
-                                                      <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="mail">Mail</label>  
-                                                        <div class="col-md-6">
-                                                        <input id="mail" name="mail" type="text" placeholder="<?= $_SESSION["mail"]?>" class="form-control input-md" >
-                                                          
-                                                        </div>
-                                                      </div>
-
+                                                     
                                                       <!-- Text input-->
                                                       <div class="form-group">
                                                         <label class="col-md-6 control-label" for="edad">Edad</label>  
