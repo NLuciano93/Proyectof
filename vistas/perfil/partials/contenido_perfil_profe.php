@@ -13,7 +13,13 @@
                             <li class="list-group-item">Edad: <?= $_SESSION["edad"]?></li>
                             <li class="list-group-item">Localidad: <?= $_SESSION["localidad"]?></li>
                             <li class="list-group-item">Telefono: <?= $_SESSION["tel"]?></li>
+                            <?php if ($_SESSION["educacionfisica"] == "Profesorado de Educación Física") { ?>
+                              
+                            
                             <li class="list-group-item">Estudio: <?= $_SESSION["educacionfisica"]?></li>
+
+                            <?php } ?>
+
                             <li class="list-group-item">Mail de contacto: <?= $_SESSION["mail"]?></li>
                            
                           </ul>
@@ -37,6 +43,9 @@
                           </li>
                            <li class="nav-item">
                             <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="actualizar-tab" data-toggle="tab" href="#actualizar" role="tab" aria-controls="actualizar" aria-selected="false">Actualizar datos</a>
                           </li>
                           
                         </ul>
@@ -115,7 +124,7 @@
                           </div>
                           <div class="tab-pane fade" id="especialidadprofe" role="tabpanel" aria-labelledby="especialidadprofe-tab">
                             
-                            <?php
+                            
 
                             
 
@@ -132,6 +141,159 @@
                            
 
                           </div>
+
+
+                      
+                        <div class="tab-pane fade" id="actualizar" role="tabpanel" aria-labelledby="actualizar-tab">
+
+                                <?php
+
+                                  include_once PATH_DAOS . "/actualizacionperfilprofeDAO.php";
+                                          
+
+                                ?>
+
+
+
+
+                                                <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
+                                                        <form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="POST">
+                                                      <fieldset>
+                                                            <input type="hidden" name="m" value="perfil">
+                                                     
+                                                     
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="Nombre">Nombre completo</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="Nombre" name="nombre" type="text" placeholder="<?= $_SESSION["usuario"] ?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="telefono">Teléfono/celular</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="telefono" name="telefono" type="text" placeholder="<?= $_SESSION["tel"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                     
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="edad">Edad</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="edad" name="edad" type="number" placeholder="<?= $_SESSION["edad"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Select Basic -->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="provincia">Provincia</label>
+                                                        <div class="col-md-6">
+                                                          <select name="provincia" class="form-control" id="provincia">
+                                                             <?php
+                                                                        include_once PATH_DAOS. '/busqueDAO.php';
+
+
+                                                                             echo getComboProvincia();
+
+                                                                       ?>
+                                                         </select>
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Select Basic -->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="localidad">Localidad</label>
+                                                        <div class="col-md-6">
+                                                            <select  name="localidad" id="localidad" class="form-control" >
+                                                                 <option value="-1">Elegí primero Provincia </option>
+
+                                                            </select>
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- foto -->
+
+                                                      <div class="form-group">
+                                                                        <label for="exampleFormControlFile1">Cambia foto perfil</label>
+                                                                         <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" >
+                                                                  </div> 
+
+                                                      <!-- File Button --> 
+                                                          <div class="form-group">
+                                                            <label class="col-md-4 control-label" for="cv">Actualiza tu CV</label>
+                                                            <div class="col-md-4">
+                                                              <input id="cv" name="cv" class="input-file" type="file">
+                                                            </div>
+                                                          </div>             
+
+
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="facebook">Perfil de Facebook (ejemplo: https://www.facebook.com/...)</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="facebook" name="facebook" type="text" placeholder="<?= $_SESSION["facebook"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="twitter">Twitter</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="twitter" name="twitter" type="text" placeholder="<?= $_SESSION["twitter"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+
+                                                      <!-- Text input-->
+                                                      <div class="form-group">
+                                                        <label class="col-md-6 control-label" for="instagram">Instagram</label>  
+                                                        <div class="col-md-6">
+                                                        <input id="instagram" name="instagram" type="text" placeholder="<?= $_SESSION["instagram"]?>" class="form-control input-md">
+                                                          
+                                                        </div>
+                                                      </div>
+                                                      <!-- Soy profe -->
+                                                      <div class="checkbox">
+                                                                <label for="profed-0">
+                                                                  <input type="checkbox" name="profed" id="profed-0" value="1">
+                                                                  Soy Profesor/a de Educación Física                         
+                                                              </label>
+                                                              </div>
+
+                                             <!-- Textarea -->
+                                                  <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="descripcion">Descripción</label>
+                                                    <div class="col-md-4">                     
+                                                      <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                                                    </div>
+                                                  </div>
+
+                                                      <input type="submit" name="actualizar" value="actualizar" class="btn btn-primary">
+
+                                                      </fieldset>
+                                                    </form>
+
+                                                     <h5>Nota: Al finalizar la actualización deberá volver a iniciar sesión para que se aplique los cambios.</h5> 
+
+                                                      </div>
+
+
+
+
+
+
+
+                           </div>
+
+
                           
 
                        
@@ -146,6 +308,41 @@
 
     </div>
 	
+<script src="<?= PATH_VENDOR ?>/jquery/jquery-3.4.1.min.js"></script>
+
+
+
+
+        <script>
+          
+
+          $("#provincia").change( 
+
+            function(){
+              pedirDatos( $( "#provincia")[0].value );  
+            }
+             
+          );
+
+          function pedirDatos( id_provincia_seleccionada ){
+          
+
+            parametros = { id_provincia: id_provincia_seleccionada };
+
+            $.get( "example.php", parametros )
+              
+              .done(function( data ) {
+
+                $( "#localidad" ).html(data);
+              })
+
+              .fail(function() {
+                alert( "Error al obtener las localidades" );
+              })
+             
+          }
+        </script>
+
 
 
 

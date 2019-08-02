@@ -107,140 +107,9 @@
                            <div class="tab-pane fade" id="actualizar" role="tabpanel" aria-labelledby="actualizar-tab">
 
                                 <?php
-                                   include_once PATH_HELPERS .'/database_helper.php';
-                                   $conexion = getConexion();
 
-                                      if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-                                                                  
-
-                                                  $fileTmpPath = $_FILES['foto']['tmp_name'];
-                                                  $fileName = $_FILES['foto']['name'];
-
-                                                  $fileNameCmps = explode(".", $fileName);
-                                                  $fileExtension = strtolower(end($fileNameCmps));
-
-                                                  $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-
-                                                  $allowedfileExtensions = array('jpg', 'gif', 'png', 'webp');
-
-                                                  if (in_array($fileExtension, $allowedfileExtensions)) {
-                                                                                
-                                                  $dest_path = UPLOAD_PERFIL_PATH . "/" . $newFileName;
-                                                                     
-                                                    if(move_uploaded_file($fileTmpPath, $dest_path))
-                                                                     {
-                                                                      
-                                                      $foto = $newFileName;
-                                                                   
-                                                                      
-                                                                     }
-                                                                     else
-                                                                     {
-
-                                                                       $mensaje_form = "ERROR AL SUBIR EL ARCHIVO";
-                                                                       echo $mensaje_form;
-                                                         
-                                                                     }
-                                                                   }
-                                                                   else{
-                                                                       $mensaje_form = "El archivo de imagen no es valido.";
-                                                                        echo $mensaje_form;
-
-                                                                      
-                                                                   }
-                                                    }
-                                                    else
-                                                      {
-                                                        $foto = $_SESSION["foto"];
-
-                                                      }
-
-              if (isset($_POST["actualizar"])) {
-
-              
-
-                                            
-
-                                            if ($_POST["nombre"] != '') {
-                                              $nombre = $_POST["nombre"];
-                                             
-                                            }else{
-                                              $nombre = $_SESSION["usuario"];
-                                            }
-                                            if ($_POST["telefono"] != '') {
-                                              $telefono = $_POST["telefono"];
-                                             
-                                            }else{
-                                              $telefono = $_SESSION["tel"];
-                                            }
-                                            
-                                              if ($_POST["edad"] !='') {
-                                              $edad = $_POST["edad"];
-                                             
-                                            }else{
-                                              $edad = $_SESSION["edad"];
-                                            }
-                                              if ($_POST["localidad"] != -1) {
-                                              $localidad = $_POST["localidad"];
-                                             
-                                            }else{
-                                              $localidad = $_SESSION["localidad"];
-                                            }
-
-
-                                        
-
-
-                                            
-                                             if ($_POST["facebook"] != '') {
-                                              $facebook = $_POST["facebook"];
-                                             
-                                            }else{
-                                              $facebook = $_SESSION["facebook"];
-                                            }
-                                             if ($_POST["twitter"] != '') {
-                                              $twitter = $_POST["twitter"];
-                                             
-                                            }else{
-                                              $twitter = $_SESSION["twitter"];
-                                            }
-                                             if ($_POST["instagram"] != '') {
-                                              $instagram = $_POST["instagram"];
-                                             
-                                            }else{
-                                              $instagram = $_SESSION["instagram"];
-
-                                            }
-
-
-                                                include_once PATH_HELPERS .'/database_helper.php';
-                                                   $conexion = getConexion();
-
-
-                                                      $sql = "UPDATE usuarios SET usr_nombre = '$nombre', usr_tel = '$telefono', usr_edad = '$edad', usr_localidad = '$localidad', usr_foto = '$foto', usr_facebook = '$facebook', usr_twitter = '$twitter', usr_instagram = '$instagram' WHERE usr_id = " . $_SESSION["id_usuario"];
-                                                      
-                                                      $conexion->query($sql);
-
-
-                                                  
-
-
-
-                                         }
-
-
-
-
-
-                                            
+                                  include_once PATH_DAOS . "/actualizacionperfilDAO.php";
                                           
-
-
-
-
-
-
-
 
                                 ?>
 
@@ -252,7 +121,7 @@
                                                       <fieldset>
                                                             <input type="hidden" name="m" value="perfil">
                                                      
-
+                                                     
                                                       <!-- Text input-->
                                                       <div class="form-group">
                                                         <label class="col-md-6 control-label" for="Nombre">Nombre completo</label>  
@@ -308,24 +177,6 @@
                                                         </div>
                                                       </div>
 
-                                                      <!-- Password input-->
-                                                      <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="contrasena">Cambia contraseña</label>
-                                                        <div class="col-md-6">
-                                                          <input id="contrasena" name="contrasena" type="password" placeholder="" class="form-control input-md">
-                                                          
-                                                        </div>
-                                                      </div>
-
-                                                      <!-- Password input-->
-                                                      <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="repcontrasena">Repetir contraseña</label>
-                                                        <div class="col-md-6">
-                                                          <input id="repcontrasena" name="repcontrasena" type="password" placeholder="" class="form-control input-md">
-                                                          
-                                                        </div>
-                                                      </div>
-
                                                       <!-- foto -->
 
                                                       <div class="form-group">
@@ -362,12 +213,12 @@
                                                         </div>
                                                       </div>
 
-                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary">
+                                                      <input type="submit" name="actualizar" value="actualizar" class="btn btn-primary">
 
                                                       </fieldset>
                                                     </form>
 
-
+                                                     <h5>Nota: Al finalizar la actualización deberá volver a iniciar sesión para que se aplique los cambios.</h5> 
 
                                                       </div>
 
