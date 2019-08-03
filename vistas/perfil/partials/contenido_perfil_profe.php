@@ -123,6 +123,116 @@
 
                           </div>
                           <div class="tab-pane fade" id="especialidadprofe" role="tabpanel" aria-labelledby="especialidadprofe-tab">
+        
+                             <?php
+                                include_once PATH_DAOS .'/especialidadesprofeDAO.php';
+
+                            ?>
+
+                       <form class="form-horizontal" action="index.php" method="POST">
+                               <input type="hidden" name="m" value="perfil">
+                               <input type="hidden" name="id" value="<?= $_SESSION['id_usuario'] ?>">        
+
+                                        <fieldset>                                       
+
+                                       <!-- Multiple Checkboxes (inline) -->
+                                        <div class="form-group">
+                                          <label class="col-md-12 control-label" for="especialidad">Agregar actividades</label>
+                                          <div class="col-md-12">
+                                            <label class="checkbox-inline" for="especialidad-0">
+                                              <input type="checkbox" name="personaltrainer" id="especialidad-0" value="1">
+                                              Personal Trainer
+                                            </label>
+                                            <label class="checkbox-inline " for="especialidad-1">
+                                              <input class="ml-2" type="checkbox" name="deporte" id="especialidad-1" value="2">
+                                              Deporte
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-2">
+                                              <input class="ml-2" type="checkbox" name="funcional" id="especialidad-2" value="3">
+                                              Funcional
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-3">
+                                              <input class="ml-2" type="checkbox" name="crossfit" id="especialidad-3" value="4">
+                                              Crossfit
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-4">
+                                              <input class="ml-2" type="checkbox" name="yoga" id="especialidad-4" value="5">
+                                              Yoga
+                                            </label>
+                                          </div>
+                                        </div>
+                                        <!-- Button -->
+                                            
+                                              <div class="col-md-4">
+                                                <input type="submit" name="agregar" value="Agregar" class="btn btn-primary">
+                                              </div>
+                                            
+
+                                        </fieldset>
+                             </form>
+
+                              <form class="form-horizontal" action="index.php" method="POST">
+                                <input type="hidden" name="m" value="perfil">
+                                <input type="hidden" name="id" value="<?= $_SESSION['id_usuario'] ?>">
+                                        
+                                        <fieldset>
+                                  
+                                        <!-- Multiple Checkboxes (inline) -->
+                                        <div class="form-group">
+                                          
+                                          <label class="col-md-12 control-label" for="especialidad">Quitar actividades</label>
+                                          <div class="col-md-12">
+                                            <label class="checkbox-inline" for="especialidad-0">
+                                              <input type="checkbox" name="personaltrainer" id="especialidad-0" value="1">
+                                              Personal Trainer
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-1">
+                                              <input class="ml-2" type="checkbox" name="deporte" id="especialidad-1" value="2">
+                                              Deporte
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-2">
+                                              <input class="ml-2" type="checkbox" name="funcional" id="especialidad-2" value="3">
+                                              Funcional
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-3">
+                                              <input class="ml-2" type="checkbox" name="crossfit" id="especialidad-3" value="4">
+                                              Crossfit
+                                            </label>
+                                            <label class="checkbox-inline" for="especialidad-4">
+                                              <input class="ml-2" type="checkbox" name="yoga" id="especialidad-4" value="5">
+                                              Yoga
+                                            </label>
+                                          </div>
+                                        </div>
+                                        <!-- Button -->
+                                            
+                                              <div class="col-md-4">
+                                                <input type="submit" name="quitar" value="Quitar" class="btn btn-danger">
+                                              </div>
+                                            
+
+                                        </fieldset>
+                             </form>
+
+
+
+                       <?php 
+
+
+
+                                include_once PATH_DAOS .'/especialidadesprofeDAO.php';
+                                include_once PATH_HELPERS . "/html_helper.php";
+                                
+                                $espprofe = buscarEspProf($_SESSION["id_usuario"]);
+
+
+
+                                while( $especialidadesprofe = $espprofe->fetch_assoc() ){
+                                    crearHTMLespecialidades( $especialidadesprofe["esp_prof_descripcion"]);
+                                }
+
+                        ?>
+
                             
                             
 
@@ -276,7 +386,7 @@
                                                     </div>
                                                   </div>
 
-                                                      <input type="submit" name="actualizar" value="actualizar" class="btn btn-primary">
+                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary">
 
                                                       </fieldset>
                                                     </form>

@@ -237,3 +237,37 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
         ?>
 
 
+
+
+      <?php
+
+          function crearHTMLactividades($actividades){
+
+        ?>
+
+            <h2><span class="badge badge-info"><?= $actividades ?></span></h2>
+
+
+      <?php
+          }
+
+
+        ?>
+
+
+
+
+     <?php
+
+          function crearHTMLespecialidades($especialidad){
+
+        ?>
+
+            <h2><span class="badge badge-info"><?= $especialidad ?></span></h2>
+
+
+      <?php
+          }
+
+        ?>
+

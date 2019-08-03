@@ -213,7 +213,7 @@
                                                         </div>
                                                       </div>
 
-                                                      <input type="submit" name="actualizar" value="actualizar" class="btn btn-primary">
+                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary">
 
                                                       </fieldset>
                                                     </form>
