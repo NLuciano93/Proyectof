@@ -21,10 +21,43 @@
                            
                           </ul>
                           <div class="card-body">
-                            <div><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span></div>
-                             <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span></div>
+                            <div class="container-fluid">
+                              
+                              <div class="row">
+                                
+
+                                  <div class="col-md-6">
+                                    <form action="index.php" method="GET">
+                                      <input type="hidden" name="m" value="perfilacceso">
+                                      <input type="hidden" name="tipo" value="centro">
+                                      <input type="hidden" name="nombre" value="<?= $perfilaccesoid ?>">
+
+                                    <?php
+                                      include_once PATH_VIEWS .'/perfilacceso/partials/botonlike.php';
+
+                                      ?>
+                                    </form>
+                                    <?php 
+                                    include_once PATH_DAOS . '/likesDAO.php';
+
+
+                                    ?>
+                                <?php
+                                    include_once PATH_DAOS . '/totallikesDAO.php';
+
+
+                                ?>
+                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span></div>
+                            
+                               </div>
+
+                             </div>
+
+
+                               <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span></div>
+                            </div>
                           </div>
-                        </div>
+                        
             </div>
 
             <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
@@ -64,10 +97,22 @@
 
                           </div>
                           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <h2><span class="badge badge-info">Funcional</span></h2>
-                            <h2><span class="badge badge-info">Crossfit</span></h2>
-                            <h2><span class="badge badge-info">Yoga</span></h2>
+                            <?php 
 
+
+
+                                include_once PATH_DAOS .'/actividadescentroDAO.php';
+                                include_once PATH_HELPERS . "/html_helper.php";
+                                
+                                $actcentro = buscarActCen($perfilaccesoid);
+
+
+
+                                while( $actividadescentro = $actcentro->fetch_assoc() ){
+                                    crearHTMLactividades( $actividadescentro["actividades"]);
+                                }
+
+                        ?>
 
                           </div>
                           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>

@@ -22,7 +22,14 @@
                            
                           </ul>
                           <div class="card-body">
-                            <div><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span></div>
+                            
+                            <?php
+                                    include_once PATH_DAOS . '/perfiltotallikesDAO.php';
+
+                             ?>
+                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span>
+
+
                              <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span></div>
                           </div>
                         </div>
@@ -108,7 +115,7 @@
 
                                        <!-- Multiple Checkboxes (inline) -->
                                         <div class="form-group">
-                                          <label class="col-md-10 control-label" for="especialidad">Agregar actividades</label>
+                                          <label class="col-md-10 control-label" for="especialidad">Agregar o quitar actividades</label>
                                           <div class="col-md-10">
                                             <label class="checkbox-inline" for="especialidad-0">
                                               <input type="checkbox" name="musculacion" id="especialidad-0" value="1">
@@ -136,54 +143,14 @@
                                             
                                               <div class="col-md-4">
                                                 <input type="submit" name="agregar" value="Agregar" class="btn btn-primary">
-                                              </div>
-                                            
-
-                                        </fieldset>
-                             </form>
-
-                              <form class="form-horizontal" action="index.php" method="POST">
-                                <input type="hidden" name="m" value="perfil">
-                                <input type="hidden" name="id" value="<?= $_SESSION['id_usuario'] ?>">
-                                        
-                                        <fieldset>
-                                  
-                                        <!-- Multiple Checkboxes (inline) -->
-                                        <div class="form-group">
-                                          
-                                          <label class="col-md-10 control-label" for="especialidad">Quitar actividades</label>
-                                          <div class="col-md-10">
-                                            <label class="checkbox-inline" for="especialidad-0">
-                                              <input type="checkbox" name="musculacion" id="especialidad-0" value="1">
-                                              Musculación
-                                            </label>
-                                            <label class="checkbox-inline" for="especialidad-1">
-                                              <input type="checkbox" name="crossfit" id="especialidad-1" value="2">
-                                              Crossfit
-                                            </label>
-                                            <label class="checkbox-inline" for="especialidad-2">
-                                              <input type="checkbox" name="funcional" id="especialidad-2" value="3">
-                                              Funcional
-                                            </label>
-                                            <label class="checkbox-inline" for="especialidad-3">
-                                              <input type="checkbox" name="yoga" id="especialidad-3" value="4">
-                                              Yoga
-                                            </label>
-                                            <label class="checkbox-inline" for="especialidad-4">
-                                              <input type="checkbox" name="zumba" id="especialidad-4" value="5">
-                                              Zumba
-                                            </label>
-                                          </div>
-                                        </div>
-                                        <!-- Button -->
-                                            
-                                              <div class="col-md-4">
                                                 <input type="submit" name="quitar" value="Quitar" class="btn btn-danger">
                                               </div>
                                             
 
                                         </fieldset>
                              </form>
+
+
 
 
 

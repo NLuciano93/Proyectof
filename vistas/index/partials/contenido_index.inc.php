@@ -16,9 +16,15 @@
 		<!-- Posteos-->
 
 		<div class="col-7 border">
+
+			
+				
+			
 			<h1 class="align-center">Sección de post</h1>
 
 
+<?php if (isset($_SESSION["usuario"])) { ?>
+	
 
 
 		<div class="ingresoposteo">
@@ -37,6 +43,9 @@
 				  
 				    <input type="submit" name="submit" value="Publicar" class="btn btn-primary"> 
 				    </form>
+
+		
+
 				    <?php				    	
 				    
 				    include_once PATH_DAOS . "/posteoDAO.php";
@@ -46,6 +55,9 @@
 				  </div>
 				</div>
 			</div>
+<?php } ?>
+	
+	<div>
 
 			<?php
 			 include_once PATH_DAOS . "/posteoDAO.php";
@@ -61,6 +73,7 @@
 
 			?>
 
+	</div>
 
 
 

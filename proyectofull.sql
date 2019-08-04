@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-08-2019 a las 03:55:35
+-- Tiempo de generación: 04-08-2019 a las 04:14:54
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -62,7 +62,6 @@ CREATE TABLE `actividades_usario_centro` (
 INSERT INTO `actividades_usario_centro` (`id_centro`, `id_act_centro`) VALUES
 (5, 1),
 (6, 2),
-(8, 1),
 (8, 2),
 (8, 3),
 (8, 4),
@@ -111,12 +110,16 @@ CREATE TABLE `especialidades_usuarios_profesores` (
 
 INSERT INTO `especialidades_usuarios_profesores` (`id_profesor`, `id_esp_prof`) VALUES
 (3, 5),
-(4, 2),
+(4, 3),
+(4, 4),
+(4, 5),
 (11, 1),
 (11, 2),
 (11, 3),
 (11, 4),
-(11, 5);
+(11, 5),
+(12, 1),
+(12, 2);
 
 -- --------------------------------------------------------
 
@@ -140,6 +143,27 @@ INSERT INTO `fotos` (`id_foto`, `id_foto_usr`, `nombrefoto`, `fecha_foto`) VALUE
 (3, 1, 'a74787139aa78afbff153475ba13696c.jpg', '2019-07-24 14:27:41'),
 (4, 4, '658d5b0eaccaab87390ce59cf482936a.jpg', '2019-07-24 16:30:46'),
 (5, 6, 'd0a6c9464791f408f5bd9e1b2ff395b5.jpg', '2019-07-24 16:34:59');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `likes`
+--
+
+CREATE TABLE `likes` (
+  `id_like` int(100) NOT NULL,
+  `id_usuario_likeado` int(100) NOT NULL,
+  `id_usuario_likeante` int(100) NOT NULL,
+  `num_like` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `likes`
+--
+
+INSERT INTO `likes` (`id_like`, `id_usuario_likeado`, `id_usuario_likeante`, `num_like`) VALUES
+(29, 3, 1, 1),
+(33, 1, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -188,7 +212,9 @@ INSERT INTO `posteo` (`id_posteo`, `texto`, `id_usuario`, `fecha`) VALUES
 (3, 'holaaaaaa', 1, '2019-07-19 18:47:12'),
 (4, 'que tal', 1, '2019-07-19 18:53:58'),
 (5, 'que tal', 1, '2019-07-19 18:58:26'),
-(6, 'Hola como va?', 1, '2019-07-19 22:09:30');
+(6, 'Hola como va?', 1, '2019-07-19 22:09:30'),
+(7, 'Hola alejo\r\n', 1, '2019-08-02 12:12:06'),
+(8, 'hello', 1, '2019-08-02 12:13:02');
 
 -- --------------------------------------------------------
 
@@ -236,17 +262,18 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_localidad`, `usr_contrasena`, `usr_foto`, `usr_facebook`, `usr_instagram`, `usr_twitter`, `usr_edad`, `descripcion`, `usr_registro`) VALUES
-(1, 'Luciano Natiello', '1559964866', 'natielloluciano@gmail.com', 5, '123456', 'lucianonatiello.png', 'https://www.facebook.com/lnatiello', 'https://www.instagram.com/diego.aguilar.1986/?hl=es-la', 'https://twitter.com/TyCSports', 26, '', '0000-00-00 00:00:00.000000'),
+(1, 'Luciano Natiello', '1559964866', 'natielloluciano@gmail.com', 5, '123456', 'lucianonatiello.png', 'https://www.facebook.com/lnatiello', 'https://www.instagram.com/diego.aguilar.1986/?hl=es-la', 'https://twitter.com/TyCSports', 26, '', '2019-08-01 20:31:24.423084'),
 (2, 'Carla Monte', '1559964856', 'carlamonte@gmail.com', 6, '123456', 'carlamonte.png', 'https://www.facebook.com/abbigommez', 'https://www.instagram.com/maisa/?hl=es-la', 'https://twitter.com/TyCSports', 24, '', '2019-07-09 03:00:00.000000'),
 (3, 'Juana Manta', '1524998095', 'profe1@gmail.com', 3, '123456', 'mantajuana.png', 'https://www.facebook.com/groups/285960468476158/', 'https://www.instagram.com/bclsinclair/?hl=es-la', 'https://twitter.com/TyCSports', 29, 'toda la onda', '2019-07-14 21:42:54.854318'),
 (4, 'Maria Ventre', '1564298824', 'profe2@gmail.com', 4, '123456', 'ventremaria.png', 'https://www.facebook.com/pepitojavier', 'https://www.instagram.com/bipashabasu/?hl=es-la', 'https://twitter.com/TyCSports', 28, 'profe buena onda', '2019-07-14 21:43:13.180547'),
 (5, 'FitnessKing', '1121347984', 'info@fitnessking.com.ar', 2, '123456', 'fitnessking.png', 'https://www.facebook.com/fitnesskingarg/', 'https://www.instagram.com/fitnesskingtheking/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad de atención', '2019-07-14 21:42:03.231692'),
-(6, 'JuanGym', '1152468795', 'info@gmail.com', 1, '123456', 'juangym.png', 'https://www.facebook.com/feedback.eyb', 'https://www.instagram.com/explore/tags/juangym/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad papu', '2019-07-14 21:42:22.917263'),
+(6, 'JuanGym', '1152468795', 'info@gmail.com', 4, '123456', 'juangym.png', 'https://www.facebook.com/feedback.eyb', 'https://www.instagram.com/explore/tags/juangym/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad papu', '2019-08-02 21:54:21.872330'),
 (7, 'lola', '21', 'asd', 4, 'asda', 'asd', 'asd', 'asd', 'asd', 20, '', '0000-00-00 00:00:00.000000'),
 (8, 'Carlos gym', '123', 'carlosgym@gmail.com', 1, '123', '', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 0, 'Comentario acerca del local', '2019-07-30 16:19:49.000000'),
 (9, 'lalagym', '123', 'lalagym@gmail.com', 2, '123', '', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 0, 'super', '2019-07-30 16:23:42.000000'),
 (10, 'asdguym', 'asd12', 'asd@asd123.com', 5, '123', '1467c336f6caa5fd19d5aa4973452464.jpg', 'asd', 'asd', 'asd', 0, 'Comentario acerca del local', '2019-07-30 16:39:34.000000'),
-(11, 'profecapo', '123', 'profecapo@gmail.com', 1, '123', '05afe68ae9578367b7b707a5157d5721.jpg', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 12, 'Soy re copado', '2019-07-30 23:35:12.000000');
+(11, 'profecapo', '123', 'profecapo@gmail.com', 1, '123', '05afe68ae9578367b7b707a5157d5721.jpg', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 12, 'Soy re copado', '2019-07-30 23:35:12.000000'),
+(12, 'Carmela bingo', '123456456', 'carmela@gmail.com', 2, '123456', '6a7b4aa7835f982c73c103531c4a34e9.jpg', 'asd', 'asd', 'asd', 37, 'Soy ultra re copada', '2019-08-02 01:16:43.384591');
 
 -- --------------------------------------------------------
 
@@ -266,7 +293,7 @@ CREATE TABLE `usuario_centro` (
 
 INSERT INTO `usuario_centro` (`usr_centro_id`, `usr_centro_direccion`, `usr_centro_horarios`) VALUES
 (5, 'Cordoba 3358', 'Lu a Vi 8 a 22hs'),
-(6, 'Libertador 222', 'Lu a Vi 8 a 23hs'),
+(6, 'Libertador 888', 'Todo el dia'),
 (8, 'Campos maria 222', ' Lu a Vi 8 a 22hs'),
 (9, 'Lu a Vi 8 a 22hs', 'Lu a Vi 8 a 22hs'),
 (10, '(EJ: Lu a Vi 8 a 22hs)', '(EJ: Lu a Vi 8 a 22hs)');
@@ -290,7 +317,8 @@ CREATE TABLE `usuario_profe` (
 INSERT INTO `usuario_profe` (`usr_pf_id`, `pf_educ_fisica`, `pf_cv`) VALUES
 (3, 1, 'cv_mantajuana.docx'),
 (4, 1, 'cv_ventremaria.doc'),
-(11, 1, 'fa9036a044f659e2ba2bb2dfd0657573.pdf');
+(11, 1, 'fa9036a044f659e2ba2bb2dfd0657573.pdf'),
+(12, 1, '0be9c282cde3588f195038e4670207b0.pdf');
 
 --
 -- Índices para tablas volcadas
@@ -328,6 +356,14 @@ ALTER TABLE `especialidades_usuarios_profesores`
 ALTER TABLE `fotos`
   ADD PRIMARY KEY (`id_foto`),
   ADD KEY `id_foto_usr` (`id_foto_usr`);
+
+--
+-- Indices de la tabla `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id_like`),
+  ADD KEY `id_usuario_likeado` (`id_usuario_likeado`),
+  ADD KEY `id_usuario_likeante` (`id_usuario_likeante`);
 
 --
 -- Indices de la tabla `localidad`
@@ -391,6 +427,12 @@ ALTER TABLE `fotos`
   MODIFY `id_foto` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de la tabla `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id_like` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
@@ -400,7 +442,7 @@ ALTER TABLE `localidad`
 -- AUTO_INCREMENT de la tabla `posteo`
 --
 ALTER TABLE `posteo`
-  MODIFY `id_posteo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_posteo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
@@ -412,7 +454,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usr_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `usr_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
@@ -437,6 +479,13 @@ ALTER TABLE `especialidades_usuarios_profesores`
 --
 ALTER TABLE `fotos`
   ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`id_foto_usr`) REFERENCES `usuarios` (`usr_id`);
+
+--
+-- Filtros para la tabla `likes`
+--
+ALTER TABLE `likes`
+  ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`id_usuario_likeado`) REFERENCES `usuarios` (`usr_id`),
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`id_usuario_likeante`) REFERENCES `usuarios` (`usr_id`);
 
 --
 -- Filtros para la tabla `localidad`

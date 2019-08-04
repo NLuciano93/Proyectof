@@ -19,8 +19,46 @@
                            
                           </ul>
                           <div class="card-body">
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
-                          </div>
+                             <div class="container-fluid">
+                              
+                              <div class="row">
+                                
+
+                                  <div class="col-md-6">
+                                    <form action="index.php" method="GET">
+                                      <input type="hidden" name="m" value="perfilacceso">
+                                      <input type="hidden" name="tipo" value="comun">
+                                      <input type="hidden" name="nombre" value="<?= $perfilaccesoid ?>">
+
+                                    <?php
+                                      include_once PATH_VIEWS .'/perfilacceso/partials/botonlike.php';
+
+                                      ?>
+                                    </form>
+                                    <?php 
+                                    include_once PATH_DAOS . '/likesDAO.php';
+
+
+                                    ?>
+                                    <?php
+                                    include_once PATH_DAOS . '/totallikesDAO.php';
+
+
+
+
+                                    ?>
+                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span></div>
+                            
+                               </div>
+
+                             </div>
+
+
+                               
+                            </div>
+
+                          
+                          
                         </div>
             </div>
 

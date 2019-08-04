@@ -20,7 +20,11 @@
                             
                           </ul>
                           <div class="card-body">
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
+                                  <?php
+                                    include_once PATH_DAOS . '/perfiltotallikesDAO.php';
+
+                                    ?>
+                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span>
                           </div>
                         </div>
             </div>

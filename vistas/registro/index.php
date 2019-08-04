@@ -22,8 +22,10 @@
   ?>
 	<div class="container">
 		<div class="row">
+			
 			<div class="col-12">
-
+				<a href="index.php" class="d-flex justify-content-end">Volver al inicio</a> 
+				
 				<nav>
 
 				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -33,6 +35,7 @@
 				    
 				  </div>
 				</nav>
+				
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
 				  	<form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="POST">

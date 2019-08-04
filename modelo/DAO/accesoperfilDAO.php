@@ -1,7 +1,7 @@
 <?php  
  include_once PATH_HELPERS . '/database_helper.php';
 
-if (isset($_GET["tipo"])) {
+if (isset($_GET["tipo"]) && isset($_GET["nombre"])) {
 
 	$conexion = getConexion();
 
