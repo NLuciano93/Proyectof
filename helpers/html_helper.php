@@ -281,7 +281,7 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
 ?>    
 
-              <div class="card mb-3" style="max-width: 540px;">
+              <div class="card mb-3 mt-3" style="max-width: 540px;">
                
                  <div class="row no-gutters">
                      

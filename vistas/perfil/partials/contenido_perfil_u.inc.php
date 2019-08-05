@@ -101,7 +101,22 @@
 
                           
 
-                          <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentario-tab">...</div>
+                          <div class="tab-pane fade" id="comentarios" role="tabpanel" aria-labelledby="comentario-tab">                                   
+
+                            <?php
+                                          include_once PATH_DAOS . '/postcomentarioDAO.php';
+                                          include_once PATH_HELPERS . '/html_helper.php';
+
+                                          $resultadocoment= mostrarcomentarios($_SESSION["id_usuario"]);
+
+                                          while ($cardcoment = $resultadocoment->fetch_assoc()) {
+                                              crearHTMLComent($cardcoment["id_usr_comentante"], $cardcoment["calificacion"], $cardcoment["cont_comentario"]);
+                                            }  
+
+
+                                 ?>
+                                   
+                                 </div>
 
                           
 
