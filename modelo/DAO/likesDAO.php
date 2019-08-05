@@ -36,7 +36,7 @@ include_once PATH_HELPERS . '/database_helper.php';
 
                                         $conexion->query($sql); 
                                        
-                                      echo '<script> window.location="index.php"</script>';
+                                      echo '<script> window.location="index.php?m=perfilacceso&tipo=' . $_GET['tipo'] . '&nombre=' . $usuariolikeado .'"</script>';
 
                                         
                                       }
