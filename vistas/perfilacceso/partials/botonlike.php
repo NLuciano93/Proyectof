@@ -10,7 +10,7 @@
 
                                     $resultado = $conexion->query( $consulta );
 
-                                     if ( $resultado->num_rows == 1  ){
+                                     if ( $resultado->num_rows >= 1  ){
                                       
                                     ?>
                                     <button type="sumbit" name="nomegusta" value="1" class="btn btn-danger"><i class="far fa-thumbs-down"></i> Dislike</button></div>
