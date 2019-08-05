@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-08-2019 a las 04:14:54
+-- Tiempo de generación: 05-08-2019 a las 04:31:32
 -- Versión del servidor: 10.3.16-MariaDB
--- Versión de PHP: 7.3.7
+-- Versión de PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -70,6 +70,28 @@ INSERT INTO `actividades_usario_centro` (`id_centro`, `id_act_centro`) VALUES
 (9, 2),
 (9, 3),
 (10, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_comentario` int(100) NOT NULL,
+  `id_usr_comentado` int(100) NOT NULL,
+  `id_usr_comentante` int(100) NOT NULL,
+  `calificacion` tinyint(4) NOT NULL,
+  `cont_comentario` varchar(1000) NOT NULL,
+  `cont_numero` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_comentario`, `id_usr_comentado`, `id_usr_comentante`, `calificacion`, `cont_comentario`, `cont_numero`) VALUES
+(1, 3, 1, 5, 'capa', 1);
 
 -- --------------------------------------------------------
 
@@ -338,6 +360,14 @@ ALTER TABLE `actividades_usario_centro`
   ADD KEY `id_act_centro` (`id_act_centro`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_usr_comentado` (`id_usr_comentado`),
+  ADD KEY `id_usr_comentante` (`id_usr_comentante`);
+
+--
 -- Indices de la tabla `especialidades_profes`
 --
 ALTER TABLE `especialidades_profes`
@@ -415,6 +445,12 @@ ALTER TABLE `actividades_centro`
   MODIFY `act_centro_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_comentario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `especialidades_profes`
 --
 ALTER TABLE `especialidades_profes`
@@ -466,6 +502,13 @@ ALTER TABLE `usuarios`
 ALTER TABLE `actividades_usario_centro`
   ADD CONSTRAINT `actividades_usario_centro_ibfk_1` FOREIGN KEY (`id_centro`) REFERENCES `usuario_centro` (`usr_centro_id`),
   ADD CONSTRAINT `actividades_usario_centro_ibfk_2` FOREIGN KEY (`id_act_centro`) REFERENCES `actividades_centro` (`act_centro_id`);
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_usr_comentado`) REFERENCES `usuarios` (`usr_id`),
+  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_usr_comentante`) REFERENCES `usuarios` (`usr_id`);
 
 --
 -- Filtros para la tabla `especialidades_usuarios_profesores`
