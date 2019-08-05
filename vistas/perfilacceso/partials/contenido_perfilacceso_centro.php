@@ -115,7 +115,95 @@
                         ?>
 
                           </div>
-                          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+
+                     <?php
+                         include_once PATH_DAOS .'/comentarioDAO.php';
+
+                        ?>
+
+
+
+                            <div class="ingresoposteo">
+                                  <div class="card">
+                                    <h5 class="card-header">Comentar</h5>
+                                    <div class="card-body">
+                                      <form action="index.php" method="GET">
+
+                                        <input type="hidden" name="m" value="perfilacceso">
+
+                                          <input type="hidden" name="tipo" value="comun">
+
+                                            <input type="hidden" name="nombre" value="<?= $perfilaccesoid ?>">
+
+                                                  <div class="form-group" id="rating-ability-wrapper">
+                                                       
+                                                        <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
+                                                        </label>
+                                                        <h2 class="bold rating-header" style="">
+                                                        <span class="selected-rating">0</span><small> / 5</small>
+                                                        </h2>
+                                                        <button type="button" class="btnrating btn btn-default" data-attr="1" id="rating-star-1">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button type="button" class="btnrating btn btn-default" data-attr="2" id="rating-star-2">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button type="button" class="btnrating btn btn-default" data-attr="3" id="rating-star-3">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button type="button" class="btnrating btn btn-default" data-attr="4" id="rating-star-4">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button type="button" class="btnrating btn btn-default" data-attr="5" id="rating-star-5">
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                            
+                                            <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" placeholder="¿Qué estas pensando?" rows="3" required="required"></textarea>
+                                            </div>
+                                      
+                                      
+                                            <input type="submit" name="comentar" value="Comentar" class="btn btn-primary">
+                                      </form>
+                                    </div>
+                                  </div>
+                                   <?php
+                                          include_once PATH_DAOS . '/postcomentarioDAO.php';
+                                          include_once PATH_HELPERS . '/html_helper.php';
+
+                                          $resultadocoment= mostrarcomentarios($perfilaccesoid);
+
+                                          while ($cardcoment = $resultadocoment->fetch_assoc()) {
+                                              crearHTMLComent($cardcoment["id_usr_comentante"], $cardcoment["calificacion"], $cardcoment["cont_comentario"]);
+                                            }  
+
+
+                                 ?>
+                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          </div>
                         </div>
 
                 
@@ -137,6 +225,37 @@
 
     </div>
 	
+  <script src="vendor/jquery/jquery-3.4.1.min.js"></script> 
+
+    <script>
+
+    jQuery(document).ready(function($){
+      
+  $(".btnrating").on('click',(function(e) {
+  
+  var previous_value = $("#selected_rating").val();
+  
+  var selected_value = $(this).attr("data-attr");
+  $("#selected_rating").val(selected_value);
+  
+  $(".selected-rating").empty();
+  $(".selected-rating").html(selected_value);
+  
+  for (i = 1; i <= selected_value; ++i) {
+  $("#rating-star-"+i).toggleClass('btn-warning');
+  $("#rating-star-"+i).toggleClass('btn-default');
+  }
+  
+  for (ix = 1; ix <= previous_value; ++ix) {
+  $("#rating-star-"+ix).toggleClass('btn-warning');
+  $("#rating-star-"+ix).toggleClass('btn-default');
+  }
+  
+  }));
+  
+    
+});
+</script>
 
 
 

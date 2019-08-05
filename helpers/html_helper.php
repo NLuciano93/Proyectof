@@ -271,3 +271,54 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
         ?>
 
+<?php
+
+      function crearHTMLComent($id_usr_comentante, $calificacion, $comentario){
+        include_once PATH_DAOS . '/perfilcomentanteDAO.php';
+        
+      $perfilcomentante = saberPerfilusr($id_usr_comentante);
+       
+
+?>    
+
+              <div class="card mb-3" style="max-width: 540px;">
+               
+                 <div class="row no-gutters">
+                     
+                      <div class="col-md-2">
+                       
+                         <img src="<?= FILES . '/perfiles/'. $perfilcomentante["usr_foto"] ?>" class="card-img border rounded-circle mt-3" alt="..." style="max-width: 100px;">
+                           
+                            </div>
+                          
+                            <div class="col-md-8">
+                            
+                               <div class="card-body">
+                              
+                                <h5 class="card-title"><?= $perfilcomentante["usr_nombre"] ?></h5>
+                               
+                                <p class="card-text"><?= $comentario ?></p>
+                               
+                                <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x <?= $calificacion ?></span></div>
+                            
+                             </div>
+                          
+                           </div>
+                         
+                         </div>
+                      
+                      </div>
+                                
+
+
+
+
+
+
+
+     <?php 
+          }
+
+      ?>
+
+
