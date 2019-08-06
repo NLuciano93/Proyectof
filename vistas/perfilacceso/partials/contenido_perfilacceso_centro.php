@@ -47,14 +47,19 @@
 
 
                                 ?>
-                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span></div>
+                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span></div>
                             
                                </div>
 
                              </div>
+                               <?php
+
+                                 include_once PATH_DAOS . '/totalestrellasDAO.php';
+
+                                ?>
 
 
-                               <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span></div>
+                               <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span></div>
                             </div>
                           </div>
                         
@@ -133,7 +138,7 @@
 
                                         <input type="hidden" name="m" value="perfilacceso">
 
-                                          <input type="hidden" name="tipo" value="comun">
+                                          <input type="hidden" name="tipo" value="centro">
 
                                             <input type="hidden" name="nombre" value="<?= $perfilaccesoid ?>">
 

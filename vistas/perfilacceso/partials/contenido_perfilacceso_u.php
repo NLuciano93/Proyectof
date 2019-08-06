@@ -47,7 +47,7 @@
 
 
                                     ?>
-                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span></div>
+                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span></div>
                             
                                </div>
 

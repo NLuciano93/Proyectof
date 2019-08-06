@@ -27,10 +27,17 @@
                                     include_once PATH_DAOS . '/perfiltotallikesDAO.php';
 
                              ?>
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span>
+                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
+
+                            <?php
+
+                                 include_once PATH_DAOS . '/perfiltotalstarDAO.php';
+
+                                ?>
 
 
-                             <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span></div>
+
+                             <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span></div>
                           </div>
                         </div>
             </div>

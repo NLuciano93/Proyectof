@@ -24,7 +24,7 @@
                                     include_once PATH_DAOS . '/perfiltotallikesDAO.php';
 
                                     ?>
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x<?= $TotalLikes?></span>
+                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
                           </div>
                         </div>
             </div>

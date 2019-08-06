@@ -8,6 +8,7 @@
                             $comentario = $_GET["comentario"];
                             $calificacion = $_GET["selected_rating"];
                             $numero_cal = 1;
+                            $tipo = $_GET["tipo"];
 
                              $conexion = getConexion();
 
@@ -15,7 +16,7 @@
 
                               $conexion->query($sqlcoment); 
                                        
-                              echo '<script> window.location="index.php"</script>';
+                               echo '<script> window.location="index.php?m=perfilacceso&tipo=' . $tipo . '&nombre=' . $usuariocomentado .'"</script>';
 
                            
                          }
