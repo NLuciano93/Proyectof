@@ -52,8 +52,8 @@
                                 <form enctype="multipart/form-data" action="index.php" method="POST">
                                   <input type="hidden" name="m" value="perfil">
                                     <div class="form-group">
-                                      <label for="exampleFormControlFile1">Agrega foto</label>
-                                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" required>
+                                      <label for="exampleFormControlFile2">Agrega foto</label>
+                                      <input type="file" class="form-control-file" id="exampleFormControlFile2" name="foto" required>
                                     </div>
                                     <input type="submit" name="submit" value="PUBLICA TU FOTO" class="btn btn-primary">
                                   </form>
@@ -96,7 +96,82 @@
              </div>
                           
 
-                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+ 
+
+  <?php 
+      include_once PATH_DAOS . '/ingresokmDAO.php';
+
+  ?>
+
+
+                        <form class="form-inline" method="GET">
+                          <legend>Running 1KM</legend>
+                          <p><h5>Ingresa tus minutos</h5></p>
+
+
+                        
+                          <div class="form-group mx-sm-3 mb-2">
+                            <label for="minutos1k" class="sr-only">Minutos1k</label>
+                            <input type="hidden" name="m" value="perfil">
+                            <input type="number" name="numero1k" min="0" id="minutos1k" step=".01">
+                          </div>
+                          <input type="submit" name="submit1k" value="Insertar" class="btn btn-primary">
+                           <p>Nota: los segundos se ingresan en decimal (30segundos = 0.5)</p>
+                        </form>
+      
+
+      <canvas id="badCanvas1" width="200" height="50"></canvas>
+
+
+                        <form class="form-inline" method="GET">
+                          <legend>Running 3KM</legend>
+                          <p><h5>Ingresa tus minutos</h5></p>
+
+
+                        
+                          <div class="form-group mx-sm-3 mb-2">
+                            <label for="minutos1k" class="sr-only">Minutos3k</label>
+                            <input type="hidden" name="m" value="perfil">
+                            <input type="number" name="numero3k" min="0" id="minutos3k" step=".01">
+                          </div>
+                          <input type="submit" name="submit3k" value="Insertar" class="btn btn-primary">
+                           <p>Nota: los segundos se ingresan en decimal (30segundos = 0.5)</p>
+                        </form>
+      
+
+      <canvas id="badCanvas2" width="200" height="50"></canvas>
+
+                        <form class="form-inline" method="GET">
+                          <legend>Running 10KM</legend>
+                          <p><h5>Ingresa tus minutos</h5></p>
+
+
+                        
+                          <div class="form-group mx-sm-3 mb-2">
+                            <label for="minutos1k" class="sr-only">Minutos10k</label>
+                            <input type="hidden" name="m" value="perfil">
+                            <input type="number" name="numero10k" min="0" id="minutos10k" step=".01">
+                          </div>
+                          <input type="submit" name="submit10k" value="Insertar" class="btn btn-primary">
+                           <p>Nota: los segundos se ingresan en decimal (30segundos = 0.5)</p>
+                        </form>
+      
+
+      <canvas id="badCanvas3" width="200" height="50"></canvas>
+
+  
+
+
+
+  
+
+
+
+
+                          </div>
                       
 
                           
@@ -303,8 +378,143 @@
 
               .fail(function() {
                 alert( "Error al obtener las localidades" );
-              })
+              });
              
           }
+
+        </script>
+
+        <?php
+         include_once PATH_DAOS . '/ingresokmDAO.php';
+
+         $insertartabla1k = buscartabla1k($_SESSION["id_usuario"]);
+         $insertartabla3k = buscartabla3k($_SESSION["id_usuario"]);
+         $insertartabla10k = buscartabla10k($_SESSION["id_usuario"]);
+
+         
+
+         $minutos1k=[];
+
+         $dia1k=[];
+
+          $minutos3k=[];
+
+         $dia3k=[];
+
+          $minutos10k=[];
+
+         $dia10k=[];
+
+         while ($t1k = $insertartabla1k->fetch_assoc()) {
+              $minutos1k[] = (float)$t1k["minutos_1k"];
+              $dia1k[] = $t1k["dia_1k"];
+           
+         }
+          while ($t3k = $insertartabla3k->fetch_assoc()) {
+              $minutos3k[] = (float)$t3k["minutos_3k"];
+              $dia3k[] = $t3k["dia_3k"];
+           
+         }
+          while ($t10k = $insertartabla10k->fetch_assoc()) {
+              $minutos10k[] = (float)$t10k["minutos_10k"];
+              $dia10k[] = $t10k["dia_10k"];
+           
+         }
+
+        ?>
+        <script>
+            var ctx = document.getElementById('badCanvas1').getContext('2d');
+              var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+               data: {
+                    labels: <?= json_encode($dia1k); ?>,
+                    datasets: [{
+                        label: 'Progreso 1km',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: <?= json_encode($minutos1k); ?>,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales:{
+                    yAxes:[{
+
+                      ticks:{
+                        beginAtZero: true,
+                      }
+                    }]
+                  }
+
+                }
+            });
+
+              var ctx = document.getElementById('badCanvas2').getContext('2d');
+              var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+               data: {
+                    labels: <?= json_encode($dia3k); ?>,
+                    datasets: [{
+                        label: 'Progreso 3km',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: <?= json_encode($minutos3k); ?>,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales:{
+                    yAxes:[{
+
+                      ticks:{
+                        beginAtZero: true,
+                      }
+                    }]
+                  }
+
+                }
+            });
+
+              var ctx= document.getElementById('badCanvas3').getContext('2d');
+              var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+               data: {
+                    labels: <?= json_encode($dia10k); ?>,
+                    datasets: [{
+                        label: 'Progreso 10km',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: <?= json_encode($minutos10k); ?>,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales:{
+                    yAxes:[{
+
+                      ticks:{
+                        beginAtZero: true,
+                      }
+                    }]
+                  }
+
+                }
+            });
+  
         </script>
 

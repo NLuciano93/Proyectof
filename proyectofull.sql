@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-08-2019 a las 04:31:32
+-- Tiempo de generación: 07-08-2019 a las 19:53:29
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -91,7 +91,15 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id_comentario`, `id_usr_comentado`, `id_usr_comentante`, `calificacion`, `cont_comentario`, `cont_numero`) VALUES
-(1, 3, 1, 5, 'capa', 1);
+(1, 3, 1, 5, 'capa', 1),
+(2, 3, 1, 5, 'genia', 1),
+(3, 3, 1, 3, 'asd', 1),
+(4, 3, 1, 3, 'asd', 1),
+(5, 3, 1, 1, 'malita', 1),
+(6, 3, 1, 1, 'malita', 1),
+(7, 3, 1, 2, 'cas', 1),
+(8, 5, 1, 5, 'buen gym', 1),
+(9, 5, 1, 0, 'asd', 1);
 
 -- --------------------------------------------------------
 
@@ -184,8 +192,8 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id_like`, `id_usuario_likeado`, `id_usuario_likeante`, `num_like`) VALUES
-(29, 3, 1, 1),
-(33, 1, 4, 1);
+(33, 1, 4, 1),
+(35, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -237,6 +245,59 @@ INSERT INTO `posteo` (`id_posteo`, `texto`, `id_usuario`, `fecha`) VALUES
 (6, 'Hola como va?', 1, '2019-07-19 22:09:30'),
 (7, 'Hola alejo\r\n', 1, '2019-08-02 12:12:06'),
 (8, 'hello', 1, '2019-08-02 12:13:02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `progreso_1k`
+--
+
+CREATE TABLE `progreso_1k` (
+  `id_1k` int(100) NOT NULL,
+  `id_usr_1k` int(100) NOT NULL,
+  `minutos_1k` decimal(10,2) NOT NULL,
+  `dia_1k` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `progreso_3k`
+--
+
+CREATE TABLE `progreso_3k` (
+  `id_3k` int(100) NOT NULL,
+  `id_usr_3k` int(100) NOT NULL,
+  `minutos_3k` decimal(10,2) NOT NULL,
+  `dia_3k` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `progreso_3k`
+--
+
+INSERT INTO `progreso_3k` (`id_3k`, `id_usr_3k`, `minutos_3k`, `dia_3k`) VALUES
+(1, 1, '18.00', '2019-08-07');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `progreso_10k`
+--
+
+CREATE TABLE `progreso_10k` (
+  `id_10k` int(100) NOT NULL,
+  `id_usr_10k` int(100) NOT NULL,
+  `minutos_10k` decimal(10,2) NOT NULL,
+  `dia_10k` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `progreso_10k`
+--
+
+INSERT INTO `progreso_10k` (`id_10k`, `id_usr_10k`, `minutos_10k`, `dia_10k`) VALUES
+(1, 1, '50.00', '2019-08-07');
 
 -- --------------------------------------------------------
 
@@ -410,6 +471,27 @@ ALTER TABLE `posteo`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
+-- Indices de la tabla `progreso_1k`
+--
+ALTER TABLE `progreso_1k`
+  ADD PRIMARY KEY (`id_1k`),
+  ADD KEY `id_usr_1k` (`id_usr_1k`);
+
+--
+-- Indices de la tabla `progreso_3k`
+--
+ALTER TABLE `progreso_3k`
+  ADD PRIMARY KEY (`id_3k`),
+  ADD KEY `id_usr_3k` (`id_usr_3k`);
+
+--
+-- Indices de la tabla `progreso_10k`
+--
+ALTER TABLE `progreso_10k`
+  ADD PRIMARY KEY (`id_10k`),
+  ADD KEY `id_usr_10k` (`id_usr_10k`);
+
+--
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
@@ -448,7 +530,7 @@ ALTER TABLE `actividades_centro`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_comentario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidades_profes`
@@ -466,7 +548,7 @@ ALTER TABLE `fotos`
 -- AUTO_INCREMENT de la tabla `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id_like` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_like` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `localidad`
@@ -479,6 +561,24 @@ ALTER TABLE `localidad`
 --
 ALTER TABLE `posteo`
   MODIFY `id_posteo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `progreso_1k`
+--
+ALTER TABLE `progreso_1k`
+  MODIFY `id_1k` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `progreso_3k`
+--
+ALTER TABLE `progreso_3k`
+  MODIFY `id_3k` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `progreso_10k`
+--
+ALTER TABLE `progreso_10k`
+  MODIFY `id_10k` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `provincia`
@@ -541,6 +641,24 @@ ALTER TABLE `localidad`
 --
 ALTER TABLE `posteo`
   ADD CONSTRAINT `posteo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`usr_id`);
+
+--
+-- Filtros para la tabla `progreso_1k`
+--
+ALTER TABLE `progreso_1k`
+  ADD CONSTRAINT `progreso_1k_ibfk_1` FOREIGN KEY (`id_usr_1k`) REFERENCES `usuarios` (`usr_id`);
+
+--
+-- Filtros para la tabla `progreso_3k`
+--
+ALTER TABLE `progreso_3k`
+  ADD CONSTRAINT `progreso_3k_ibfk_1` FOREIGN KEY (`id_usr_3k`) REFERENCES `usuarios` (`usr_id`);
+
+--
+-- Filtros para la tabla `progreso_10k`
+--
+ALTER TABLE `progreso_10k`
+  ADD CONSTRAINT `progreso_10k_ibfk_1` FOREIGN KEY (`id_usr_10k`) REFERENCES `usuarios` (`usr_id`);
 
 --
 -- Filtros para la tabla `usuarios`

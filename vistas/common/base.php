@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="<?= PATH_CSS ?>/all.min.css">
 	<!-- Add icon library -->
 	<script src="<?= PATH_VENDOR ?>/bootstrap/js/all.min.js"></script>
+	<script type="text/javascript" src="<?= PATH_VENDOR ?>/dist/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="<?= PATH_VENDOR ?>/dist/Chart.min.js"></script>
 
 
 

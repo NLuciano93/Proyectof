@@ -100,7 +100,32 @@
 
 
                           </div>
-                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            
+                            
+
+
+                             <canvas id="badCanvas1" width="200" height="50"></canvas>
+                             
+                             <br>
+                             <br>
+
+                             <canvas id="badCanvas2" width="200" height="50"></canvas>
+
+                             <br>
+                             <br>
+
+                             <canvas id="badCanvas3" width="200" height="50"></canvas>
+
+
+
+
+
+
+
+
+
+                          </div>
                          
 
 
@@ -248,3 +273,137 @@
     
 });
 </script>
+
+<?php
+         include_once PATH_DAOS . '/ingresokmDAO.php';
+
+         $insertartabla1k = buscartabla1k($perfilaccesoid);
+         $insertartabla3k = buscartabla3k($perfilaccesoid);
+         $insertartabla10k = buscartabla10k($perfilaccesoid);
+
+         
+
+         $minutos1k=[];
+
+         $dia1k=[];
+
+          $minutos3k=[];
+
+         $dia3k=[];
+
+          $minutos10k=[];
+
+         $dia10k=[];
+
+         while ($t1k = $insertartabla1k->fetch_assoc()) {
+              $minutos1k[] = (float)$t1k["minutos_1k"];
+              $dia1k[] = $t1k["dia_1k"];
+           
+         }
+          while ($t3k = $insertartabla3k->fetch_assoc()) {
+              $minutos3k[] = (float)$t3k["minutos_3k"];
+              $dia3k[] = $t3k["dia_3k"];
+           
+         }
+          while ($t10k = $insertartabla10k->fetch_assoc()) {
+              $minutos10k[] = (float)$t10k["minutos_10k"];
+              $dia10k[] = $t10k["dia_10k"];
+           
+         }
+
+        ?>
+        <script>
+            var ctx = document.getElementById('badCanvas1').getContext('2d');
+              var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+               data: {
+                    labels: <?= json_encode($dia1k); ?>,
+                    datasets: [{
+                        label: 'Progreso 1km',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: <?= json_encode($minutos1k); ?>,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales:{
+                    yAxes:[{
+
+                      ticks:{
+                        beginAtZero: true,
+                      }
+                    }]
+                  }
+
+                }
+            });
+
+              var ctx = document.getElementById('badCanvas2').getContext('2d');
+              var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+               data: {
+                    labels: <?= json_encode($dia3k); ?>,
+                    datasets: [{
+                        label: 'Progreso 3km',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: <?= json_encode($minutos3k); ?>,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales:{
+                    yAxes:[{
+
+                      ticks:{
+                        beginAtZero: true,
+                      }
+                    }]
+                  }
+
+                }
+            });
+
+              var ctx= document.getElementById('badCanvas3').getContext('2d');
+              var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+               data: {
+                    labels: <?= json_encode($dia10k); ?>,
+                    datasets: [{
+                        label: 'Progreso 10km',
+                        backgroundColor: 'rgb(255, 255, 255)',
+                        
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: <?= json_encode($minutos10k); ?>,
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales:{
+                    yAxes:[{
+
+                      ticks:{
+                        beginAtZero: true,
+                      }
+                    }]
+                  }
+
+                }
+            });
+  
+        </script>
