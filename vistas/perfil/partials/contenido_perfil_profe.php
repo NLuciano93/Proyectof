@@ -1,35 +1,41 @@
     <div class="container">
         <div class="row">
-            <div class="col-4 border"> 
-                        <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfiles/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+            <div class="col-4 border bg-dark"> 
+                        <div class="card w-100 alert-dark mt-2 mb-2">
+                          <img src="<?= FILES . '/perfiles/'. $_SESSION["foto"] ?>" class="card-img-top border border-warning rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title"><?= $_SESSION["usuario"]?></h5>
+                            <h5 class="card-title font-weight-bold"><?= $_SESSION["usuario"]?></h5>
 
                             <?php  include('barrasocial_perfil.php') ?>
                             
                           </div>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad: <?= $_SESSION["edad"]?></li>
-                            <li class="list-group-item">Localidad: <?= $_SESSION["localidad"]?></li>
-                            <li class="list-group-item">Telefono: <?= $_SESSION["tel"]?></li>
+
+
+
+
+                          <ul class="list-group list-group-flush font-weight-bold text-white">
+                            <li class="list-group-item bg-secondary border border-warning">Edad: <?= $_SESSION["edad"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Localidad: <?= $_SESSION["localidad"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Telefono: <?= $_SESSION["tel"]?></li>
                             <?php if ($_SESSION["educacionfisica"] == "Profesorado de Educación Física") { ?>
                               
                             
-                            <li class="list-group-item">Estudio: <?= $_SESSION["educacionfisica"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Estudio: <?= $_SESSION["educacionfisica"]?></li>
 
                             <?php } ?>
 
-                            <li class="list-group-item">Mail de contacto: <?= $_SESSION["mail"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Mail de contacto: <?= $_SESSION["mail"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Descripción: <?= $_SESSION["descripcion"]?></li>
 
                            
                           </ul>
+
                           <div class="card-body">
                                <?php
                                     include_once PATH_DAOS . '/perfiltotallikesDAO.php';
 
                                     ?>
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
+                            <span class="btn btn-info border border-warning"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
                           
                             <?php
 
@@ -38,27 +44,27 @@
                                 ?>
 
 
-                             <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span></div>
+                             <span class="btn btn-info border border-warning"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
                           </div>
                         </div>
             </div>
 
-            <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
+            <div class="col-8 border shadow-lg p-3 mb-5 bg-light rounded"> 
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active" id="fotosprofe-tab" data-toggle="tab" href="#fotosprofe" role="tab" aria-controls="fotosprofe" aria-selected="true">Fotos</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link active font-weight-bold text-dark btn btn-outline-info shadow-lg" id="fotosprofe-tab" data-toggle="tab" href="#fotosprofe" role="tab" aria-controls="fotosprofe" aria-selected="true">Fotos</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="cvprofe-tab" data-toggle="tab" href="#cvprofe" role="tab" aria-controls="cvprofeprofile" aria-selected="false">CV</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="cvprofe-tab" data-toggle="tab" href="#cvprofe" role="tab" aria-controls="cvprofeprofile" aria-selected="false">CV</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="especialidadprofe-tab" data-toggle="tab" href="#especialidadprofe" role="tab" aria-controls="especialidadprofe" aria-selected="false">Especialidades</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="especialidadprofe-tab" data-toggle="tab" href="#especialidadprofe" role="tab" aria-controls="especialidadprofe" aria-selected="false">Especialidades</a>
                           </li>
-                           <li class="nav-item">
-                            <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
+                           <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="actualizar-tab" data-toggle="tab" href="#actualizar" role="tab" aria-controls="actualizar" aria-selected="false">Actualizar datos</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="actualizar-tab" data-toggle="tab" href="#actualizar" role="tab" aria-controls="actualizar" aria-selected="false">Actualizar datos</a>
                           </li>
                           
                         </ul>
@@ -69,14 +75,14 @@
                           <div class="tab-pane fade show active" id="fotosprofe" role="tabpanel" aria-labelledby="fotosprofe-tab">
 
 
-                           <div>
+                           <div class="card text-white bg-secondary mb-3 mt-3 mr-3 ml-3 text-center border border-dark">
                                 <form enctype="multipart/form-data" action="index.php" method="POST">
                                   <input type="hidden" name="m" value="perfil">
                                     <div class="form-group">
-                                      <label for="exampleFormControlFile1">Agrega foto</label>
+                                      <p class="font-weight-bold border-bottom border-dark"><label for="exampleFormControlFile1">AGREGA FOTO</label></p>
                                       <input type="file" class="form-control-file" id="exampleFormControlFile1" name="foto" required>
                                     </div>
-                                    <input type="submit" name="submit" value="PUBLICA TU FOTO" class="btn btn-primary">
+                                    <input type="submit" name="submit" value="PUBLICA TU FOTO" class="btn btn-success col-12">
                                   </form>
 
                               </div>
@@ -121,7 +127,7 @@
                           <div class="container mt-3"> 
                             <table class="table table-bordered">
                                 <tr>
-                                  <td> <p>CV_<?= $_SESSION["usuario"]?></p></td>
+                                  <td> <p class="font-weight-bold">CV_<?= $_SESSION["usuario"]?></p></td>
                                   <td class="text-center"><a href="download.php?cv=<?= $_SESSION["cv"] ?>" class="btn btn-primary">Descargar</a></td>
 
                                 </tr>
@@ -152,6 +158,8 @@
                                 include_once PATH_DAOS .'/especialidadesprofeDAO.php';
 
                             ?>
+
+            <div class="card text-white bg-secondary mb-3 mt-3 mr-3 ml-3 text-center border border-dark font-weight-bold">
 
                        <form class="form-horizontal" action="index.php" method="POST">
                                <input type="hidden" name="m" value="perfil">
@@ -187,18 +195,18 @@
                                         </div>
                                         <!-- Button -->
                                             
-                                              <div class="col-md-4">
-                                                <input type="submit" name="agregar" value="Agregar" class="btn btn-primary">
-                                                 <input type="submit" name="quitar" value="Quitar" class="btn btn-danger">
+                                              <div class="col-12">
+                                                <input type="submit" name="agregar" value="Agregar" class="btn btn-success col-3">
+                                                 <input type="submit" name="quitar" value="Quitar" class="btn btn-danger col-3">
                                               </div>
                                             
                                             
 
                                         </fieldset>
                              </form>
+                  </div>
 
-
-
+                <div class="text-center">
 
                        <?php 
 
@@ -219,7 +227,7 @@
 
                             
                             
-
+                </div>
                             
 
 
@@ -262,15 +270,15 @@
 
 
                                                 <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-                                                        <form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="POST">
+                                                        <form class="form-horizontal " enctype="multipart/form-data" action="index.php" method="POST">
                                                       <fieldset>
                                                             <input type="hidden" name="m" value="perfil">
                                                      
                                                      
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="Nombre">Nombre completo</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="Nombre">Nombre completo</label>  
+                                                        <div class="col-12">
                                                         <input id="Nombre" name="nombre" type="text" placeholder="<?= $_SESSION["usuario"] ?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -278,8 +286,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="telefono">Teléfono/celular</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="telefono">Teléfono/celular</label>  
+                                                        <div class="col-12">
                                                         <input id="telefono" name="telefono" type="text" placeholder="<?= $_SESSION["tel"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -288,8 +296,8 @@
                                                      
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="edad">Edad</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="edad">Edad</label>  
+                                                        <div class="col-12">
                                                         <input id="edad" name="edad" type="number" placeholder="<?= $_SESSION["edad"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -297,8 +305,8 @@
 
                                                       <!-- Select Basic -->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="provincia">Provincia</label>
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="provincia">Provincia</label>
+                                                        <div class="col-12">
                                                           <select name="provincia" class="form-control" id="provincia">
                                                              <?php
                                                                         include_once PATH_DAOS. '/busqueDAO.php';
@@ -313,8 +321,8 @@
 
                                                       <!-- Select Basic -->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="localidad">Localidad</label>
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="localidad">Localidad</label>
+                                                        <div class="col-12">
                                                             <select  name="localidad" id="localidad" class="form-control" >
                                                                  <option value="-1">Elegí primero Provincia </option>
 
@@ -331,8 +339,8 @@
 
                                                       <!-- File Button --> 
                                                           <div class="form-group">
-                                                            <label class="col-md-4 control-label" for="cv">Actualiza tu CV</label>
-                                                            <div class="col-md-4">
+                                                            <label class="col-12 control-label" for="cv">Actualiza tu CV</label>
+                                                            <div class="col-12">
                                                               <input id="cv" name="cv" class="input-file" type="file">
                                                             </div>
                                                           </div>             
@@ -341,8 +349,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="facebook">Perfil de Facebook (ejemplo: https://www.facebook.com/...)</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="facebook">Perfil de Facebook (ejemplo: https://www.facebook.com/...)</label>  
+                                                        <div class="col-12">
                                                         <input id="facebook" name="facebook" type="text" placeholder="<?= $_SESSION["facebook"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -350,8 +358,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="twitter">Twitter</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="twitter">Twitter</label>  
+                                                        <div class="col-12">
                                                         <input id="twitter" name="twitter" type="text" placeholder="<?= $_SESSION["twitter"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -359,8 +367,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="instagram">Instagram</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="instagram">Instagram</label>  
+                                                        <div class="col-12">
                                                         <input id="instagram" name="instagram" type="text" placeholder="<?= $_SESSION["instagram"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -375,13 +383,13 @@
 
                                              <!-- Textarea -->
                                                   <div class="form-group">
-                                                    <label class="col-md-4 control-label" for="descripcion">Descripción</label>
-                                                    <div class="col-md-4">                     
+                                                    <label class="col-12 control-label" for="descripcion">Descripción</label>
+                                                    <div class="col-12">                     
                                                       <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
                                                     </div>
                                                   </div>
 
-                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary">
+                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary col-12">
 
                                                       </fieldset>
                                                     </form>

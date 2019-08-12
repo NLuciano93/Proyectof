@@ -8,7 +8,7 @@
 
     $conexion = getConexion();
 
-    $consulta = "SELECT * FROM localidad WHERE loca_prov_id = " . $id_provincia;
+    $consulta = "SELECT * FROM localidad WHERE loca_prov_id =  '$id_provincia' ORDER BY loca_nombre ASC";
 
     $resultado = $conexion->query($consulta);
 

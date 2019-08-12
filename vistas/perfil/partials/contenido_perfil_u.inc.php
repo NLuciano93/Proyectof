@@ -1,10 +1,10 @@
  <div class="container">
         <div class="row">
-            <div class="col-4 border"> 
-                        <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfiles/'. $_SESSION["foto"] ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+            <div class="col-4 border bg-dark"> 
+                        <div class="card w-100 alert-dark mt-2 mb-2">
+                          <img src="<?= FILES . '/perfiles/'. $_SESSION["foto"] ?>" class="card-img-top border border-warning rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title"><?= $_SESSION["usuario"] ?></h5>
+                            <h5 class="card-title font-weight-bold"><?= $_SESSION["usuario"] ?></h5>
 
 
  
@@ -13,10 +13,10 @@
                            <?php  include('barrasocial_perfil.php') ?>
                             
                           </div>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad: <?= $_SESSION["edad"]?></li>
-                            <li class="list-group-item">Localidad: <?= $_SESSION["localidad"]?></li>
-                            <li class="list-group-item">Mail de contacto: <?= $_SESSION["mail"]?></li>
+                          <ul class="list-group list-group-flush font-weight-bold text-white">
+                            <li class="list-group-item bg-secondary border border-warning">Edad: <?= $_SESSION["edad"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Localidad: <?= $_SESSION["localidad"]?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Mail de contacto: <?= $_SESSION["mail"]?></li>
                             
                           </ul>
                           <div class="card-body">
@@ -24,38 +24,46 @@
                                     include_once PATH_DAOS . '/perfiltotallikesDAO.php';
 
                                     ?>
-                            <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
+                            <span class="btn btn-info border border-warning"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
+                              <?php
+
+                                 include_once PATH_DAOS . '/perfiltotalstarDAO.php';
+
+                                ?>
+
+
+                             <span class="btn btn-info border border-warning"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
                           </div>
                         </div>
             </div>
 
-            <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
+            <div class="col-8 border shadow-lg p-3 mb-5 bg-light rounded"> 
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Foto mes a mes</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link active font-weight-bold text-dark btn btn-outline-info shadow-lg " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Foto mes a mes</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
                           </li>
                           
-                          <li class="nav-item">
-                            <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="actualizar-tab" data-toggle="tab" href="#actualizar" role="tab" aria-controls="actualizar" aria-selected="false">Actualizar datos</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="actualizar-tab" data-toggle="tab" href="#actualizar" role="tab" aria-controls="actualizar" aria-selected="false">Actualizar datos</a>
                           </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content border" id="myTabContent">
                           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             
-                            <div>
+                            <div class="card text-white bg-secondary mb-3 mt-3 mr-3 ml-3 text-center border border-dark">
                                 <form enctype="multipart/form-data" action="index.php" method="POST">
                                   <input type="hidden" name="m" value="perfil">
-                                    <div class="form-group">
-                                      <label for="exampleFormControlFile2">Agrega foto</label>
+                                    <div class="form-group ">
+                                      <p class="font-weight-bold border-bottom border-dark"><label for="exampleFormControlFile2">AGREGA FOTO</label></p>
                                       <input type="file" class="form-control-file" id="exampleFormControlFile2" name="foto" required>
                                     </div>
-                                    <input type="submit" name="submit" value="PUBLICA TU FOTO" class="btn btn-primary">
+                                    <input type="submit" name="submit" value="PUBLICA TU FOTO" class="btn btn-success col-12">
                                   </form>
 
                               </div>
@@ -106,9 +114,10 @@
 
   ?>
 
-
-                        <form class="form-inline" method="GET">
-                          <legend>Running 1KM</legend>
+                       <div class="card text-white bg-secondary mb-3 mt-3 mr-3 ml-3">
+                        <div class="text-center"><p class="font-weight-bold border-bottom border-white"><legend>Running 1KM</legend></p></div>
+                        <form class="form-inline ml-3" method="GET">
+                          
                           <p><h5>Ingresa tus minutos</h5></p>
 
 
@@ -118,16 +127,20 @@
                             <input type="hidden" name="m" value="perfil">
                             <input type="number" name="numero1k" min="0" id="minutos1k" step=".01">
                           </div>
-                          <input type="submit" name="submit1k" value="Insertar" class="btn btn-primary">
+                          <input type="submit" name="submit1k" value="Insertar" class="btn btn-primary" required="">
                            <p>Nota: los segundos se ingresan en decimal (30segundos = 0.5)</p>
+                           
                         </form>
+                       </div>
       
 
       <canvas id="badCanvas1" width="200" height="50"></canvas>
 
-
-                        <form class="form-inline" method="GET">
-                          <legend>Running 3KM</legend>
+                  <div class="card text-white bg-secondary mb-3 mt-3 mr-3 ml-3">
+                     <div class="text-center"><p class="font-weight-bold border-bottom border-white"><legend>Running 3KM</legend></p></div>
+                        
+                        <form class="form-inline ml-3" method="GET">
+                         
                           <p><h5>Ingresa tus minutos</h5></p>
 
 
@@ -135,17 +148,21 @@
                           <div class="form-group mx-sm-3 mb-2">
                             <label for="minutos1k" class="sr-only">Minutos3k</label>
                             <input type="hidden" name="m" value="perfil">
-                            <input type="number" name="numero3k" min="0" id="minutos3k" step=".01">
+                            <input type="number" name="numero3k" min="0" id="minutos3k" step=".01" required="">
                           </div>
                           <input type="submit" name="submit3k" value="Insertar" class="btn btn-primary">
                            <p>Nota: los segundos se ingresan en decimal (30segundos = 0.5)</p>
                         </form>
+                      </div>
       
 
       <canvas id="badCanvas2" width="200" height="50"></canvas>
 
-                        <form class="form-inline" method="GET">
-                          <legend>Running 10KM</legend>
+      <div class="card text-white bg-secondary mb-3 mt-3 mr-3 ml-3">
+                     <div class="text-center"><p class="font-weight-bold border-bottom border-white"><legend>Running 10KM</legend></p></div>
+
+                        <form class="form-inline ml-3" method="GET">
+                          
                           <p><h5>Ingresa tus minutos</h5></p>
 
 
@@ -153,11 +170,12 @@
                           <div class="form-group mx-sm-3 mb-2">
                             <label for="minutos1k" class="sr-only">Minutos10k</label>
                             <input type="hidden" name="m" value="perfil">
-                            <input type="number" name="numero10k" min="0" id="minutos10k" step=".01">
+                            <input type="number" name="numero10k" min="0" id="minutos10k" step=".01" required="">
                           </div>
                           <input type="submit" name="submit10k" value="Insertar" class="btn btn-primary">
                            <p>Nota: los segundos se ingresan en decimal (30segundos = 0.5)</p>
                         </form>
+                      </div>
       
 
       <canvas id="badCanvas3" width="200" height="50"></canvas>
@@ -211,15 +229,15 @@
 
 
                                                 <div class="tab-pane fade show active shadow-lg p-3 mb-5 bg-white rounded" id="nav-usuario" role="tabpanel" aria-labelledby="nav-usuario-tab">
-                                                        <form class="form-horizontal border" enctype="multipart/form-data" action="index.php" method="POST">
+                                                        <form class="form-horizontal " enctype="multipart/form-data" action="index.php" method="POST">
                                                       <fieldset>
                                                             <input type="hidden" name="m" value="perfil">
                                                      
                                                      
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="Nombre">Nombre completo</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="Nombre">Nombre completo</label>  
+                                                        <div class="col-12">
                                                         <input id="Nombre" name="nombre" type="text" placeholder="<?= $_SESSION["usuario"] ?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -227,8 +245,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="telefono">Teléfono/celular</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="telefono">Teléfono/celular</label>  
+                                                        <div class="col-12">
                                                         <input id="telefono" name="telefono" type="text" placeholder="<?= $_SESSION["tel"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -237,8 +255,8 @@
                                                      
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="edad">Edad</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="edad">Edad</label>  
+                                                        <div class="col-12">
                                                         <input id="edad" name="edad" type="number" placeholder="<?= $_SESSION["edad"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -246,8 +264,8 @@
 
                                                       <!-- Select Basic -->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="provincia">Provincia</label>
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="provincia">Provincia</label>
+                                                        <div class="col-12">
                                                           <select name="provincia" class="form-control" id="provincia">
                                                              <?php
                                                                         include_once PATH_DAOS. '/busqueDAO.php';
@@ -262,8 +280,8 @@
 
                                                       <!-- Select Basic -->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="localidad">Localidad</label>
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="localidad">Localidad</label>
+                                                        <div class="col-12">
                                                             <select  name="localidad" id="localidad" class="form-control" >
                                                                  <option value="-1">Elegí primero Provincia </option>
 
@@ -282,8 +300,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="facebook">Perfil de Facebook (ejemplo: https://www.facebook.com/...)</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="facebook">Perfil de Facebook (ejemplo: https://www.facebook.com/...)</label>  
+                                                        <div class="col-12">
                                                         <input id="facebook" name="facebook" type="text" placeholder="<?= $_SESSION["facebook"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -291,8 +309,8 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="twitter">Twitter</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="twitter">Twitter</label>  
+                                                        <div class="col-12">
                                                         <input id="twitter" name="twitter" type="text" placeholder="<?= $_SESSION["twitter"]?>" class="form-control input-md">
                                                           
                                                         </div>
@@ -300,14 +318,14 @@
 
                                                       <!-- Text input-->
                                                       <div class="form-group">
-                                                        <label class="col-md-6 control-label" for="instagram">Instagram</label>  
-                                                        <div class="col-md-6">
+                                                        <label class="col-12 control-label" for="instagram">Instagram</label>  
+                                                        <div class="col-12">
                                                         <input id="instagram" name="instagram" type="text" placeholder="<?= $_SESSION["instagram"]?>" class="form-control input-md">
                                                           
                                                         </div>
                                                       </div>
 
-                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary">
+                                                      <input type="submit" name="actualizar" value="Actualizar" class="btn btn-primary col-12">
 
                                                       </fieldset>
                                                     </form>

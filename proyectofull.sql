@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-08-2019 a las 19:53:29
+-- Tiempo de generación: 12-08-2019 a las 01:43:58
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.6
 
@@ -93,13 +93,8 @@ CREATE TABLE `comentarios` (
 INSERT INTO `comentarios` (`id_comentario`, `id_usr_comentado`, `id_usr_comentante`, `calificacion`, `cont_comentario`, `cont_numero`) VALUES
 (1, 3, 1, 5, 'capa', 1),
 (2, 3, 1, 5, 'genia', 1),
-(3, 3, 1, 3, 'asd', 1),
-(4, 3, 1, 3, 'asd', 1),
-(5, 3, 1, 1, 'malita', 1),
-(6, 3, 1, 1, 'malita', 1),
-(7, 3, 1, 2, 'cas', 1),
 (8, 5, 1, 5, 'buen gym', 1),
-(9, 5, 1, 0, 'asd', 1);
+(10, 1, 4, 5, 'CApo', 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +212,37 @@ INSERT INTO `localidad` (`loca_id`, `loca_prov_id`, `loca_nombre`) VALUES
 (3, 2, 'San Miguel'),
 (4, 2, 'Don Torcuato'),
 (5, 2, 'Boulogne'),
-(6, 2, 'Munro');
+(6, 2, 'Munro'),
+(7, 2, 'Vicente Lopez'),
+(8, 2, 'San Isidro'),
+(9, 2, 'Villa Adelina'),
+(10, 2, 'Tres de Febrero'),
+(11, 2, 'San Martin'),
+(12, 2, 'Hurlingham'),
+(13, 2, 'Moron'),
+(14, 2, 'Banfield'),
+(15, 2, 'Lanus'),
+(16, 2, 'Lomas de Zamora'),
+(17, 2, 'La Matanza'),
+(18, 2, 'San Fernando'),
+(19, 2, 'Tigre'),
+(20, 2, 'Ciudadela'),
+(21, 2, 'Quilmes'),
+(22, 1, 'Almagro'),
+(23, 1, 'Barracas'),
+(24, 1, 'Belgrano'),
+(25, 1, 'Boedo'),
+(26, 1, 'Colegiales'),
+(27, 1, 'Flores'),
+(28, 1, 'Floresta'),
+(29, 1, 'Liniers'),
+(30, 1, 'Nuñez'),
+(31, 1, 'Recoleta'),
+(32, 1, 'Saavedra'),
+(33, 1, 'Villa Devoto'),
+(34, 1, 'Villa Pueyrredón'),
+(35, 1, 'Villa Urquiza'),
+(36, 1, 'Villa Soldati');
 
 -- --------------------------------------------------------
 
@@ -238,13 +263,7 @@ CREATE TABLE `posteo` (
 
 INSERT INTO `posteo` (`id_posteo`, `texto`, `id_usuario`, `fecha`) VALUES
 (1, 'hola', 1, '0000-00-00 00:00:00'),
-(2, 'holaaaaaa', 1, '2019-07-19 18:10:17'),
-(3, 'holaaaaaa', 1, '2019-07-19 18:47:12'),
-(4, 'que tal', 1, '2019-07-19 18:53:58'),
-(5, 'que tal', 1, '2019-07-19 18:58:26'),
-(6, 'Hola como va?', 1, '2019-07-19 22:09:30'),
-(7, 'Hola alejo\r\n', 1, '2019-08-02 12:12:06'),
-(8, 'hello', 1, '2019-08-02 12:13:02');
+(6, 'Hola como va?', 1, '2019-07-19 22:09:30');
 
 -- --------------------------------------------------------
 
@@ -351,7 +370,6 @@ INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_loca
 (4, 'Maria Ventre', '1564298824', 'profe2@gmail.com', 4, '123456', 'ventremaria.png', 'https://www.facebook.com/pepitojavier', 'https://www.instagram.com/bipashabasu/?hl=es-la', 'https://twitter.com/TyCSports', 28, 'profe buena onda', '2019-07-14 21:43:13.180547'),
 (5, 'FitnessKing', '1121347984', 'info@fitnessking.com.ar', 2, '123456', 'fitnessking.png', 'https://www.facebook.com/fitnesskingarg/', 'https://www.instagram.com/fitnesskingtheking/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad de atención', '2019-07-14 21:42:03.231692'),
 (6, 'JuanGym', '1152468795', 'info@gmail.com', 4, '123456', 'juangym.png', 'https://www.facebook.com/feedback.eyb', 'https://www.instagram.com/explore/tags/juangym/?hl=es-la', 'https://twitter.com/?lang=ES', 0, 'calidad papu', '2019-08-02 21:54:21.872330'),
-(7, 'lola', '21', 'asd', 4, 'asda', 'asd', 'asd', 'asd', 'asd', 20, '', '0000-00-00 00:00:00.000000'),
 (8, 'Carlos gym', '123', 'carlosgym@gmail.com', 1, '123', '', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 0, 'Comentario acerca del local', '2019-07-30 16:19:49.000000'),
 (9, 'lalagym', '123', 'lalagym@gmail.com', 2, '123', '', 'https://www.facebook.com/', 'https://www.instagram.com/?hl=es-la', 'https://twitter.com/home', 0, 'super', '2019-07-30 16:23:42.000000'),
 (10, 'asdguym', 'asd12', 'asd@asd123.com', 5, '123', '1467c336f6caa5fd19d5aa4973452464.jpg', 'asd', 'asd', 'asd', 0, 'Comentario acerca del local', '2019-07-30 16:39:34.000000'),
@@ -530,7 +548,7 @@ ALTER TABLE `actividades_centro`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_comentario` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidades_profes`
@@ -554,13 +572,13 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
-  MODIFY `loca_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `loca_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `posteo`
 --
 ALTER TABLE `posteo`
-  MODIFY `id_posteo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_posteo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `progreso_1k`

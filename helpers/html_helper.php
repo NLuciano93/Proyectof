@@ -7,10 +7,10 @@
 
 ?>
     
-          <div class="card mb-3">
+          <div class="card mb-3 shadow-lg tarjeta_posteo font-weight-bold">
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img src="<?= FILES . '/perfiles/'. $fotoProfe ?>" class="card-img border rounded-circle "  style="max-width: 200px; max-height: 200px; " alt="...">
+                      <img src="<?= FILES . '/perfiles/'. $fotoProfe ?>" class="card-img border border-dark rounded-circle "  style="max-width: 200px; max-height: 200px; " alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
@@ -33,15 +33,7 @@
                         
                         <br>
 
-                    <div>
-                        <span class="card-text"><small class="text-muted">Calificación:</small></span>
-                      </div>
-                    <div class="botone">
-                           <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
-                           
-                           <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-                        </div>
-
+                  
 
                       </div>
 
@@ -84,11 +76,11 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
 ?>
 
-    <div class="card mb-3">
+    <div class="card mb-3 shadow-lg tarjeta_posteo font-weight-bold">
         <div class="row no-gutters">
 
             <div class="col-md-4">
-              <img src="<?= FILES . '/perfiles/'. $fotoCentro ?>" class="card-img border rounded-circle" style="max-width: 200px; max-height: 200px;" alt="...">
+              <img src="<?= FILES . '/perfiles/'. $fotoCentro ?>" class="card-img border border-dark rounded-circle" style="max-width: 200px; max-height: 200px;" alt="...">
             </div>
 
             <div class="col-md-8">
@@ -107,14 +99,7 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
                 </div>
                 
 
-                <div>
-                <span class="card-text mt-2"><small class="text-muted">Calificación:</small></span>
-              </div>
-                <div class="botone">
-                     <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
-                     
-                     <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-                </div>
+               
 
 
               </div>
@@ -162,20 +147,18 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
        
 
 ?>    
-              <div class="posteo mt-3">
-                    <div class="card">
-                          <div class="row no-gutters">
-                              <div class="col-md-2">
-                                </a><img src="<?= FILES . '/perfiles/'. $fotopubli ?>" class="card-img border rounded-circle mt-3" alt="...">
+              <div class="posteo mt-5 border border-dark rounded tarjeta_posteo shadow-lg">
+                    <div class="card border border-dark rounded tarjeta_posteo">
+                          <div class="row no-gutters border border-dark rounded tarjeta_posteo">
+                              <div class="col-md-2 text-center">
+                              <img src="<?= FILES . '/perfiles/'. $fotopubli ?>" class="card-img border text-center border-dark rounded-circle mt-1 shadow-lg" alt="..." style="max-width: 130px; max-height: 130px;">
                               </div>
-                              <div class="col-md-8">
+                              <div class="col-md-6">
                                 <div class="card-body">
-                                  <a href="index.php?m=perfilacceso&tipo=<?= $perfilacceso ?>&nombre=<?= $id_usuario ?>"><h5 class="card-title"><?= $nombrepubli ?></h5></a>
-                                  <p class="card-text"><?= $texto ?></p>
+                                  <a href="index.php?m=perfilacceso&tipo=<?= $perfilacceso ?>&nombre=<?= $id_usuario ?>"><h5 class="card-title font-weight-bold"><?= $nombrepubli ?></h5></a>
+                                  <p class="card-text font-weight-bold"><?= $texto ?></p>
                                   <p class="card-text"><small class="text-muted"><?= $fecha ?></small></p>
-                                  <div>
-                                <span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
-                              </div>  
+                                
                                 </div>
                               </div>
                             </div>
@@ -200,9 +183,9 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
         ?>
 
-                          <div class="col-md-3 mb-4 text-center d-flex align-items-stretch">
-                                  <div class="card">
-                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top" alt="...">
+                          <div class="col-md-3 mb-4 text-center d-flex align-items-stretch ">
+                                  <div class="card fotoalbum border border-dark">
+                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top fotohover" alt="...">
                                            <div class="card-body">
                                               <p class="card-text"><small class="text-muted"><?= $fechafoto ?></small></p>
                                                 </div>
@@ -223,8 +206,8 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
         ?>
 
                           <div class="col-md-4 mb-4 text-center d-flex align-items-stretch">
-                                  <div class="card">
-                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top" alt="...">
+                                  <div class="card fotoalbum border border-dark">
+                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top fotohover" alt="...">
 
                                           </div>
 
@@ -281,13 +264,13 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
 ?>    
 
-              <div class="card mb-3 mt-3" style="max-width: 540px;">
+              <div class="card ml-3 mb-3 mt-3 tarjeta_posteo" style="max-width: 540px;">
                
                  <div class="row no-gutters">
                      
                       <div class="col-md-2">
                        
-                         <img src="<?= FILES . '/perfiles/'. $perfilcomentante["usr_foto"] ?>" class="card-img border rounded-circle mt-3" alt="..." style="max-width: 100px;">
+                         <img src="<?= FILES . '/perfiles/'. $perfilcomentante["usr_foto"] ?>" class="card-img border border-dark rounded-circle mt-3" alt="..." style="max-width: 100px;">
                            
                             </div>
                           
@@ -299,7 +282,7 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
                                
                                 <p class="card-text"><?= $comentario ?></p>
                                
-                                <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x <?= $calificacion ?></span></div>
+                                <div><span class="btn btn-info"><i class="fas fa-star estrella"></i>x <?= $calificacion ?></span></div>
                             
                              </div>
                           

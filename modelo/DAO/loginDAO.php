@@ -105,10 +105,17 @@
 
 
         }
-        else{
-            $mensaje_alerta = "Usuario y/o contraseña no valida";
-        }
+        else{ ?>
+
+           <div class="alert alert-danger d-flex justify-content-center" role="alert">
+                                             <b>Usuario y/o contraseña no valida</b>
+                            </div>
+            
+    <?php    }
     }
-    else{
-        $mensaje_alerta = "Debe completar el usuario y la contraseña";
-    }
+    else{ ?>
+         <div class="alert alert-danger d-flex justify-content-center" role="alert">
+                                             <b>Debe completar el usuario y la contraseña</b>
+                            </div>
+        
+<?php    }

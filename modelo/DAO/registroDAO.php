@@ -139,11 +139,13 @@ include_once PATH_HELPERS ."/database_helper.php";
     $resultado = $conexion->query( $sql );
 
 
-        if ( $resultado->num_rows == 1  ){
+        if ( $resultado->num_rows == 1  ){ ?>
 
-            echo "Ese mail esta en uso";
+             <div class="alert alert-danger d-flex justify-content-center" role="alert">
+                                             <b>USUARIO EN USO</b>
+                            </div>
 
-        }
+     <?php   }
         else{
             $sql = " INSERT INTO `usuarios` (`usr_id`, `usr_nombre`, `usr_tel`, `usr_mail`, `usr_localidad`, `usr_contrasena`, `usr_foto`, `usr_facebook`, `usr_instagram`, `usr_twitter`, `usr_edad`, `descripcion`, `usr_registro`) VALUES (NULL,".
                 " '$nombre', '$telefono', '$mail', '$localidad', '$contrasena', '$newFileName', '$facebook', '$instagram', '$twitter', '$edad', '$descripcion', now())";

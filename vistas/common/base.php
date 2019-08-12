@@ -20,7 +20,7 @@
 <body>
 	<header>
 		<div class="container-fluid">
-			<nav class="navbar navbar-light navbar-expand-xl">
+			<nav class="navbar navbar-light navbar-expand-xl barracommon">
 				<a class="navbar-brand" href="index.php">
    				 	<img src="<?= PATH_IMAGENES . '/logopag2.png' ?>" width="100" height="100" class="d-inline-block align-top" alt="">
    					

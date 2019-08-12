@@ -1,10 +1,10 @@
 <div class="container">
         <div class="row">
-            <div class="col-4 border"> 
-                        <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfiles/'.  $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+            <div class="col-4 border bg-dark"> 
+                        <div class="card w-100 alert-dark mt-2 mb-2">
+                          <img src="<?= FILES . '/perfiles/'.  $perfilaccesofoto ?>" class="card-img-top border border-warning rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title"><?= $perfilaccesousuario ?></h5>
+                            <h5 class="card-title font-weight-bold"><?= $perfilaccesousuario ?></h5>
 
 
  
@@ -13,9 +13,9 @@
                            <?php  include('barrasocial_perfilacceso.php') ?>
                             
                           </div>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad: <?= $perfilaccesoedad?></li>
-                            <li class="list-group-item">Localidad: <?= $perfilaccesolocalidad?></li>
+                          <ul class="list-group list-group-flush font-weight-bold text-white">
+                            <li class="list-group-item bg-secondary border border-warning">Edad: <?= $perfilaccesoedad?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Localidad: <?= $perfilaccesolocalidad?></li>
                            
                           </ul>
                           <div class="card-body">
@@ -47,7 +47,19 @@
 
 
                                     ?>
-                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span></div>
+                                 
+
+                                  <?php
+
+                                 include_once PATH_DAOS . '/totalestrellasDAO.php';
+
+                                ?>
+
+                             <div class="card-body">
+                             <span class="btn btn-info"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span> 
+                             <span class="btn btn-info"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
+                              
+                            </div>
                             
                                </div>
 
@@ -62,16 +74,16 @@
                         </div>
             </div>
 
-            <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
+            <div class="col-8 border shadow-lg p-3 mb-5 bg-light rounded"> 
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Foto mes a mes</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link active font-weight-bold text-dark btn btn-outline-info shadow-lg" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Foto mes a mes</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Progreso</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comentarios</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Comentarios</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">

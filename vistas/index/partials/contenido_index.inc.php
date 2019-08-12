@@ -1,26 +1,28 @@
+
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-2 border">
+		<div class="col-2 sticky-top">
 			<!-- BARRA SOCIAL-->
-			<div class="social" >
+			<div class="social sticky-top" >
 				<ul id="colsocial">
-					<li><a href="" class="icon-facebook2"></a></li>
-					<li><a href="" class="icon-twitter"></a></li>
-					<li><a href="" class="icon-instagram"></a></li>
-					<li><a href="" class="icon-youtube"></a></li>
-					<li><a href="" class="icon-mail4"></a></li>
+					<li><a href="https://www.facebook.com/movete.move.7" class="icon-facebook2"></a></li>
+					<li><a href="https://twitter.com/Fullmove5" class="icon-twitter"></a></li>
+					<li><a href="https://www.instagram.com/fullmovefull/" class="icon-instagram"></a></li>
+					<li><a href="https://www.youtube.com/channel/UCGK8zYfuOUnGFo0jHvoLSsQ" class="icon-youtube"></a></li>
+					<li><a href="mailto:fullmovecontacto@gmail.com" class="icon-mail4"></a></li>
 				</ul>
 			</div>
 		</div>
 
 		<!-- Posteos-->
 
-		<div class="col-7 border">
+		<div class="col-7 border seccionpost">
 
 			
 				
-			
-			<h1 class="align-center">Sección de post</h1>
+			<div class="card-body text-center bg-dark shadow-lg text-white border border-warning rounded mt-3">
+			<h1 class="align-center">SECCIÓN DE POST</h1>
+			</div>
 
 
 <?php if (isset($_SESSION["usuario"])) { ?>
@@ -86,63 +88,42 @@
 		<!-- CLASIFICACION-->
 
 
-		<div class="col-3 border">
+		<div class="col-3">
 
 			<div id="clasificacion">
-			<div>
-			<h4 class="titulo_clasif">Clasificación:</h4>
+			<div class="text-center mb-3">
+			<h5><small class="titulo_clasif text-dark text-center text-uppercase">AGRADECEMOS EL APOYO DE</small></h5>
 			</div>
 				
-			<div class="casilleroclas">
-				<p class="parrafo">CENTRO</p>
+			<div class="casilleroclas2 text-center">
+				
 				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
+				<img class="w-50 img-thumbnail" src="<?= PATH_IMAGENES . '/comIT.jpg' ?>" alt="">
 				</div>
-				<div class="botone">
-        			 <span class="btn btn-info btn-lg" ><i class="far fa-thumbs-up"></i>x100</span>
-        			 
-         			 <span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-        		</div>
+				
+			</div>
+			<div class="casilleroclas2 text-center">
+				
+				<div class="imagenclasif">
+				<img class="w-75 img-thumbnail" src="<?= PATH_IMAGENES . '/telecom1.png' ?>" alt="">
+				</div>
+
+
+				
+			</div>
+			
+			
+			
+			<div class="casilleroclas2 text-center">
+				
+				<div class="imagenclasif">
+				<img class="w-75 img-thumbnail" src="<?= PATH_IMAGENES . '/logosanfer.png' ?>" alt="">
+				</div>
+				
+
 
 			</div>
 			
-			<div class="casilleroclas">
-				<p class="parrafo">PROGRESO</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-
-
-				<div class="botone">
-					<span class="btn btn-info btn-lg"><i class="far fa-thumbs-up"></i>x100</span>
-
-				</div>
-			</div>
-			
-			<div class="casilleroclas">
-				<p class="parrafo">PROFESOR/A</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-				<div class="botone">
-					<span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> x100</span>
-        			 
-         			<span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i>x100</span>
-         		</div>
-			</div>
-			
-			<div class="casilleroclas">
-				<p class="parrafo">POSTEO</p>
-				<div class="imagenclasif">
-				<img class="w-100" src="<?= PATH_IMAGENES . '/avatar.jpg' ?>" alt="">
-				</div>
-				<div class="botone">
-					<span class="btn btn-info btn-lg"><i class="far fa-thumbs-up"></i>x100</span>
-        			 		
-         		</div>
-
-
-			</div>
 		</div>
 		
 		</div>

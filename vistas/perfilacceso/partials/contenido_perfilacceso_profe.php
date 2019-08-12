@@ -1,20 +1,21 @@
     <div class="container">
-        <div class="row">
-            <div class="col-4 border"> 
-                        <div class="card w-100 ">
-                          <img src="<?= FILES . '/perfiles/'. $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+        <div class="row"> 
+            <div class="col-4 border bg-dark"> 
+                        <div class="card w-100 alert-dark mt-2 mb-2">
+                          <img src="<?= FILES . '/perfiles/'. $perfilaccesofoto ?>" class="card-img-top border border-warning rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
-                            <h5 class="card-title"><?= $perfilaccesousuario ?></h5>
+                            <h5 class="card-title font-weight-bold"><?= $perfilaccesousuario ?></h5>
 
                             <?php  include('barrasocial_perfilacceso.php') ?>
                             
                           </div>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Edad: <?= $perfilaccesoedad ?></li>
-                            <li class="list-group-item">Localidad: <?= $perfilaccesolocalidad ?></li>
-                            <li class="list-group-item">Telefono: <?= $perfilaccesotel ?></li>
-                            <li class="list-group-item">Estudio: <?= $perfilaccesoeducacionfisica ?></li>
-                            <li class="list-group-item">Mail de contacto: <?= $perfilaccesomail ?></li>
+                          <ul class="list-group list-group-flush font-weight-bold text-white">
+                            <li class="list-group-item bg-secondary border border-warning">Edad: <?= $perfilaccesoedad ?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Localidad: <?= $perfilaccesolocalidad ?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Telefono: <?= $perfilaccesotel ?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Estudio: <?= $perfilaccesoeducacionfisica ?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Mail de contacto: <?= $perfilaccesomail ?></li>
+                            <li class="list-group-item bg-secondary border border-warning">Descripción: <?= $perfilaccesodescripcion ?></li>
                            
                           </ul>
                           <div class="card-body">
@@ -35,6 +36,7 @@
 
                                       ?>
                                     </form>
+                                    
                                     <?php 
                                     include_once PATH_DAOS . '/likesDAO.php';
 
@@ -45,7 +47,7 @@
 
 
                                     ?>
-                                  <div class="col-md-6"><span class="btn btn-info btn-lg "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span></div>
+                                  
                             
                                </div>
 
@@ -57,24 +59,27 @@
 
                                 ?>
 
-                             <div><span class="btn btn-info btn-lg"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span></div>
+                             <div class="card-body">
+                              <span class="btn btn-info "><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
+                              <span class="btn btn-info "><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
+                            </div>
                           </div>
                         </div>
             </div>
 
-            <div class="col-8 border shadow-lg p-3 mb-5 bg-white rounded"> 
+            <div class="col-8 border shadow-lg p-3 mb-5 bg-light rounded"> 
                       <ul class="nav nav-tabs" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active" id="fotosprofe-tab" data-toggle="tab" href="#fotosprofe" role="tab" aria-controls="fotosprofe" aria-selected="true">Fotos</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link active font-weight-bold text-dark btn btn-outline-info shadow-lg " id="fotosprofe-tab" data-toggle="tab" href="#fotosprofe" role="tab" aria-controls="fotosprofe" aria-selected="true">Fotos</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="cvprofe-tab" data-toggle="tab" href="#cvprofe" role="tab" aria-controls="cvprofeprofile" aria-selected="false">CV</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg " id="cvprofe-tab" data-toggle="tab" href="#cvprofe" role="tab" aria-controls="cvprofeprofile" aria-selected="false">CV</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="especialidadprofe-tab" data-toggle="tab" href="#especialidadprofe" role="tab" aria-controls="especialidadprofe" aria-selected="false">Especialidades</a>
+                          <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg " id="especialidadprofe-tab" data-toggle="tab" href="#especialidadprofe" role="tab" aria-controls="especialidadprofe" aria-selected="false">Especialidades</a>
                           </li>
-                           <li class="nav-item">
-                            <a class="nav-link" id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
+                           <li class="nav-item shadow-lg">
+                            <a class="nav-link font-weight-bold text-dark btn btn-outline-info shadow-lg " id="comentario-tab" data-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="false">Comentarios</a>
                           </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -109,7 +114,7 @@
                           <div class="container mt-3"> 
                             <table class="table table-bordered">
                                 <tr>
-                                  <td> <p>CV_<?= $perfilaccesousuario?></p></td>
+                                  <td> <p class="font-weight-bold">CV_<?= $perfilaccesousuario?></p></td>
                                   <td class="text-center"><a href="download.php?cv=<?= $perfilaccesocv ?>" class="btn btn-primary">Descargar</a></td>
 
                                 </tr>
@@ -120,6 +125,8 @@
 
                           </div>
                           <div class="tab-pane fade" id="especialidadprofe" role="tabpanel" aria-labelledby="especialidadprofe-tab">
+                            <div class="text-center mt-3">
+
                              <?php 
 
 
@@ -136,7 +143,7 @@
                                 }
 
                         ?>
-
+                      </div>
 
 
                           </div>

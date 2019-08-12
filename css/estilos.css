@@ -2,7 +2,7 @@
 
 
 /*barra de navegacion*/
-nav{
+.barracommon{
 font-weight: bold;
 background: rgba(143,143,136,1);
 background: -moz-linear-gradient(top, rgba(143,143,136,1) 0%, rgba(245,160,12,1) 56%, rgba(230,154,39,1) 78%, rgba(240,186,93,1) 100%);
@@ -115,7 +115,7 @@ border-bottom:4px solid black;
 #clasificacion{
 	margin-left: 0;
 	padding-left: 0;
-	background-color: rgb(68, 68, 68);
+	/*background-color: rgb(68, 68, 68);*/
 	padding-bottom: 10px;
 }
 .estrella{
@@ -125,7 +125,7 @@ color: orange;
 .titulo_clasif{
 	text-align:center;
 	font-weight: bold;
-	color:white;
+	
 }
 .parrafo{
 	margin-top: 20px;
@@ -153,4 +153,129 @@ color: orange;
 
 }
 
+/* ---------------------------------------------------------------------REGISTRO ---------------------------------------------------------------------*/
 
+.body_registro{
+
+	background: #c1bdba;
+
+}
+
+.enlaces_registro{
+	text-decoration: none;
+	color: #1ab188;
+	transition: .5s ease;
+	&:hover{
+		color: green;
+		/*color: darken(#1ab188,5%);*/
+	}
+	&:after{
+		color: darken(#1ab188,5%);
+	}
+}
+
+.formu_registro{
+	background: rgba( 19, 35, 47, .9);
+	box-shadow:0 4px 10px 4px rgba(19, 35, 47,.3);
+}
+
+
+/* -------------------------------------------------------------------INCIO ---------------------------------------------------------*/
+
+.seccionpost{
+
+	
+	box-shadow:0 4px 10px 4px rgba(19, 35, 47,.3);
+	/* The image used */
+  background-image: url('../recursos/images/gim.svg');
+
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.tarjeta_posteo{
+	background-image: url('../recursos/images/card.svg');
+	
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+
+}
+
+/* ------------------------------------------------------------------- BUSQUEDA ---------------------------------------------------------*/
+
+.busprofe{
+
+background-image: url('../recursos/images/profe2.svg');
+
+
+  /* Full height */
+  width: 100%;
+  
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  display: block;
+	
+  
+
+}
+.buscentro{
+	background-image: url('../recursos/images/gimbus.svg');
+
+
+  /* Full height */
+  width: 100%;
+  
+  display: block;
+
+  
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+	
+
+
+}
+
+/*---------------------------------------------------------------PERFIL ------------------------------------------------*/
+
+
+.enlaces_perfil{
+	text-decoration: none;
+	color: #1ab188;
+	transition: .5s ease;
+	&:hover{
+		color: green;
+		/*color: darken(#1ab188,5%);*/
+	}
+	&:after{
+		color: darken(#1ab188,5%);
+	}
+}
+
+.fotoalbum{
+	
+	border-radius: 5px;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out 0.5s;
+	box-shadow: #999 10px 10px 10px 10px;
+
+}
+.fotohover{
+	-webkit-transition: -webkit-transform 0.3s ease-in-out 0.5s;
+
+}
+.fotohover:hover{
+	-webkit-transform: scale(1.2);
+	/*-webkit-transition: ease-in-out 1s;*/
+	
+}
