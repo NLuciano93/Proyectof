@@ -185,7 +185,7 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
                           <div class="col-md-3 mb-4 text-center d-flex align-items-stretch ">
                                   <div class="card fotoalbum border border-dark">
-                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top fotohover" alt="...">
+                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top fotohover" style="max-width: 150px; max-height: 150px;" alt="...">
                                            <div class="card-body">
                                               <p class="card-text"><small class="text-muted"><?= $fechafoto ?></small></p>
                                                 </div>
@@ -207,7 +207,7 @@ function crearHTMLCardCentro($usr_id, $nombre_centro, $fotoCentro, $direccionCen
 
                           <div class="col-md-4 mb-4 text-center d-flex align-items-stretch">
                                   <div class="card fotoalbum border border-dark">
-                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top fotohover" alt="...">
+                                      <img src="<?= FILES . '/imagenes/'. $rfoto ?>" class="card-img-top fotohover" alt="..." style="max-width: 150px; max-height: 150px;">
 
                                           </div>
 

@@ -113,9 +113,7 @@
             
     <?php    }
     }
-    else{ ?>
-         <div class="alert alert-danger d-flex justify-content-center" role="alert">
-                                             <b>Debe completar el usuario y la contraseña</b>
-                            </div>
+    else{
+         $mensaje= "falta usuario";
         
-<?php    }
+   }

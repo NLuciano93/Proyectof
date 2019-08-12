@@ -129,14 +129,14 @@
 							 
 							<label for="user_name">Ingresa Mail</label>
 
-							<input type="email" class="form-control" name="user_name" id="email" />
+							<input type="email" class="form-control" name="user_name" id="email" required="" />
 						</div>
 
 						<div class="form-group">
 							 
 							<label for="password">Contraseña</label>
 
-							<input type="password" class="form-control" name="password" id="password" />
+							<input type="password" class="form-control" name="password" id="password" required="" />
 						</div>
 					<div class="d-flex justify-content-between">
 						<input type="submit" name="submit" value="Ingresar" class="btn btn-primary">
