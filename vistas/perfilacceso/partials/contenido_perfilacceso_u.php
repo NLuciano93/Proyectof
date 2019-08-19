@@ -56,8 +56,8 @@
                                 ?>
 
                              <div class="card-body">
-                             <span class="btn btn-info"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span> 
-                             <span class="btn btn-info"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
+                             <span class="btn btn-info border border-warning"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span> 
+                             <span class="btn btn-info border border-warning"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
                               
                             </div>
                             

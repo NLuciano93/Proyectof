@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-4 border bg-dark"> 
                         <div class="card w-100 alert-dark mt-2 mb-2">
-                          <img src="<?= FILES . '/perfiles/'. $perfilaccesofoto ?>" class="card-img-top border rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
+                          <img src="<?= FILES . '/perfiles/'. $perfilaccesofoto ?>" class="card-img-top border border-warning rounded-circle" style="max-width: 300px; max-height: 300px;" alt="...">
                           <div class="card-body">
                             <h5 class="card-title font-weight-bold"><?= $perfilaccesousuario?></h5>
 
@@ -62,8 +62,8 @@
 
 
                                <div class="card-body">
-                                <span class="btn btn-info"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
-                                <span class="btn btn-info"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
+                                <span class="btn btn-info border border-warning"><i class="far fa-thumbs-up"></i> <?= $TotalLikes?></span>
+                                <span class="btn btn-info border border-warning"><i class="fas fa-star estrella"></i> <?= $totalstardeci?></span>
                               </div>
                             </div>
                           </div>
